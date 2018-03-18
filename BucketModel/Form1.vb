@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms.DataVisualization.Charting
+﻿Imports System.IO
+Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class Form1
 
@@ -17570,6 +17571,8 @@ Public Class Form1
     Dim Rain_new As Double() = Rain     ' these will contain our altered time series
     Dim Evap_new As Double() = Evap
 
+    Dim saveCSV As Boolean = False
+
     Dim Hrs(8781) As Date               ' dates for the water year 2011/2012
     Dim start_date As Date = New Date(2011, 10, 1)
 
@@ -17675,6 +17678,42 @@ Public Class Form1
 
         LblQbar.Text = Math.Round(Qbar(Runoff), 4) & " mm/hr"
 
+        ' CSV WRITER EXTRAORDINAIRE 2k18.csv~~~
+
+        If saveCSV = True Then
+
+            Dim saveFileDialog1 As New SaveFileDialog With {
+                .Filter = "csv files (*.csv)|*.csv",
+                .FilterIndex = 1,
+                .RestoreDirectory = True
+            }
+
+            If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+                Dim sw As StreamWriter = New StreamWriter(saveFileDialog1.OpenFile())
+                If (sw IsNot Nothing) Then
+
+                    sw.WriteLine("Date, Rain, Evap, Runoff, Interflow, Storage")
+
+                    For i As Integer = 0 To 8781
+
+                        sw.WriteLine(Hrs(i) & "," &
+                                     Rain_new(i) & "," &
+                                     Evap_new(i) & "," &
+                                     Runoff(i) & "," &
+                                     Interflow(i) & "," &
+                                     Storage(i))
+
+                    Next
+
+                    sw.Close()
+
+                End If
+
+            End If
+
+        End If
+
+
 
     End Sub
 
@@ -17695,4 +17734,11 @@ Public Class Form1
         End If
 
     End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+
+        saveCSV = CheckBox1.CheckState
+
+    End Sub
+
 End Class

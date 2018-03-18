@@ -22,14 +22,14 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea19 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend19 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint19 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
-        Dim ChartArea20 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend20 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint20 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint5 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint6 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -43,6 +43,8 @@ Partial Class Form1
         Me.LblQbar = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.saveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SpinRain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,19 +54,19 @@ Partial Class Form1
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.SystemColors.Control
-        ChartArea19.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea19)
-        Legend19.Enabled = False
-        Legend19.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend19)
+        ChartArea5.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea5)
+        Legend5.Enabled = False
+        Legend5.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend5)
         Me.Chart1.Location = New System.Drawing.Point(12, 81)
         Me.Chart1.Name = "Chart1"
-        Series19.ChartArea = "ChartArea1"
-        Series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series19.Legend = "Legend1"
-        Series19.Name = "Series1"
-        Series19.Points.Add(DataPoint19)
-        Me.Chart1.Series.Add(Series19)
+        Series5.ChartArea = "ChartArea1"
+        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series5.Legend = "Legend1"
+        Series5.Name = "Series1"
+        Series5.Points.Add(DataPoint5)
+        Me.Chart1.Series.Add(Series5)
         Me.Chart1.Size = New System.Drawing.Size(431, 357)
         Me.Chart1.TabIndex = 8
         Me.Chart1.Text = "Chart1"
@@ -72,20 +74,20 @@ Partial Class Form1
         'Chart2
         '
         Me.Chart2.BackColor = System.Drawing.SystemColors.Control
-        ChartArea20.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea20)
-        Legend20.Enabled = False
-        Legend20.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend20)
+        ChartArea6.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea6)
+        Legend6.Enabled = False
+        Legend6.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend6)
         Me.Chart2.Location = New System.Drawing.Point(664, 81)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel
-        Series20.ChartArea = "ChartArea1"
-        Series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series20.Legend = "Legend1"
-        Series20.Name = "Series1"
-        Series20.Points.Add(DataPoint20)
-        Me.Chart2.Series.Add(Series20)
+        Series6.ChartArea = "ChartArea1"
+        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series6.Legend = "Legend1"
+        Series6.Name = "Series1"
+        Series6.Points.Add(DataPoint6)
+        Me.Chart2.Series.Add(Series6)
         Me.Chart2.Size = New System.Drawing.Size(431, 357)
         Me.Chart2.TabIndex = 9
         Me.Chart2.Text = "Chart2"
@@ -114,9 +116,9 @@ Partial Class Form1
         '
         Me.Button1.BackColor = System.Drawing.Color.Red
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(453, 360)
+        Me.Button1.Location = New System.Drawing.Point(453, 383)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(205, 78)
+        Me.Button1.Size = New System.Drawing.Size(205, 55)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "RUN"
         Me.Button1.UseVisualStyleBackColor = False
@@ -202,11 +204,22 @@ Partial Class Form1
         Me.ComboBox1.Size = New System.Drawing.Size(205, 28)
         Me.ComboBox1.TabIndex = 16
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(506, 353)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(95, 24)
+        Me.CheckBox1.TabIndex = 17
+        Me.CheckBox1.Text = "save csv"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1119, 450)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.LblQbar)
@@ -244,4 +257,6 @@ Partial Class Form1
     Friend WithEvents LblQbar As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents saveFileDialog1 As SaveFileDialog
+    Friend WithEvents CheckBox1 As CheckBox
 End Class
