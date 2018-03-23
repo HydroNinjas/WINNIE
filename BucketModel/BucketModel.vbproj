@@ -154,5 +154,20 @@
   <ItemGroup>
     <None Include="Resources\HSD_LUScenario3.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_Catchments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUCurrent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUScenario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUScenario2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUScenario3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
