@@ -305,6 +305,7 @@ Partial Class LandUseForm
         Me.Controls.Add(Me.LUPie)
         Me.Controls.Add(Me.LandImage)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "LandUseForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Land Use Selector"

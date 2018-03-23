@@ -85,6 +85,7 @@ Partial Class UserAgreement
         Me.Controls.Add(Me.WinnieUserPicture)
         Me.Controls.Add(Me.ExitBtn)
         Me.Controls.Add(Me.AgreBtn)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "UserAgreement"
         Me.Text = "User Agreement"
         CType(Me.WinnieUserPicture, System.ComponentModel.ISupportInitialize).EndInit()
