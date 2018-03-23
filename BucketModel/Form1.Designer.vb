@@ -22,14 +22,14 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint5 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataPoint6 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint1 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataPoint2 As System.Windows.Forms.DataVisualization.Charting.DataPoint = New System.Windows.Forms.DataVisualization.Charting.DataPoint(0R, 0R)
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -45,6 +45,7 @@ Partial Class Form1
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.saveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SpinRain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,41 +55,43 @@ Partial Class Form1
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.SystemColors.Control
-        ChartArea5.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea5)
-        Legend5.Enabled = False
-        Legend5.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend5)
-        Me.Chart1.Location = New System.Drawing.Point(12, 81)
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Enabled = False
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(11, 65)
+        Me.Chart1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Chart1.Name = "Chart1"
-        Series5.ChartArea = "ChartArea1"
-        Series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Series5.Points.Add(DataPoint5)
-        Me.Chart1.Series.Add(Series5)
-        Me.Chart1.Size = New System.Drawing.Size(431, 357)
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Series1.Points.Add(DataPoint1)
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(383, 286)
         Me.Chart1.TabIndex = 8
         Me.Chart1.Text = "Chart1"
         '
         'Chart2
         '
         Me.Chart2.BackColor = System.Drawing.SystemColors.Control
-        ChartArea6.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea6)
-        Legend6.Enabled = False
-        Legend6.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend6)
-        Me.Chart2.Location = New System.Drawing.Point(664, 81)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Enabled = False
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
+        Me.Chart2.Location = New System.Drawing.Point(590, 65)
+        Me.Chart2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel
-        Series6.ChartArea = "ChartArea1"
-        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series1"
-        Series6.Points.Add(DataPoint6)
-        Me.Chart2.Series.Add(Series6)
-        Me.Chart2.Size = New System.Drawing.Size(431, 357)
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Series2.Points.Add(DataPoint2)
+        Me.Chart2.Series.Add(Series2)
+        Me.Chart2.Size = New System.Drawing.Size(383, 286)
         Me.Chart2.TabIndex = 9
         Me.Chart2.Text = "Chart2"
         '
@@ -96,9 +99,9 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(175, 18)
+        Me.Label2.Location = New System.Drawing.Point(156, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(107, 46)
+        Me.Label2.Size = New System.Drawing.Size(93, 39)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Input"
         '
@@ -106,9 +109,9 @@ Partial Class Form1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(809, 18)
+        Me.Label1.Location = New System.Drawing.Point(719, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(139, 46)
+        Me.Label1.Size = New System.Drawing.Size(118, 39)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "Output"
         '
@@ -116,9 +119,10 @@ Partial Class Form1
         '
         Me.Button1.BackColor = System.Drawing.Color.Red
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(453, 383)
+        Me.Button1.Location = New System.Drawing.Point(403, 306)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(205, 55)
+        Me.Button1.Size = New System.Drawing.Size(182, 44)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "RUN"
         Me.Button1.UseVisualStyleBackColor = False
@@ -127,20 +131,21 @@ Partial Class Form1
         '
         Me.SpinRain.BackColor = System.Drawing.Color.DodgerBlue
         Me.SpinRain.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.SpinRain.Location = New System.Drawing.Point(453, 111)
+        Me.SpinRain.Location = New System.Drawing.Point(403, 89)
+        Me.SpinRain.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SpinRain.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.SpinRain.Minimum = New Decimal(New Integer() {50, 0, 0, -2147483648})
         Me.SpinRain.Name = "SpinRain"
-        Me.SpinRain.Size = New System.Drawing.Size(87, 26)
+        Me.SpinRain.Size = New System.Drawing.Size(77, 22)
         Me.SpinRain.TabIndex = 0
         '
         'LblRain
         '
         Me.LblRain.AutoSize = True
         Me.LblRain.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblRain.Location = New System.Drawing.Point(449, 88)
+        Me.LblRain.Location = New System.Drawing.Point(399, 70)
         Me.LblRain.Name = "LblRain"
-        Me.LblRain.Size = New System.Drawing.Size(88, 20)
+        Me.LblRain.Size = New System.Drawing.Size(80, 17)
         Me.LblRain.TabIndex = 1
         Me.LblRain.Text = "+Rain (%)"
         '
@@ -148,20 +153,21 @@ Partial Class Form1
         '
         Me.SpinEvap.BackColor = System.Drawing.Color.DarkOrange
         Me.SpinEvap.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.SpinEvap.Location = New System.Drawing.Point(453, 171)
+        Me.SpinEvap.Location = New System.Drawing.Point(403, 137)
+        Me.SpinEvap.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SpinEvap.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.SpinEvap.Minimum = New Decimal(New Integer() {50, 0, 0, -2147483648})
         Me.SpinEvap.Name = "SpinEvap"
-        Me.SpinEvap.Size = New System.Drawing.Size(87, 26)
+        Me.SpinEvap.Size = New System.Drawing.Size(77, 22)
         Me.SpinEvap.TabIndex = 2
         '
         'LblEvap
         '
         Me.LblEvap.AutoSize = True
         Me.LblEvap.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblEvap.Location = New System.Drawing.Point(449, 148)
+        Me.LblEvap.Location = New System.Drawing.Point(399, 118)
         Me.LblEvap.Name = "LblEvap"
-        Me.LblEvap.Size = New System.Drawing.Size(91, 20)
+        Me.LblEvap.Size = New System.Drawing.Size(83, 17)
         Me.LblEvap.TabIndex = 3
         Me.LblEvap.Text = "+Evap (%)"
         '
@@ -169,18 +175,18 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(547, 285)
+        Me.Label3.Location = New System.Drawing.Point(486, 228)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 20)
+        Me.Label3.Size = New System.Drawing.Size(64, 17)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "Mean Q"
         '
         'LblQbar
         '
         Me.LblQbar.AutoSize = True
-        Me.LblQbar.Location = New System.Drawing.Point(549, 305)
+        Me.LblQbar.Location = New System.Drawing.Point(488, 244)
         Me.LblQbar.Name = "LblQbar"
-        Me.LblQbar.Size = New System.Drawing.Size(31, 20)
+        Me.LblQbar.Size = New System.Drawing.Size(28, 17)
         Me.LblQbar.TabIndex = 14
         Me.LblQbar.Text = "n/a"
         '
@@ -188,9 +194,9 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(449, 209)
+        Me.Label5.Location = New System.Drawing.Point(399, 167)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(83, 20)
+        Me.Label5.Size = New System.Drawing.Size(75, 17)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Land use"
         '
@@ -199,26 +205,36 @@ Partial Class Form1
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Default", "1. Afforestation", "2. Buffer strip", "3. Soil erosion", "Custom scenario"})
-        Me.ComboBox1.Location = New System.Drawing.Point(453, 232)
+        Me.ComboBox1.Location = New System.Drawing.Point(403, 186)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(205, 28)
+        Me.ComboBox1.Size = New System.Drawing.Size(183, 24)
         Me.ComboBox1.TabIndex = 16
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(506, 353)
+        Me.CheckBox1.Location = New System.Drawing.Point(450, 282)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(95, 24)
+        Me.CheckBox1.Size = New System.Drawing.Size(85, 21)
         Me.CheckBox1.TabIndex = 17
         Me.CheckBox1.Text = "save csv"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(370, 29)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(237, 22)
+        Me.TextBox1.TabIndex = 18
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1119, 450)
+        Me.ClientSize = New System.Drawing.Size(995, 360)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label5)
@@ -233,6 +249,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Chart1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Bucket Model"
@@ -259,4 +276,5 @@ Partial Class Form1
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents saveFileDialog1 As SaveFileDialog
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents TextBox1 As TextBox
 End Class
