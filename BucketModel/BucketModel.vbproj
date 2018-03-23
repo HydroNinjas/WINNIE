@@ -136,5 +136,11 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="HSD_LUCurrent.png" />
+    <Content Include="HSD_LUScenario1.png" />
+    <Content Include="HSD_LUScenario2.png" />
+    <Content Include="HSD_LUScenario3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

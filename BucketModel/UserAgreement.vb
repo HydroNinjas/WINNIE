@@ -26,8 +26,8 @@
 
     Private Sub AgreBtn_Click(sender As Object, e As EventArgs) Handles AgreBtn.Click
 
-        ExitYN = MsgBox("Are you sure?", MsgBoxStyle.YesNo)
-        If ExitYN = MsgBoxResult.Yes Then
+        ExitYN = vbYes
+        If ExitYN = vbYes Then
 
             Dim SecondForm As New LandUseForm
             SecondForm.Show()

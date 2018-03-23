@@ -4,7 +4,7 @@ Imports System.IO
 Public Class Model
 
     Private Sub Model_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        ExitYN = True
         Me.MaximizeBox = False
         Me.MinimizeBox = True
         Me.CenterToParent()
@@ -17747,17 +17747,6 @@ Public Class Model
     Private Sub LandUseBtn_Click(sender As Object, e As EventArgs) Handles LandUseBtn.Click
         Dim LandUseForm = New LandUseForm()
         LandUseForm.Show()
-
-
     End Sub
 
-    Private Sub ShowLU_Click(sender As Object, e As EventArgs) Handles ShowLU.Click
-        ForestTxt.Text = ForestP
-        ArableTxt.Text = ArableP
-        GrassTxt.Text = GrasslandP
-        BareRTxt.Text = BareRockP
-        MoorTxt.Text = MoorlandP
-        TextBoxLUChoice.Text = LUChoice
-
-    End Sub
 End Class

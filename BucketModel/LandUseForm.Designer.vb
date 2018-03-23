@@ -249,9 +249,10 @@ Partial Class LandUseForm
         'LandImage
         '
         Me.LandImage.Dock = System.Windows.Forms.DockStyle.Right
-        Me.LandImage.Location = New System.Drawing.Point(1017, 0)
+        Me.LandImage.Location = New System.Drawing.Point(897, 0)
         Me.LandImage.Name = "LandImage"
-        Me.LandImage.Size = New System.Drawing.Size(600, 753)
+        Me.LandImage.Size = New System.Drawing.Size(720, 753)
+        Me.LandImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.LandImage.TabIndex = 1
         Me.LandImage.TabStop = False
         '
@@ -265,11 +266,11 @@ Partial Class LandUseForm
         Me.LUPie.Dock = System.Windows.Forms.DockStyle.Right
         Legend1.Name = "Legend1"
         Me.LUPie.Legends.Add(Legend1)
-        Me.LUPie.Location = New System.Drawing.Point(417, 0)
+        Me.LUPie.Location = New System.Drawing.Point(177, 0)
         Me.LUPie.Name = "LUPie"
         Me.LUPie.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
         Me.LUPie.PaletteCustomColors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(0, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(211, Byte), Integer), CType(CType(127, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(190, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(78, Byte), Integer), CType(CType(78, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(137, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(68, Byte), Integer))}
-        Me.LUPie.Size = New System.Drawing.Size(600, 753)
+        Me.LUPie.Size = New System.Drawing.Size(720, 753)
         Me.LUPie.TabIndex = 2
         Me.LUPie.Text = "LUPie"
         '
@@ -278,7 +279,7 @@ Partial Class LandUseForm
         Me.LFcancelBtn.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LFcancelBtn.Location = New System.Drawing.Point(0, 711)
         Me.LFcancelBtn.Name = "LFcancelBtn"
-        Me.LFcancelBtn.Size = New System.Drawing.Size(417, 42)
+        Me.LFcancelBtn.Size = New System.Drawing.Size(177, 42)
         Me.LFcancelBtn.TabIndex = 3
         Me.LFcancelBtn.Text = "LFcancelBtn"
         Me.LFcancelBtn.UseVisualStyleBackColor = True
@@ -288,7 +289,7 @@ Partial Class LandUseForm
         Me.LFokBtn.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LFokBtn.Location = New System.Drawing.Point(0, 669)
         Me.LFokBtn.Name = "LFokBtn"
-        Me.LFokBtn.Size = New System.Drawing.Size(417, 42)
+        Me.LFokBtn.Size = New System.Drawing.Size(177, 42)
         Me.LFokBtn.TabIndex = 4
         Me.LFokBtn.Text = "LFokBtn"
         Me.LFokBtn.UseVisualStyleBackColor = True
@@ -305,6 +306,7 @@ Partial Class LandUseForm
         Me.Controls.Add(Me.LandImage)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "LandUseForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Land Use Selector"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -330,7 +332,6 @@ Partial Class LandUseForm
     Friend WithEvents NumericUpDown2 As NumericUpDown
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents Customsettings As GroupBox
-    Friend WithEvents LandImage As PictureBox
     Friend WithEvents LUPie As DataVisualization.Charting.Chart
     Friend WithEvents TxtBoxTotal As TextBox
     Friend WithEvents LFcancelBtn As Button
@@ -344,4 +345,5 @@ Partial Class LandUseForm
     Friend WithEvents Label1 As Label
     Friend WithEvents NumericUpDown5 As NumericUpDown
     Friend WithEvents NumericUpDown4 As NumericUpDown
+    Friend WithEvents LandImage As PictureBox
 End Class

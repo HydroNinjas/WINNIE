@@ -13,7 +13,7 @@ End Module
 
 
 Public Class LandUseForm
-
+    Dim ExitYN As System.Windows.Forms.DialogResult
     Private Sub LandUse4Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse4Btn.CheckedChanged
         If (LandUse4Btn.Checked = True) Then
             Customsettings.Enabled = True
@@ -31,10 +31,10 @@ Public Class LandUseForm
             NumericUpDown3.Value = 10
             NumericUpDown4.Value = 30
             NumericUpDown5.Value = 20
-
-            LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Pictures\3.jpg")
             LUPie.Hide()
+            LandImage.Show()
+            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUScenario3.png")
+
         End If
     End Sub
 
@@ -46,10 +46,10 @@ Public Class LandUseForm
             NumericUpDown3.Value = 20
             NumericUpDown4.Value = 20
             NumericUpDown5.Value = 20
-
-            LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Pictures\3.jpg")
             LUPie.Hide()
+            LandImage.Show()
+            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUCurrent.png")
+
         End If
     End Sub
     Private Sub LandUse2Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse2Btn.CheckedChanged
@@ -60,10 +60,10 @@ Public Class LandUseForm
             NumericUpDown3.Value = 10
             NumericUpDown4.Value = 30
             NumericUpDown5.Value = 20
-
-            LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Pictures\2.jpg")
             LUPie.Hide()
+            LandImage.Show()
+            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUScenario2.png")
+
         End If
     End Sub
 
@@ -75,10 +75,10 @@ Public Class LandUseForm
             NumericUpDown3.Value = 20
             NumericUpDown4.Value = 30
             NumericUpDown5.Value = 20
-
-            LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Pictures\1.jpg")
             LUPie.Hide()
+            LandImage.Show()
+            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUScenario1.png")
+
         End If
 
     End Sub
@@ -110,6 +110,11 @@ Public Class LandUseForm
         Sectors.Add(New SectorItem(NumericUpDown5, "Moorland"))
 
         Sectors.ResetItem(0)
+
+        If Control = False Then
+            LandUse5Btn.Checked = True
+        End If
+
         If LUChoice = "Custom" Then
             LandUse4Btn.Checked = True
             NumericUpDown1.Value = ForestP
@@ -202,22 +207,51 @@ Public Class LandUseForm
             GrasslandP = NumericUpDown3.Value
             BareRockP = NumericUpDown4.Value
             MoorlandP = NumericUpDown5.Value
-            Model.Show()
-            Me.Close()
-            Control = True
+
+
+            Model.ForestTxt.Text = ForestP
+            Model.ArableTxt.Text = ArableP
+            Model.GrassTxt.Text = GrasslandP
+            Model.BareRTxt.Text = BareRockP
+            Model.MoorTxt.Text = MoorlandP
+            Model.TextBoxLUChoice.Text = LUChoice
+
+            ExitYN = vbYes
+            If ExitYN = vbYes Then
+
+                Model.Show()
+                Me.Close()
+                Control = True
+            Else
+            End If
 
         Else MessageBox.Show(" Please enter a land combination that sums to 100%", "Error")
+
         End If
 
     End Sub
 
     Private Sub LFcancelBtn_Click(sender As Object, e As EventArgs) Handles LFcancelBtn.Click
+
         If Control = False Then
             MsgBox("To continue with the programme please select a option and click Ok")
         Else
-            Me.Close()
+            ExitYN = vbYes
+            If ExitYN = vbYes Then
+                Model.Show()
+                Me.Close()
+            Else
+            End If
         End If
 
+
+
+    End Sub
+
+    Private Sub Model_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If Control = False And ExitYN <> Windows.Forms.DialogResult.Yes Then
+            e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
+        End If
 
     End Sub
 

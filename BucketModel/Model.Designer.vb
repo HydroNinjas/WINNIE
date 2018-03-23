@@ -22,19 +22,18 @@ Partial Class Model
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Model))
         Me.ModelChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.LandUseBtn = New System.Windows.Forms.Button()
-        Me.ShowLU = New System.Windows.Forms.Button()
         Me.ModelRun = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TextBoxLUChoice = New System.Windows.Forms.TextBox()
-        Me.ForestTxt = New System.Windows.Forms.TextBox()
-        Me.ArableTxt = New System.Windows.Forms.TextBox()
-        Me.GrassTxt = New System.Windows.Forms.TextBox()
         Me.BareRTxt = New System.Windows.Forms.TextBox()
+        Me.ForestTxt = New System.Windows.Forms.TextBox()
+        Me.GrassTxt = New System.Windows.Forms.TextBox()
+        Me.ArableTxt = New System.Windows.Forms.TextBox()
         Me.MoorTxt = New System.Windows.Forms.TextBox()
         Me.SpinRain = New System.Windows.Forms.NumericUpDown()
         Me.SpinEvap = New System.Windows.Forms.NumericUpDown()
@@ -59,8 +58,8 @@ Partial Class Model
         'ModelChart
         '
         Me.ModelChart.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.ModelChart.ChartAreas.Add(ChartArea2)
+        ChartArea1.Name = "ChartArea1"
+        Me.ModelChart.ChartAreas.Add(ChartArea1)
         Me.ModelChart.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ModelChart.Location = New System.Drawing.Point(0, 320)
         Me.ModelChart.Margin = New System.Windows.Forms.Padding(30)
@@ -72,21 +71,12 @@ Partial Class Model
         'LandUseBtn
         '
         Me.LandUseBtn.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.LandUseBtn.Location = New System.Drawing.Point(3, 217)
+        Me.LandUseBtn.Location = New System.Drawing.Point(3, 171)
         Me.LandUseBtn.Name = "LandUseBtn"
         Me.LandUseBtn.Size = New System.Drawing.Size(150, 40)
         Me.LandUseBtn.TabIndex = 5
         Me.LandUseBtn.Text = "LandUseBtn"
         Me.LandUseBtn.UseVisualStyleBackColor = True
-        '
-        'ShowLU
-        '
-        Me.ShowLU.Location = New System.Drawing.Point(3, 171)
-        Me.ShowLU.Name = "ShowLU"
-        Me.ShowLU.Size = New System.Drawing.Size(150, 40)
-        Me.ShowLU.TabIndex = 6
-        Me.ShowLU.Text = "ShowLU"
-        Me.ShowLU.UseVisualStyleBackColor = True
         '
         'ModelRun
         '
@@ -115,7 +105,6 @@ Partial Class Model
         Me.FlowLayoutPanel1.Controls.Add(Me.GrassTxt)
         Me.FlowLayoutPanel1.Controls.Add(Me.ArableTxt)
         Me.FlowLayoutPanel1.Controls.Add(Me.MoorTxt)
-        Me.FlowLayoutPanel1.Controls.Add(Me.ShowLU)
         Me.FlowLayoutPanel1.Controls.Add(Me.LandUseBtn)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 18)
@@ -132,6 +121,15 @@ Partial Class Model
         Me.TextBoxLUChoice.TabIndex = 10
         Me.TextBoxLUChoice.Text = "TextBoxLUChoice"
         '
+        'BareRTxt
+        '
+        Me.BareRTxt.Enabled = False
+        Me.BareRTxt.Location = New System.Drawing.Point(3, 31)
+        Me.BareRTxt.Name = "BareRTxt"
+        Me.BareRTxt.Size = New System.Drawing.Size(150, 22)
+        Me.BareRTxt.TabIndex = 11
+        Me.BareRTxt.Text = "TextBox1"
+        '
         'ForestTxt
         '
         Me.ForestTxt.Enabled = False
@@ -140,15 +138,6 @@ Partial Class Model
         Me.ForestTxt.Size = New System.Drawing.Size(150, 22)
         Me.ForestTxt.TabIndex = 9
         Me.ForestTxt.Text = "ForestTxt"
-        '
-        'ArableTxt
-        '
-        Me.ArableTxt.Enabled = False
-        Me.ArableTxt.Location = New System.Drawing.Point(3, 115)
-        Me.ArableTxt.Name = "ArableTxt"
-        Me.ArableTxt.Size = New System.Drawing.Size(150, 22)
-        Me.ArableTxt.TabIndex = 8
-        Me.ArableTxt.Text = "ArableTxt"
         '
         'GrassTxt
         '
@@ -159,14 +148,14 @@ Partial Class Model
         Me.GrassTxt.TabIndex = 7
         Me.GrassTxt.Text = "GrassTxt"
         '
-        'BareRTxt
+        'ArableTxt
         '
-        Me.BareRTxt.Enabled = False
-        Me.BareRTxt.Location = New System.Drawing.Point(3, 31)
-        Me.BareRTxt.Name = "BareRTxt"
-        Me.BareRTxt.Size = New System.Drawing.Size(150, 22)
-        Me.BareRTxt.TabIndex = 11
-        Me.BareRTxt.Text = "TextBox1"
+        Me.ArableTxt.Enabled = False
+        Me.ArableTxt.Location = New System.Drawing.Point(3, 115)
+        Me.ArableTxt.Name = "ArableTxt"
+        Me.ArableTxt.Size = New System.Drawing.Size(150, 22)
+        Me.ArableTxt.TabIndex = 8
+        Me.ArableTxt.Text = "ArableTxt"
         '
         'MoorTxt
         '
@@ -304,7 +293,6 @@ Partial Class Model
     End Sub
     Friend WithEvents ModelChart As DataVisualization.Charting.Chart
     Friend WithEvents LandUseBtn As Button
-    Friend WithEvents ShowLU As Button
     Friend WithEvents ModelRun As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents SpinRain As NumericUpDown
