@@ -305,7 +305,7 @@ Partial Class LandUseForm
         Me.Controls.Add(Me.LandImage)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "LandUseForm"
-        Me.Text = "LandUseForm"
+        Me.Text = "Land Use Selector"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Customsettings.ResumeLayout(False)

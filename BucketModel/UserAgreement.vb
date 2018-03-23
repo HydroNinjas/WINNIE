@@ -29,7 +29,7 @@
         ExitYN = MsgBox("Are you sure?", MsgBoxStyle.YesNo)
         If ExitYN = MsgBoxResult.Yes Then
 
-            Dim SecondForm As New Model
+            Dim SecondForm As New LandUseForm
             SecondForm.Show()
             Me.Close()
         Else

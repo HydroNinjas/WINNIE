@@ -7,6 +7,7 @@ Public Module Globalvariables
     Public GrasslandP As Double
     Public BareRockP As Double
     Public MoorlandP As Double
+    Public Control As Boolean = False
 End Module
 
 
@@ -25,7 +26,7 @@ Public Class LandUseForm
     Private Sub LandUse3Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse3Btn.CheckedChanged
         If (LandUse3Btn.Checked = True) Then
             Customsettings.Enabled = False
-            NumericUpDown1.Value = 70
+            NumericUpDown1.Value = 20
             NumericUpDown2.Value = 20
             NumericUpDown3.Value = 10
             NumericUpDown4.Value = 30
@@ -40,10 +41,10 @@ Public Class LandUseForm
     Private Sub LandUse5Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse5Btn.CheckedChanged
         If (LandUse5Btn.Checked = True) Then
             Customsettings.Enabled = False
-            NumericUpDown1.Value = 50
+            NumericUpDown1.Value = 30
             NumericUpDown2.Value = 10
-            NumericUpDown3.Value = 10
-            NumericUpDown4.Value = 30
+            NumericUpDown3.Value = 20
+            NumericUpDown4.Value = 20
             NumericUpDown5.Value = 20
 
             LandImage.Show()
@@ -55,7 +56,7 @@ Public Class LandUseForm
         If (LandUse2Btn.Checked = True) Then
             Customsettings.Enabled = False
             NumericUpDown1.Value = 20
-            NumericUpDown2.Value = 70
+            NumericUpDown2.Value = 20
             NumericUpDown3.Value = 10
             NumericUpDown4.Value = 30
             NumericUpDown5.Value = 20
@@ -71,7 +72,7 @@ Public Class LandUseForm
             Customsettings.Enabled = False
             NumericUpDown1.Value = 20
             NumericUpDown2.Value = 10
-            NumericUpDown3.Value = 70
+            NumericUpDown3.Value = 20
             NumericUpDown4.Value = 30
             NumericUpDown5.Value = 20
 
@@ -93,9 +94,10 @@ Public Class LandUseForm
         Me.Size = New Size(800, 800)
         Me.CenterToParent()
 
-              Dim PieSeries1 As New Series("Pie1")
-        PieSeries1.ChartType = SeriesChartType.Pie
-        PieSeries1.CustomProperties = "PieLabelStyle=Disabled"
+        Dim PieSeries1 As New Series("Pie1") With {
+            .ChartType = SeriesChartType.Pie,
+            .CustomProperties = "PieLabelStyle=Disabled"
+        }
 
         LUPie.Series.Clear()
         LUPie.Series.Insert(0, PieSeries1)
@@ -108,7 +110,24 @@ Public Class LandUseForm
         Sectors.Add(New SectorItem(NumericUpDown5, "Moorland"))
 
         Sectors.ResetItem(0)
+        If LUChoice = "Custom" Then
+            LandUse4Btn.Checked = True
+            NumericUpDown1.Value = ForestP
+            NumericUpDown2.Value = ArableP
+            NumericUpDown3.Value = GrasslandP
+            NumericUpDown4.Value = BareRockP
+            NumericUpDown5.Value = MoorlandP
+        ElseIf LUChoice = "Current" Then
+            LandUse5Btn.Checked = True
+        ElseIf LUChoice = "Change 1" Then
+            LandUse1Btn.Checked = True
+        ElseIf LUChoice = "Change 2" Then
+            LandUse2Btn.Checked = True
+        ElseIf LUChoice = "Change 3" Then
+            LandUse3Btn.Checked = True
 
+
+        End If
     End Sub
 
     ''' <summary>
@@ -170,18 +189,22 @@ Public Class LandUseForm
             If (LandUse4Btn.Checked = True) Then
                 LUChoice = "Custom"
             ElseIf (LandUse3Btn.Checked = True) Then
-                LUChoice = "Forest"
+                LUChoice = "Change 3"
             ElseIf (LandUse2Btn.Checked = True) Then
-                LUChoice = "Arable"
+                LUChoice = "Change 2"
             ElseIf (LandUse1Btn.Checked = True) Then
-                LUChoice = "Grassland"
+                LUChoice = "Change 1"
+            ElseIf (LandUse5Btn.Checked = True) Then
+                LUChoice = "Current"
             End If
             ForestP = NumericUpDown1.Value
             ArableP = NumericUpDown2.Value
             GrasslandP = NumericUpDown3.Value
             BareRockP = NumericUpDown4.Value
             MoorlandP = NumericUpDown5.Value
+            Model.Show()
             Me.Close()
+            Control = True
 
         Else MessageBox.Show(" Please enter a land combination that sums to 100%", "Error")
         End If
@@ -189,8 +212,12 @@ Public Class LandUseForm
     End Sub
 
     Private Sub LFcancelBtn_Click(sender As Object, e As EventArgs) Handles LFcancelBtn.Click
+        If Control = False Then
+            MsgBox("To continue with the programme please select a option and click Ok")
+        Else
+            Me.Close()
+        End If
 
-        Me.Close()
 
     End Sub
 

@@ -86,7 +86,7 @@ Partial Class UserAgreement
         Me.Controls.Add(Me.ExitBtn)
         Me.Controls.Add(Me.AgreBtn)
         Me.Name = "UserAgreement"
-        Me.Text = "UserAgreement"
+        Me.Text = "User Agreement"
         CType(Me.WinnieUserPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
