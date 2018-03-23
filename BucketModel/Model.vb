@@ -5,10 +5,8 @@ Public Class Model
 
     Private Sub Model_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.BackColor = Color.LightSkyBlue
         Me.MaximizeBox = False
         Me.MinimizeBox = True
-        Me.Size = New Size(700, 700)
         Me.CenterToParent()
 
         For i As Integer = 0 To 8781
@@ -16,14 +14,6 @@ Public Class Model
         Next
 
         ' setting up the charts
-
-        RandEChart.Series.Add("Rain")
-        RandEChart.Series("Rain").ChartType = SeriesChartType.Line
-        RandEChart.Series(0).Points.DataBindXY(Hrs, Rain)
-
-        RandEChart.Series.Add("Evap")
-        RandEChart.Series("Evap").ChartType = SeriesChartType.Line
-        RandEChart.Series(1).Points.DataBindXY(Hrs, Evap)
 
         ModelChart.Series.Add("Runoff")
         ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
@@ -17630,7 +17620,7 @@ Public Class Model
         ' changing the rain time series
 
         Rain_new = Array.ConvertAll(Rain, Function(x) x + x * SpinRain.Value / 100)
-        RandEChart.Series(0).Points.DataBindXY(Hrs, Rain_new)
+
 
     End Sub
 
@@ -17639,7 +17629,7 @@ Public Class Model
         ' changing the evap time series
 
         Evap_new = Array.ConvertAll(Evap, Function(x) x + x * SpinEvap.Value / 100)
-        RandEChart.Series(1).Points.DataBindXY(Hrs, Evap_new)
+
 
     End Sub
 
@@ -17667,7 +17657,6 @@ Public Class Model
             Storage(i) = S
             Interflow(i) = QI
 
-            FCTxt.Text = FC
         Next
 
         ' update the graphs
@@ -17700,8 +17689,8 @@ Public Class Model
     Private Sub ShowLU_Click(sender As Object, e As EventArgs) Handles ShowLU.Click
         ForestTxt.Text = ForestP
         ArableTxt.Text = ArableP
-        GrassTxt.Text = GrasslandP
-        TextBoxLUChoice.Text = LUChoice
+        TextBoxLUChoice.Text = GrasslandP
+        GrassTxt.Text = LUChoice
 
     End Sub
 End Class

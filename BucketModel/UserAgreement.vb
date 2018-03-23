@@ -1,9 +1,7 @@
 ﻿Public Class UserAgreement
     Private Sub UserAgreement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.BackColor = Color.LightSkyBlue
         Me.MaximizeBox = False
         Me.MinimizeBox = True
-        Me.Size = New Size(600, 400)
         Me.CenterToParent()
     End Sub
 
