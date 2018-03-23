@@ -1,5 +1,5 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
-
+Imports System.IO
 
 Public Class Model
 
@@ -29,6 +29,7 @@ Public Class Model
 
     End Sub
 
+    Dim SaveCSV As Boolean = False
 
     Dim Rain As Double() = {0,
     0,
@@ -17669,8 +17670,72 @@ Public Class Model
 
         ModelChart.Text = Math.Round(Qbar(Runoff), 4) & " mm/hr"
 
+        If SaveCSV = True Then
+
+
+
+            Dim saveFileDialog1 As New SaveFileDialog With {
+                .Filter = "csv files (*.csv)|*.csv",
+                .FilterIndex = 1,
+                .RestoreDirectory = True
+            }
+
+
+
+            If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+
+                Dim sw As StreamWriter = New StreamWriter(saveFileDialog1.OpenFile())
+
+                If (sw IsNot Nothing) Then
+
+
+
+                    sw.WriteLine("Date, Rain, Evap, Runoff, Interflow, Storage")
+
+
+
+                    For i As Integer = 0 To 8781
+
+
+
+                        sw.WriteLine(Hrs(i) & "," &
+                                     Rain_new(i) & "," &
+                                     Evap_new(i) & "," &
+                                     Runoff(i) & "," &
+                                     Interflow(i) & "," &
+                                     Storage(i))
+
+
+
+                    Next
+
+
+
+                    sw.Close()
+
+
+
+                End If
+
+
+
+            End If
+
+
+
+        End If
+
     End Sub
 
+    Private Sub ChckCSV_CheckedChanged(sender As Object, e As EventArgs) Handles ChckCSV.CheckedChanged
+
+
+
+        SaveCSV = ChckCSV.CheckState
+
+
+
+    End Sub
 
     Dim ExitYN As System.Windows.Forms.DialogResult
     Private Sub Model_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
@@ -17689,8 +17754,10 @@ Public Class Model
     Private Sub ShowLU_Click(sender As Object, e As EventArgs) Handles ShowLU.Click
         ForestTxt.Text = ForestP
         ArableTxt.Text = ArableP
-        TextBoxLUChoice.Text = GrasslandP
-        GrassTxt.Text = LUChoice
+        GrassTxt.Text = GrasslandP
+        BareRTxt.Text = BareRockP
+        MoorTxt.Text = MoorlandP
+        TextBoxLUChoice.Text = LUChoice
 
     End Sub
 End Class
