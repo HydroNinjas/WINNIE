@@ -1,5 +1,9 @@
 ﻿Imports ComponentModel = System.ComponentModel
 Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.IO
+
+
+
 Public Module Globalvariables
     Public LUChoice As String
     Public ForestP As Double
@@ -13,6 +17,7 @@ End Module
 
 
 Public Class LandUseForm
+
     Dim ExitYN As System.Windows.Forms.DialogResult
     Private Sub LandUse4Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse4Btn.CheckedChanged
         If (LandUse4Btn.Checked = True) Then
@@ -24,6 +29,7 @@ Public Class LandUseForm
     End Sub
 
     Private Sub LandUse3Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse3Btn.CheckedChanged
+
         If (LandUse3Btn.Checked = True) Then
             Customsettings.Enabled = False
             NumericUpDown1.Value = 20
@@ -33,8 +39,7 @@ Public Class LandUseForm
             NumericUpDown5.Value = 20
             LUPie.Hide()
             LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUScenario3.png")
-
+            LandImage.Image = My.Resources.HSD_LUScenario3
         End If
     End Sub
 
@@ -48,7 +53,7 @@ Public Class LandUseForm
             NumericUpDown5.Value = 20
             LUPie.Hide()
             LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUCurrent.png")
+            LandImage.Image = My.Resources.HSD_LUCurrent
 
         End If
     End Sub
@@ -62,7 +67,7 @@ Public Class LandUseForm
             NumericUpDown5.Value = 20
             LUPie.Hide()
             LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUScenario2.png")
+            LandImage.Image = My.Resources.HSD_LUScenario2
 
         End If
     End Sub
@@ -77,7 +82,7 @@ Public Class LandUseForm
             NumericUpDown5.Value = 20
             LUPie.Hide()
             LandImage.Show()
-            LandImage.Image = Image.FromFile("C:\Users\phili\Source\Repos\WINNIE\BucketModel\HSD_LUScenario1.png")
+            LandImage.Image = My.Resources.HSD_LUScenario1
 
         End If
 
