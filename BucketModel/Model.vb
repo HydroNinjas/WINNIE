@@ -3,34 +3,6 @@ Imports System.IO
 
 Public Class Model
 
-    Private Sub Model_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ExitYN = True
-        Me.MaximizeBox = False
-        Me.MinimizeBox = True
-        Me.CenterToParent()
-
-        For i As Integer = 0 To 8781
-            Hrs(i) = start_date.AddHours(i)
-        Next
-
-        ' setting up the charts
-
-        ModelChart.Series.Add("Runoff")
-        ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
-        ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
-
-        ModelChart.Series.Add("Storage")
-        ModelChart.Series("Storage").ChartType = SeriesChartType.Line
-        ModelChart.Series(1).Points.DataBindXY(Hrs, Storage)
-
-        ModelChart.Series.Add("Interflow")
-        ModelChart.Series("Interflow").ChartType = SeriesChartType.Line
-        ModelChart.Series(2).Points.DataBindXY(Hrs, Interflow)
-
-    End Sub
-
-    Dim SaveCSV As Boolean = False
-
     Dim Rain As Double() = {0,
     0,
     0,
@@ -8812,7 +8784,7 @@ Public Class Model
     0,
     0,
     0,
-    0}          ' reading in the csv... manually (sorry)
+    0}                              ' reading in the csv of observed rain & evap... manually (sorry)
     Dim Evap As Double() = {0.000876,
     0.0007075,
     0.00310025,
@@ -17596,19 +17568,51 @@ Public Class Model
     0.0023135,
     0.007731}
 
-    Dim Rain_new As Double() = Rain     ' these will contain our altered time series
+    Dim Rain_new As Double() = Rain                         ' these will contain our altered time series from climate change
     Dim Evap_new As Double() = Evap
 
-    Dim Hrs(8781) As Date               ' dates for the water year 2011/2012
+    Dim Hrs(8781) As Date                                   ' to hold dates for the water year 2011/2012
     Dim start_date As Date = New Date(2011, 10, 1)
 
-    Dim Runoff(8781) As Double          ' to be used by the model and plotted by the button
-    Dim Interflow(8781) As Double
+    Dim Runoff(8781) As Double                              ' to be filled by the model
     Dim Storage(8781) As Double
 
-    Dim FC As Double                    ' field capacity, to be used in model and changed by land use
+    Dim FC As Double() = {5, 50, 25, 25, 5}                 ' field capacities for BareRock, Forest, Grassland, Arable, Moorland
+    Dim Props(5) As Double                                  ' proportions for BareRock, Forest, Grassland, Arable, Moorland
+
+    Dim SaveCSV As Boolean = False                          ' to determine whether to save the model run as a CSV or not
+
+    Dim ExitYN As System.Windows.Forms.DialogResult         ' for pop-up windows when closing
+
+
+    Private Sub Model_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ExitYN = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = True
+        Me.CenterToParent()
+
+        ' filling up the date time series with the actual dates
+
+        For i As Integer = 0 To 8781
+            Hrs(i) = start_date.AddHours(i)
+        Next
+
+        ' setting up the runoff & storage graphs, ready to be plotted on
+
+        ModelChart.Series.Add("Runoff")
+        ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
+        ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
+
+        ModelChart.Series.Add("Storage")
+        ModelChart.Series("Storage").ChartType = SeriesChartType.Line
+        ModelChart.Series(1).Points.DataBindXY(Hrs, Storage)
+
+    End Sub
 
     Function Qbar(ByVal x As Array) As Double
+
+        ' A function to calculate the mean of the discharge record
+
         Dim sum As Double = 0
         For i As Integer = 0 To 8781
             sum += x(i)
@@ -17638,41 +17642,49 @@ Public Class Model
 
         ' click the big red button => activate the rainfall-runoff model
 
-        Dim S, QR, QI As Double     ' storage, runoff, interflow
-        Const S0_prop = 1           ' proportion of FC as the initial condition
-        Const d = 2                 ' d = 1/b
-        Const k1 = 0.1              ' k1 = 1/(a^(1/b))
-        FC = 2 * (ForestP / 100) + 3 * (ArableP / 100) + 4 * (GrasslandP / 100) ' FC const for now define with LU
+        Dim S, R As Double     ' storage, runoff
+        Const S0_prop = 1      ' proportion of FC as the initial condition
 
-        S = FC * S0_prop
+        Props(0) = BareRockP / 100
+        Props(1) = ForestP / 100
+        Props(2) = GrasslandP / 100
+        Props(3) = ArableP / 100
+        Props(4) = MoorlandP / 100
 
-        For i As Integer = 0 To 8781
+        For i As Integer = 0 To 4                   ' for each land use type
 
-            S = Math.Max(0, S + Rain_new(i) - Evap_new(i))
-            QR = Math.Max(0, S - FC)
-            S = S - QR
-            QI = Math.Max(0, k1 * S ^ d)
-            S = S - QI
+            S = FC(i) * S0_prop                     ' set the initial storage
 
-            Runoff(i) = QR
-            Storage(i) = S
-            Interflow(i) = QI
+            For j As Integer = 0 To 8781            ' run the model
 
-        Next
+                S = Math.Max(0, S + Rain_new(j) - Evap_new(j))
+                R = Math.Max(0, S - FC(i))
+                S = S - R
+
+                If i = 0 Then                       ' aggregate based on land use proportions
+                    Runoff(j) = R * Props(i)
+                    Storage(j) = S * Props(i)
+                Else
+                    Runoff(j) += R * Props(i)
+                    Storage(j) += S * Props(i)
+                End If
+
+            Next j
+
+        Next i
 
         ' update the graphs
 
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
         ModelChart.Series(1).Points.DataBindXY(Hrs, Storage)
-        ModelChart.Series(2).Points.DataBindXY(Hrs, Interflow)
 
         ' update the stats
 
         ModelChart.Text = Math.Round(Qbar(Runoff), 4) & " mm/hr"
 
+        ' CSV writer
+
         If SaveCSV = True Then
-
-
 
             Dim saveFileDialog1 As New SaveFileDialog With {
                 .Filter = "csv files (*.csv)|*.csv",
@@ -17680,48 +17692,29 @@ Public Class Model
                 .RestoreDirectory = True
             }
 
-
-
             If saveFileDialog1.ShowDialog() = DialogResult.OK Then
 
                 Dim sw As StreamWriter = New StreamWriter(saveFileDialog1.OpenFile())
 
                 If (sw IsNot Nothing) Then
 
-
-
-                    sw.WriteLine("Date, Rain, Evap, Runoff, Interflow, Storage")
-
-
+                    sw.WriteLine("Date, Rain, Evap, Runoff, Storage")
 
                     For i As Integer = 0 To 8781
-
-
 
                         sw.WriteLine(Hrs(i) & "," &
                                      Rain_new(i) & "," &
                                      Evap_new(i) & "," &
                                      Runoff(i) & "," &
-                                     Interflow(i) & "," &
                                      Storage(i))
-
-
 
                     Next
 
-
-
                     sw.Close()
-
-
 
                 End If
 
-
-
             End If
-
-
 
         End If
 
@@ -17729,22 +17722,25 @@ Public Class Model
 
     Private Sub ChckCSV_CheckedChanged(sender As Object, e As EventArgs) Handles ChckCSV.CheckedChanged
 
-
+        ' we want to save the CSV if this button is checked
 
         SaveCSV = ChckCSV.CheckState
 
-
-
     End Sub
 
-    Dim ExitYN As System.Windows.Forms.DialogResult
     Private Sub Model_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+
+        ' are you sure you want to exit????
+
         If ExitYN <> Windows.Forms.DialogResult.Yes Then
             e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
         End If
     End Sub
 
     Private Sub LandUseBtn_Click(sender As Object, e As EventArgs) Handles LandUseBtn.Click
+
+        ' display the land use form if the button is clicked
+
         Dim LandUseForm = New LandUseForm()
         LandUseForm.Show()
     End Sub

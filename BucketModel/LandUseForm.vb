@@ -5,6 +5,9 @@ Imports System.IO
 
 
 Public Module Globalvariables
+
+    ' these need to be shared with the other form
+
     Public LUChoice As String
     Public ForestP As Double
     Public ArableP As Double
@@ -12,39 +15,53 @@ Public Module Globalvariables
     Public BareRockP As Double
     Public MoorlandP As Double
     Public Control As Boolean = False
+
 End Module
 
 
 
 Public Class LandUseForm
 
-    Dim ExitYN As System.Windows.Forms.DialogResult
+    Dim ExitYN As System.Windows.Forms.DialogResult         ' for when you press the exit button
+
     Private Sub LandUse4Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse4Btn.CheckedChanged
+
+        ' custom land use
+
         If (LandUse4Btn.Checked = True) Then
-            Customsettings.Enabled = True
-            LandImage.Hide()
-            LUPie.Show()
+            Customsettings.Enabled = True       ' activate the spinners!
+            LandImage.Hide()                    ' there is no map
+            LUPie.Show()                        ' so display the pie chart
 
         End If
+
     End Sub
 
     Private Sub LandUse3Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse3Btn.CheckedChanged
 
+        ' Land Use Scenario 3
+
         If (LandUse3Btn.Checked = True) Then
-            Customsettings.Enabled = False
-            NumericUpDown1.Value = 20
+
+            Customsettings.Enabled = False      ' disable the spinners
+            NumericUpDown1.Value = 20           ' put in the numbers from the GIS analysis
             NumericUpDown2.Value = 20
             NumericUpDown3.Value = 10
             NumericUpDown4.Value = 30
             NumericUpDown5.Value = 20
-            LUPie.Hide()
+            LUPie.Hide()                        ' get rid of the pie chart and put in the beautiful map
             LandImage.Show()
             LandImage.Image = My.Resources.HSD_LUScenario3
+
         End If
     End Sub
 
     Private Sub LandUse5Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse5Btn.CheckedChanged
+
+        ' Current Land Use Scenario
+
         If (LandUse5Btn.Checked = True) Then
+
             Customsettings.Enabled = False
             NumericUpDown1.Value = 30
             NumericUpDown2.Value = 10
@@ -57,7 +74,11 @@ Public Class LandUseForm
 
         End If
     End Sub
+
     Private Sub LandUse2Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse2Btn.CheckedChanged
+
+        ' Land use scenario 2
+
         If (LandUse2Btn.Checked = True) Then
             Customsettings.Enabled = False
             NumericUpDown1.Value = 20
@@ -73,6 +94,9 @@ Public Class LandUseForm
     End Sub
 
     Private Sub LandUse1Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse1Btn.CheckedChanged
+
+        ' Land Use Scenario 1
+
         If (LandUse1Btn.Checked = True) Then
             Customsettings.Enabled = False
             NumericUpDown1.Value = 20
@@ -88,16 +112,19 @@ Public Class LandUseForm
 
     End Sub
 
-
     Private WithEvents Sectors As New ComponentModel.BindingList(Of SectorItem)
 
     Private Sub LandUseForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        ' making the form pretty
 
         Me.BackColor = Color.LightSkyBlue
         Me.MaximizeBox = False
         Me.MinimizeBox = True
         Me.Size = New Size(800, 800)
         Me.CenterToParent()
+
+        ' setting up the pie chart
 
         Dim PieSeries1 As New Series("Pie1") With {
             .ChartType = SeriesChartType.Pie,
@@ -107,7 +134,6 @@ Public Class LandUseForm
         LUPie.Series.Clear()
         LUPie.Series.Insert(0, PieSeries1)
 
-
         Sectors.Add(New SectorItem(NumericUpDown1, "Forest"))
         Sectors.Add(New SectorItem(NumericUpDown2, "Arable"))
         Sectors.Add(New SectorItem(NumericUpDown3, "Grassland"))
@@ -116,9 +142,13 @@ Public Class LandUseForm
 
         Sectors.ResetItem(0)
 
+        ' if it's the first time opening the form, then the current land use will be picked
+
         If Control = False Then
             LandUse5Btn.Checked = True
         End If
+
+        ' otherwise it's set to the land use that was picked last
 
         If LUChoice = "Custom" Then
             LandUse4Btn.Checked = True
@@ -135,15 +165,14 @@ Public Class LandUseForm
             LandUse2Btn.Checked = True
         ElseIf LUChoice = "Change 3" Then
             LandUse3Btn.Checked = True
-
-
         End If
+
     End Sub
 
-    ''' <summary>
-    ''' </summary>
-    ''' 
     Private Sub Sectors_ListChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles Sectors.ListChanged
+
+        ' automatic updating of the pie chart
+
         If e.ListChangedType = ComponentModel.ListChangedType.ItemChanged Then
             LUPie.Series("Pie1").Points.DataBind(Sectors, "", "Value", "Label=Name")
         End If
@@ -152,9 +181,10 @@ Public Class LandUseForm
 
     End Sub
 
-    ''' <summary>
-    ''' </summary>
     Private Class SectorItem
+
+        ' more automatic updating of the pie chart
+
         Implements System.ComponentModel.INotifyPropertyChanged
         Public Event PropertyChanged(ByVal sender As Object, ByVal e As System.ComponentModel.PropertyChangedEventArgs) Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
 
@@ -195,7 +225,13 @@ Public Class LandUseForm
     End Class
 
     Private Sub LFokBtn_Click(sender As Object, e As EventArgs) Handles LFokBtn.Click
+
+        ' catching you out if you try to get a total percentage that isn't 100
+
         If NumericUpDown1.Value + NumericUpDown2.Value + NumericUpDown3.Value + NumericUpDown4.Value + NumericUpDown5.Value = 100 Then
+
+            ' if it's all good, then set those values into the global variables
+
             If (LandUse4Btn.Checked = True) Then
                 LUChoice = "Custom"
             ElseIf (LandUse3Btn.Checked = True) Then
@@ -207,12 +243,12 @@ Public Class LandUseForm
             ElseIf (LandUse5Btn.Checked = True) Then
                 LUChoice = "Current"
             End If
+
             ForestP = NumericUpDown1.Value
             ArableP = NumericUpDown2.Value
             GrasslandP = NumericUpDown3.Value
             BareRockP = NumericUpDown4.Value
             MoorlandP = NumericUpDown5.Value
-
 
             Model.ForestTxt.Text = ForestP
             Model.ArableTxt.Text = ArableP
@@ -238,6 +274,8 @@ Public Class LandUseForm
 
     Private Sub LFcancelBtn_Click(sender As Object, e As EventArgs) Handles LFcancelBtn.Click
 
+        ' if it's the first time you've opened this form, you need to select a land use!
+
         If Control = False Then
             MsgBox("To continue with the programme please select a option and click Ok")
         Else
@@ -249,11 +287,12 @@ Public Class LandUseForm
             End If
         End If
 
-
-
     End Sub
 
     Private Sub Model_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+
+        ' are you sure you want to exit?????
+
         If Control = False And ExitYN <> Windows.Forms.DialogResult.Yes Then
             e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
         End If
