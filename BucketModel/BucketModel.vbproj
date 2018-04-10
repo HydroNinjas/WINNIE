@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9F24BE53-E724-4365-9B9C-C5CFC81D18D8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>BucketModel.My.MyApplication</StartupObject>
-    <RootNamespace>BucketModel</RootNamespace>
-    <AssemblyName>BucketModel</AssemblyName>
+    <StartupObject>WINNIE.My.MyApplication</StartupObject>
+    <RootNamespace>WINNIE</RootNamespace>
+    <AssemblyName>WINNIE</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -21,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BucketModel.xml</DocumentationFile>
+    <DocumentationFile>WINNIE.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -31,7 +31,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BucketModel.xml</DocumentationFile>
+    <DocumentationFile>WINNIE.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -67,17 +67,23 @@
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.IO.MemoryMappedFiles" />
     <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="LandUseForm.Designer.vb">
+      <DependentUpon>LandUseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LandUseForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Model.Designer.vb">
+      <DependentUpon>Model.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Model.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -95,16 +101,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UserAgreement.Designer.vb">
+      <DependentUpon>UserAgreement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserAgreement.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="LandUseForm.resx">
+      <DependentUpon>LandUseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model.resx">
+      <DependentUpon>Model.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAgreement.resx">
+      <DependentUpon>UserAgreement.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +136,27 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_Catchments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUScenario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUScenario2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUScenario3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUCurrent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WINNIE_Logo_ScnSht.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
