@@ -22,12 +22,13 @@ Partial Class Model
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Me.ModelChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.LandUseBtn = New System.Windows.Forms.Button()
         Me.ModelRun = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBoxLUChoice = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.BareRTxt = New System.Windows.Forms.TextBox()
@@ -51,9 +52,11 @@ Partial Class Model
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.QBARTxt = New System.Windows.Forms.TextBox()
+        Me.QBARoldTxt = New System.Windows.Forms.TextBox()
+        Me.MaxoldTxt = New System.Windows.Forms.TextBox()
+        Me.MaxTxt = New System.Windows.Forms.TextBox()
         CType(Me.ModelChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -70,12 +73,13 @@ Partial Class Model
         'ModelChart
         '
         Me.ModelChart.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.ModelChart.ChartAreas.Add(ChartArea2)
+        ChartArea1.Name = "ChartArea1"
+        Me.ModelChart.ChartAreas.Add(ChartArea1)
         Me.ModelChart.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ModelChart.Location = New System.Drawing.Point(0, 353)
         Me.ModelChart.Margin = New System.Windows.Forms.Padding(30)
         Me.ModelChart.Name = "ModelChart"
+        Me.ModelChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel
         Me.ModelChart.Size = New System.Drawing.Size(982, 350)
         Me.ModelChart.TabIndex = 1
         Me.ModelChart.Text = "ModelChart"
@@ -128,6 +132,15 @@ Partial Class Model
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(182, 316)
         Me.FlowLayoutPanel1.TabIndex = 0
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(3, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(68, 17)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "Scenario "
         '
         'TextBoxLUChoice
         '
@@ -342,15 +355,6 @@ Partial Class Model
         Me.FileSystemWatcher1.EnableRaisingEvents = True
         Me.FileSystemWatcher1.SynchronizingObject = Me
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(3, 0)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(68, 17)
-        Me.Label9.TabIndex = 18
-        Me.Label9.Text = "Scenario "
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WINNIE.My.Resources.Resources.WINNIE_Logo_ScnSht
@@ -369,6 +373,27 @@ Partial Class Model
         Me.QBARTxt.Size = New System.Drawing.Size(115, 22)
         Me.QBARTxt.TabIndex = 18
         '
+        'QBARoldTxt
+        '
+        Me.QBARoldTxt.Location = New System.Drawing.Point(461, 148)
+        Me.QBARoldTxt.Name = "QBARoldTxt"
+        Me.QBARoldTxt.Size = New System.Drawing.Size(115, 22)
+        Me.QBARoldTxt.TabIndex = 19
+        '
+        'MaxoldTxt
+        '
+        Me.MaxoldTxt.Location = New System.Drawing.Point(461, 213)
+        Me.MaxoldTxt.Name = "MaxoldTxt"
+        Me.MaxoldTxt.Size = New System.Drawing.Size(115, 22)
+        Me.MaxoldTxt.TabIndex = 21
+        '
+        'MaxTxt
+        '
+        Me.MaxTxt.Location = New System.Drawing.Point(461, 185)
+        Me.MaxTxt.Name = "MaxTxt"
+        Me.MaxTxt.Size = New System.Drawing.Size(115, 22)
+        Me.MaxTxt.TabIndex = 20
+        '
         'Model
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -376,6 +401,9 @@ Partial Class Model
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(982, 703)
+        Me.Controls.Add(Me.MaxoldTxt)
+        Me.Controls.Add(Me.MaxTxt)
+        Me.Controls.Add(Me.QBARoldTxt)
         Me.Controls.Add(Me.QBARTxt)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LinkLabel1)
@@ -438,4 +466,7 @@ Partial Class Model
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents QBARTxt As TextBox
+    Friend WithEvents QBARoldTxt As TextBox
+    Friend WithEvents MaxoldTxt As TextBox
+    Friend WithEvents MaxTxt As TextBox
 End Class
