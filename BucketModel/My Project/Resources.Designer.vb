@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property banner() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("banner", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property HSD_Catchments() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("HSD_Catchments", resourceCulture)
@@ -106,6 +116,16 @@ Namespace My.Resources
         Public ReadOnly Property HSD_LUScenario3() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("HSD_LUScenario3", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Public ReadOnly Property WINNIE_Logo_ScnSht() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("WINNIE_Logo_ScnSht", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

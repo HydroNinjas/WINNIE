@@ -141,9 +141,6 @@
     <None Include="Resources\HSD_Catchments.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\HSD_LUCurrent.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\HSD_LUScenario1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +148,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\HSD_LUScenario3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HSD_LUCurrent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WINNIE_Logo_ScnSht.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

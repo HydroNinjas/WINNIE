@@ -44,11 +44,11 @@ Public Class LandUseForm
         If (LandUse3Btn.Checked = True) Then
 
             Customsettings.Enabled = False      ' disable the spinners
-            NumericUpDown1.Value = 20           ' put in the numbers from the GIS analysis
-            NumericUpDown2.Value = 20
-            NumericUpDown3.Value = 10
-            NumericUpDown4.Value = 30
-            NumericUpDown5.Value = 20
+            NumericUpDown4.Value = 2.94
+            NumericUpDown1.Value = 36.23
+            NumericUpDown3.Value = 29.16
+            NumericUpDown2.Value = 28.05
+            NumericUpDown5.Value = 3.62
             LUPie.Hide()                        ' get rid of the pie chart and put in the beautiful map
             LandImage.Show()
             LandImage.Image = My.Resources.HSD_LUScenario3
@@ -63,11 +63,11 @@ Public Class LandUseForm
         If (LandUse5Btn.Checked = True) Then
 
             Customsettings.Enabled = False
-            NumericUpDown1.Value = 30
-            NumericUpDown2.Value = 10
-            NumericUpDown3.Value = 20
-            NumericUpDown4.Value = 20
-            NumericUpDown5.Value = 20
+            NumericUpDown4.Value = 35.83
+            NumericUpDown1.Value = 4.15
+            NumericUpDown3.Value = 37.73
+            NumericUpDown2.Value = 18.11
+            NumericUpDown5.Value = 4.18
             LUPie.Hide()
             LandImage.Show()
             LandImage.Image = My.Resources.HSD_LUCurrent
@@ -81,11 +81,11 @@ Public Class LandUseForm
 
         If (LandUse2Btn.Checked = True) Then
             Customsettings.Enabled = False
-            NumericUpDown1.Value = 20
-            NumericUpDown2.Value = 20
-            NumericUpDown3.Value = 10
-            NumericUpDown4.Value = 30
-            NumericUpDown5.Value = 20
+            NumericUpDown4.Value = 3.71
+            NumericUpDown1.Value = 24.15
+            NumericUpDown3.Value = 34.58
+            NumericUpDown2.Value = 33.45
+            NumericUpDown5.Value = 4.11
             LUPie.Hide()
             LandImage.Show()
             LandImage.Image = My.Resources.HSD_LUScenario2
@@ -99,11 +99,11 @@ Public Class LandUseForm
 
         If (LandUse1Btn.Checked = True) Then
             Customsettings.Enabled = False
-            NumericUpDown1.Value = 20
-            NumericUpDown2.Value = 10
-            NumericUpDown3.Value = 20
-            NumericUpDown4.Value = 30
-            NumericUpDown5.Value = 20
+            NumericUpDown4.Value = 3.35
+            NumericUpDown1.Value = 7.39
+            NumericUpDown3.Value = 26.71
+            NumericUpDown2.Value = 59.93
+            NumericUpDown5.Value = 2.62
             LUPie.Hide()
             LandImage.Show()
             LandImage.Image = My.Resources.HSD_LUScenario1
@@ -121,7 +121,7 @@ Public Class LandUseForm
         Me.BackColor = Color.LightSkyBlue
         Me.MaximizeBox = False
         Me.MinimizeBox = True
-        Me.Size = New Size(800, 800)
+        Me.Size = New Size(600, 500)
         Me.CenterToParent()
 
         ' setting up the pie chart
@@ -298,5 +298,6 @@ Public Class LandUseForm
         End If
 
     End Sub
+
 
 End Class

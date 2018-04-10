@@ -17603,10 +17603,6 @@ Public Class Model
         ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
 
-        ModelChart.Series.Add("Storage")
-        ModelChart.Series("Storage").ChartType = SeriesChartType.Line
-        ModelChart.Series(1).Points.DataBindXY(Hrs, Storage)
-
     End Sub
 
     Function Qbar(ByVal x As Array) As Double
@@ -17676,11 +17672,11 @@ Public Class Model
         ' update the graphs
 
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
-        ModelChart.Series(1).Points.DataBindXY(Hrs, Storage)
+
 
         ' update the stats
 
-        ModelChart.Text = Math.Round(Qbar(Runoff), 4) & " mm/hr"
+        QBARTxt.Text = Math.Round(Qbar(Runoff), 4) & " mm/hr"
 
         ' CSV writer
 
@@ -17744,5 +17740,6 @@ Public Class Model
         Dim LandUseForm = New LandUseForm()
         LandUseForm.Show()
     End Sub
+
 
 End Class
