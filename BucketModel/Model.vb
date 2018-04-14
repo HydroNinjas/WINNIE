@@ -17584,6 +17584,8 @@ Public Class Model
 
     Dim ExitYN As System.Windows.Forms.DialogResult         ' for pop-up windows when closing
 
+    Dim URLGraph As String = "https://hydroninjas.github.io/hydrology"      ' link to an interactive graph
+
 
     Private Sub Model_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ExitYN = True
@@ -17607,6 +17609,10 @@ Public Class Model
 
         TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
             "_________________________________" & vbCrLf
+
+        ' set up the links
+
+        Me.LnkGraph.Links.Add(0, URLGraph.Length, URLGraph)
 
     End Sub
 
@@ -17682,10 +17688,10 @@ Public Class Model
 
         ' update the stats
 
-        TxtCompare.Text &= LUChoice.Substring(0, Math.Min(3, LUChoice.Length)) & vbTab &
+        TxtCompare.AppendText(LUChoice.Substring(0, Math.Min(3, LUChoice.Length)) & vbTab &
             SpinRain.Value & vbTab &
             SpinEvap.Value & vbTab &
-            Math.Round(Qbar(Runoff), 2) & vbTab & Math.Round((Runoff.Max), 2) & vbCrLf
+            Math.Round(Qbar(Runoff), 4) & vbTab & Math.Round((Runoff.Max), 3) & vbCrLf)
 
 
         ' CSV writer, "copied and disguised" (Quinn, 2018)
@@ -17752,5 +17758,23 @@ Public Class Model
         LandUseForm.Show()
 
     End Sub
+
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkGraph.LinkClicked
+
+        'sending you to the graph website if you click the link
+
+        System.Diagnostics.Process.Start(e.Link.LinkData.ToString())
+
+    End Sub
+
+    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
+
+        ' starting the log again if the button is clicked
+
+        TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
+     "_________________________________" & vbCrLf
+
+    End Sub
+
 
 End Class

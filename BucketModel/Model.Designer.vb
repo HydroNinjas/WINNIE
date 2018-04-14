@@ -43,10 +43,12 @@ Partial Class Model
         Me.SpinEvap = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.LnkGraph = New System.Windows.Forms.LinkLabel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BtnClear = New System.Windows.Forms.Button()
         Me.ChckCSV = New System.Windows.Forms.CheckBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -71,7 +73,7 @@ Partial Class Model
         'ModelChart
         '
         Me.ModelChart.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.AxisY.Title = "Runoff (mm)"
+        ChartArea1.AxisY.Title = "Simulated runoff (mm)"
         ChartArea1.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         ChartArea1.Name = "ChartArea1"
         Me.ModelChart.ChartAreas.Add(ChartArea1)
@@ -99,10 +101,10 @@ Partial Class Model
         'ModelRun
         '
         Me.ModelRun.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.ModelRun.Location = New System.Drawing.Point(20, 51)
+        Me.ModelRun.Location = New System.Drawing.Point(20, 160)
         Me.ModelRun.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ModelRun.Name = "ModelRun"
-        Me.ModelRun.Size = New System.Drawing.Size(169, 50)
+        Me.ModelRun.Size = New System.Drawing.Size(169, 48)
         Me.ModelRun.TabIndex = 4
         Me.ModelRun.Text = "Run Model"
         Me.ModelRun.UseVisualStyleBackColor = True
@@ -142,13 +144,13 @@ Partial Class Model
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 23)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 8
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(209, 400)
         Me.TableLayoutPanel2.TabIndex = 1
@@ -157,7 +159,7 @@ Partial Class Model
         '
         Me.MoorTxt.Dock = System.Windows.Forms.DockStyle.Top
         Me.MoorTxt.Enabled = False
-        Me.MoorTxt.Location = New System.Drawing.Point(3, 204)
+        Me.MoorTxt.Location = New System.Drawing.Point(3, 244)
         Me.MoorTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MoorTxt.Name = "MoorTxt"
         Me.MoorTxt.Size = New System.Drawing.Size(67, 26)
@@ -169,7 +171,7 @@ Partial Class Model
         '
         Me.ArableTxt.Dock = System.Windows.Forms.DockStyle.Top
         Me.ArableTxt.Enabled = False
-        Me.ArableTxt.Location = New System.Drawing.Point(3, 164)
+        Me.ArableTxt.Location = New System.Drawing.Point(3, 204)
         Me.ArableTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ArableTxt.Name = "ArableTxt"
         Me.ArableTxt.ReadOnly = True
@@ -182,7 +184,7 @@ Partial Class Model
         '
         Me.GrassTxt.Dock = System.Windows.Forms.DockStyle.Top
         Me.GrassTxt.Enabled = False
-        Me.GrassTxt.Location = New System.Drawing.Point(3, 124)
+        Me.GrassTxt.Location = New System.Drawing.Point(3, 164)
         Me.GrassTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GrassTxt.Name = "GrassTxt"
         Me.GrassTxt.Size = New System.Drawing.Size(67, 26)
@@ -194,7 +196,7 @@ Partial Class Model
         '
         Me.ForestTxt.Dock = System.Windows.Forms.DockStyle.Top
         Me.ForestTxt.Enabled = False
-        Me.ForestTxt.Location = New System.Drawing.Point(3, 84)
+        Me.ForestTxt.Location = New System.Drawing.Point(3, 124)
         Me.ForestTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ForestTxt.Name = "ForestTxt"
         Me.ForestTxt.Size = New System.Drawing.Size(67, 26)
@@ -206,7 +208,7 @@ Partial Class Model
         '
         Me.BareRTxt.Dock = System.Windows.Forms.DockStyle.Top
         Me.BareRTxt.Enabled = False
-        Me.BareRTxt.Location = New System.Drawing.Point(3, 44)
+        Me.BareRTxt.Location = New System.Drawing.Point(3, 84)
         Me.BareRTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BareRTxt.Name = "BareRTxt"
         Me.BareRTxt.Size = New System.Drawing.Size(67, 26)
@@ -218,7 +220,7 @@ Partial Class Model
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(76, 60)
+        Me.Label2.Location = New System.Drawing.Point(76, 100)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(102, 20)
         Me.Label2.TabIndex = 13
@@ -241,7 +243,7 @@ Partial Class Model
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(76, 100)
+        Me.Label3.Location = New System.Drawing.Point(76, 140)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(73, 20)
         Me.Label3.TabIndex = 14
@@ -251,7 +253,7 @@ Partial Class Model
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(76, 140)
+        Me.Label4.Location = New System.Drawing.Point(76, 180)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(100, 20)
         Me.Label4.TabIndex = 15
@@ -261,7 +263,7 @@ Partial Class Model
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(76, 180)
+        Me.Label5.Location = New System.Drawing.Point(76, 220)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(73, 20)
         Me.Label5.TabIndex = 16
@@ -271,7 +273,7 @@ Partial Class Model
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(76, 220)
+        Me.Label6.Location = New System.Drawing.Point(76, 260)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 20)
         Me.Label6.TabIndex = 17
@@ -294,7 +296,7 @@ Partial Class Model
         '
         Me.SpinEvap.Dock = System.Windows.Forms.DockStyle.Top
         Me.SpinEvap.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.SpinEvap.Location = New System.Drawing.Point(3, 42)
+        Me.SpinEvap.Location = New System.Drawing.Point(3, 50)
         Me.SpinEvap.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.SpinEvap.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
         Me.SpinEvap.Name = "SpinEvap"
@@ -311,7 +313,7 @@ Partial Class Model
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TableLayoutPanel1.SetRowSpan(Me.GroupBox2, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(215, 103)
+        Me.GroupBox2.Size = New System.Drawing.Size(215, 166)
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Climate Controls"
@@ -325,21 +327,35 @@ Partial Class Model
         Me.TableLayoutPanel3.Controls.Add(Me.SpinRain, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.SpinEvap, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label8, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.LnkGraph, 0, 2)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 23)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.RowCount = 3
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(209, 76)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(209, 139)
         Me.TableLayoutPanel3.TabIndex = 5
+        '
+        'LnkGraph
+        '
+        Me.LnkGraph.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LnkGraph.AutoSize = True
+        Me.TableLayoutPanel3.SetColumnSpan(Me.LnkGraph, 2)
+        Me.LnkGraph.Location = New System.Drawing.Point(51, 105)
+        Me.LnkGraph.Name = "LnkGraph"
+        Me.LnkGraph.Size = New System.Drawing.Size(106, 20)
+        Me.LnkGraph.TabIndex = 6
+        Me.LnkGraph.TabStop = True
+        Me.LnkGraph.Text = "View baseline"
         '
         'Label7
         '
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(76, 9)
+        Me.Label7.Location = New System.Drawing.Point(76, 13)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(120, 20)
         Me.Label7.TabIndex = 0
@@ -349,7 +365,7 @@ Partial Class Model
         '
         Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(76, 47)
+        Me.Label8.Location = New System.Drawing.Point(76, 59)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(123, 20)
         Me.Label8.TabIndex = 4
@@ -358,13 +374,13 @@ Partial Class Model
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel4)
-        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GroupBox3.Location = New System.Drawing.Point(445, 295)
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox3.Location = New System.Drawing.Point(445, 178)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TableLayoutPanel1.SetRowSpan(Me.GroupBox3, 3)
-        Me.GroupBox3.Size = New System.Drawing.Size(215, 136)
+        Me.GroupBox3.Size = New System.Drawing.Size(215, 253)
         Me.GroupBox3.TabIndex = 14
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Model Controls"
@@ -373,22 +389,35 @@ Partial Class Model
         '
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.ModelRun, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.BtnClear, 0, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.ChckCSV, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.ModelRun, 0, 2)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 23)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(209, 109)
+        Me.TableLayoutPanel4.RowCount = 3
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.27273!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.36364!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.36364!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(209, 226)
         Me.TableLayoutPanel4.TabIndex = 17
+        '
+        'BtnClear
+        '
+        Me.BtnClear.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BtnClear.Location = New System.Drawing.Point(20, 78)
+        Me.BtnClear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnClear.Name = "BtnClear"
+        Me.BtnClear.Size = New System.Drawing.Size(169, 48)
+        Me.BtnClear.TabIndex = 15
+        Me.BtnClear.Text = "Clear Log"
+        Me.BtnClear.UseVisualStyleBackColor = True
         '
         'ChckCSV
         '
         Me.ChckCSV.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ChckCSV.AutoSize = True
-        Me.ChckCSV.Location = New System.Drawing.Point(15, 9)
+        Me.ChckCSV.Location = New System.Drawing.Point(15, 18)
         Me.ChckCSV.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ChckCSV.Name = "ChckCSV"
         Me.ChckCSV.Size = New System.Drawing.Size(179, 24)
@@ -545,4 +574,6 @@ Partial Class Model
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents TxtCompare As RichTextBox
+    Friend WithEvents LnkGraph As LinkLabel
+    Friend WithEvents BtnClear As Button
 End Class

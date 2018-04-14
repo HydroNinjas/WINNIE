@@ -22,8 +22,8 @@ Partial Class LandUseForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LandUse5Btn = New System.Windows.Forms.RadioButton()
         Me.Customsettings = New System.Windows.Forms.GroupBox()
@@ -48,8 +48,8 @@ Partial Class LandUseForm
         Me.LFokBtn = New System.Windows.Forms.Button()
         Me.LandImage = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Customsettings.SuspendLayout()
         CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,12 +72,12 @@ Partial Class LandUseForm
         Me.GroupBox1.Controls.Add(Me.LandUse3Btn)
         Me.GroupBox1.Controls.Add(Me.LandUse2Btn)
         Me.GroupBox1.Controls.Add(Me.LandUse1Btn)
-        Me.GroupBox1.Location = New System.Drawing.Point(53, 211)
+        Me.GroupBox1.Location = New System.Drawing.Point(68, 211)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TableLayoutPanel1.SetRowSpan(Me.GroupBox1, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(269, 447)
+        Me.GroupBox1.Size = New System.Drawing.Size(239, 447)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Scenario"
@@ -112,7 +112,7 @@ Partial Class LandUseForm
         Me.Customsettings.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Customsettings.Name = "Customsettings"
         Me.Customsettings.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Customsettings.Size = New System.Drawing.Size(256, 246)
+        Me.Customsettings.Size = New System.Drawing.Size(227, 246)
         Me.Customsettings.TabIndex = 4
         Me.Customsettings.TabStop = False
         Me.Customsettings.Text = "Custom settings"
@@ -281,13 +281,13 @@ Partial Class LandUseForm
         'LUPie
         '
         Me.LUPie.BackColor = System.Drawing.Color.Transparent
-        ChartArea8.BackColor = System.Drawing.Color.Transparent
-        ChartArea8.BackImageTransparentColor = System.Drawing.Color.Transparent
-        ChartArea8.Name = "ChartArea1"
-        Me.LUPie.ChartAreas.Add(ChartArea8)
+        ChartArea4.BackColor = System.Drawing.Color.Transparent
+        ChartArea4.BackImageTransparentColor = System.Drawing.Color.Transparent
+        ChartArea4.Name = "ChartArea1"
+        Me.LUPie.ChartAreas.Add(ChartArea4)
         Me.LUPie.Dock = System.Windows.Forms.DockStyle.Right
-        Legend8.Name = "Legend1"
-        Me.LUPie.Legends.Add(Legend8)
+        Legend4.Name = "Legend1"
+        Me.LUPie.Legends.Add(Legend4)
         Me.LUPie.Location = New System.Drawing.Point(807, 0)
         Me.LUPie.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LUPie.Name = "LUPie"
@@ -321,6 +321,7 @@ Partial Class LandUseForm
         '
         'LandImage
         '
+        Me.LandImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LandImage.Dock = System.Windows.Forms.DockStyle.Right
         Me.LandImage.Location = New System.Drawing.Point(1313, 0)
         Me.LandImage.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -354,6 +355,18 @@ Partial Class LandUseForm
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(376, 941)
         Me.TableLayoutPanel1.TabIndex = 5
         '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LinkLabel1.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.LinkLabel1, 2)
+        Me.LinkLabel1.Location = New System.Drawing.Point(142, 150)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(91, 20)
+        Me.LinkLabel1.TabIndex = 19
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Online Help"
+        '
         'Label7
         '
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Bottom
@@ -366,18 +379,6 @@ Partial Class LandUseForm
         Me.Label7.TabIndex = 18
         Me.Label7.Text = "WINNIE version 3.1.4" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Land Use Selector"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LinkLabel1.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.LinkLabel1, 2)
-        Me.LinkLabel1.Location = New System.Drawing.Point(142, 150)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(91, 20)
-        Me.LinkLabel1.TabIndex = 19
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Online Help"
         '
         'LandUseForm
         '

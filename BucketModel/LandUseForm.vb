@@ -23,6 +23,7 @@ End Module
 Public Class LandUseForm
 
     Dim ExitYN As System.Windows.Forms.DialogResult         ' for when you press the exit button
+    Dim URLMap As String = "https://hydroninjas.github.io/land_use"      ' link to an interactive graph
 
     Private Sub LandUse4Btn_CheckedChanged(sender As Object, e As EventArgs) Handles LandUse4Btn.CheckedChanged
 
@@ -299,4 +300,10 @@ Public Class LandUseForm
 
     End Sub
 
+    Private Sub LandImage_Click(sender As Object, e As EventArgs) Handles LandImage.Click
+
+        ' clicking the map takes you to the website where you can zoom in even more
+
+        Process.Start(URLMap)
+    End Sub
 End Class
