@@ -17575,7 +17575,6 @@ Public Class Model
     Dim start_date As Date = New Date(2011, 10, 1)
 
     Dim Runoff(8781) As Double                              ' to be filled by the model
-    Dim Runoff_Old(8781) As Double
     Dim Storage(8781) As Double
 
     Dim FC As Double() = {5, 50, 25, 25, 5}                 ' field capacities for BareRock, Forest, Grassland, Arable, Moorland
@@ -17604,10 +17603,10 @@ Public Class Model
         ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
 
-        ModelChart.Series.Add("Runoff Old")
-        ModelChart.Series("Runoff Old").ChartType = SeriesChartType.Line
-        ModelChart.Series(1).Points.DataBindXY(Hrs, Runoff_Old)
+        ' set up the table to compare results
 
+        TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
+            "_________________________________" & vbCrLf
 
     End Sub
 
@@ -17644,7 +17643,6 @@ Public Class Model
     Private Sub ModelRun_Click(sender As Object, e As EventArgs) Handles ModelRun.Click
 
         ' click the big red button => activate the rainfall-runoff model
-        Runoff_Old = Runoff.Clone
 
         Dim S, R As Double     ' storage, runoff
         Const S0_prop = 1      ' proportion of FC as the initial condition
@@ -17681,16 +17679,14 @@ Public Class Model
         ' update the graphs
 
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
-        ModelChart.Series(1).Points.DataBindXY(Hrs, Runoff_Old)
-
 
         ' update the stats
 
-        QBARTxt.Text = Math.Round(Qbar(Runoff), 4) & " mm/hr"
-        QBARoldTxt.Text = Math.Round(Qbar(Runoff_Old), 4) & " mm/hr"
+        TxtCompare.Text &= LUChoice.Substring(0, Math.Min(3, LUChoice.Length)) & vbTab &
+            SpinRain.Value & vbTab &
+            SpinEvap.Value & vbTab &
+            Math.Round(Qbar(Runoff), 2) & vbTab & Math.Round((Runoff.Max), 2) & vbCrLf
 
-        MaxTxt.Text = Math.Round((Runoff.Max), 4) & " mm/hr"
-        MaxoldTxt.Text = Math.Round((Runoff_Old.Max), 4) & " mm/hr"
 
         ' CSV writer, "copied and disguised" (Quinn, 2018)
 

@@ -159,11 +159,11 @@ Public Class LandUseForm
             NumericUpDown5.Value = MoorlandP
         ElseIf LUChoice = "Current" Then
             LandUse5Btn.Checked = True
-        ElseIf LUChoice = "Scenario A" Then
+        ElseIf LUChoice = "A" Then
             LandUse1Btn.Checked = True
-        ElseIf LUChoice = "Scenario B" Then
+        ElseIf LUChoice = "B" Then
             LandUse2Btn.Checked = True
-        ElseIf LUChoice = "Scenario C" Then
+        ElseIf LUChoice = "C" Then
             LandUse3Btn.Checked = True
         End If
 
@@ -235,11 +235,11 @@ Public Class LandUseForm
             If (LandUse4Btn.Checked = True) Then
                 LUChoice = "Custom"
             ElseIf (LandUse3Btn.Checked = True) Then
-                LUChoice = "Scenario C"
+                LUChoice = "C"
             ElseIf (LandUse2Btn.Checked = True) Then
-                LUChoice = "Scenario B"
+                LUChoice = "B"
             ElseIf (LandUse1Btn.Checked = True) Then
-                LUChoice = "Scenario A"
+                LUChoice = "A"
             ElseIf (LandUse5Btn.Checked = True) Then
                 LUChoice = "Current"
             End If

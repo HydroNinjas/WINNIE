@@ -22,8 +22,8 @@ Partial Class LandUseForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LandUse5Btn = New System.Windows.Forms.RadioButton()
         Me.Customsettings = New System.Windows.Forms.GroupBox()
@@ -281,13 +281,13 @@ Partial Class LandUseForm
         'LUPie
         '
         Me.LUPie.BackColor = System.Drawing.Color.Transparent
-        ChartArea6.BackColor = System.Drawing.Color.Transparent
-        ChartArea6.BackImageTransparentColor = System.Drawing.Color.Transparent
-        ChartArea6.Name = "ChartArea1"
-        Me.LUPie.ChartAreas.Add(ChartArea6)
+        ChartArea8.BackColor = System.Drawing.Color.Transparent
+        ChartArea8.BackImageTransparentColor = System.Drawing.Color.Transparent
+        ChartArea8.Name = "ChartArea1"
+        Me.LUPie.ChartAreas.Add(ChartArea8)
         Me.LUPie.Dock = System.Windows.Forms.DockStyle.Right
-        Legend6.Name = "Legend1"
-        Me.LUPie.Legends.Add(Legend6)
+        Legend8.Name = "Legend1"
+        Me.LUPie.Legends.Add(Legend8)
         Me.LUPie.Location = New System.Drawing.Point(807, 0)
         Me.LUPie.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LUPie.Name = "LUPie"
@@ -360,11 +360,11 @@ Partial Class LandUseForm
         Me.Label7.AutoSize = True
         Me.TableLayoutPanel1.SetColumnSpan(Me.Label7, 2)
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(39, 53)
+        Me.Label7.Location = New System.Drawing.Point(98, 73)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(298, 60)
+        Me.Label7.Size = New System.Drawing.Size(180, 40)
         Me.Label7.TabIndex = 18
-        Me.Label7.Text = "WINNIE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "version 3.1.4" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- please select a land use scenario -"
+        Me.Label7.Text = "WINNIE version 3.1.4" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Land Use Selector"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'LinkLabel1
