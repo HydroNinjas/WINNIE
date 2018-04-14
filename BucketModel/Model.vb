@@ -8784,7 +8784,7 @@ Public Class Model
     0,
     0,
     0,
-    0}                              ' reading in the csv of observed rain & evap... manually (sorry)
+    0}                              ' reading in the CSVs manually (sorry - press the little "+" to hide)
     Dim Evap As Double() = {0.000876,
     0.0007075,
     0.00310025,
@@ -17579,7 +17579,7 @@ Public Class Model
     Dim Storage(8781) As Double
 
     Dim FC As Double() = {5, 50, 25, 25, 5}                 ' field capacities for BareRock, Forest, Grassland, Arable, Moorland
-    Dim Props(5) As Double                                  ' proportions for BareRock, Forest, Grassland, Arable, Moorland
+    Dim Props(5) As Double                                  ' proportions for BareRock, Forest, Grassland, Arable, Moorland - to be filled in depending on scenario
 
     Dim SaveCSV As Boolean = False                          ' to determine whether to save the model run as a CSV or not
 
@@ -17598,7 +17598,7 @@ Public Class Model
             Hrs(i) = start_date.AddHours(i)
         Next
 
-        ' setting up the runoff & storage graphs, ready to be plotted on
+        ' setting up the runoff graphs, ready to be plotted on
 
         ModelChart.Series.Add("Runoff")
         ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
@@ -17620,6 +17620,7 @@ Public Class Model
             sum += x(i)
         Next
         Return sum / 8781
+
     End Function
 
     Private Sub SpinRain_ValueChanged(sender As Object, e As EventArgs) Handles SpinRain.ValueChanged
@@ -17649,7 +17650,7 @@ Public Class Model
         Const S0_prop = 1      ' proportion of FC as the initial condition
 
 
-        Props(0) = BareRockP / 100
+        Props(0) = BareRockP / 100      ' proportions from the land use scenario chosen
         Props(1) = ForestP / 100
         Props(2) = GrasslandP / 100
         Props(3) = ArableP / 100
@@ -17691,7 +17692,7 @@ Public Class Model
         MaxTxt.Text = Math.Round((Runoff.Max), 4) & " mm/hr"
         MaxoldTxt.Text = Math.Round((Runoff_Old.Max), 4) & " mm/hr"
 
-        ' CSV writer
+        ' CSV writer, "copied and disguised" (Quinn, 2018)
 
         If SaveCSV = True Then
 
@@ -17744,6 +17745,7 @@ Public Class Model
         If ExitYN <> Windows.Forms.DialogResult.Yes Then
             e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
         End If
+
     End Sub
 
     Private Sub LandUseBtn_Click(sender As Object, e As EventArgs) Handles LandUseBtn.Click
@@ -17752,6 +17754,7 @@ Public Class Model
 
         Dim LandUseForm = New LandUseForm()
         LandUseForm.Show()
+
     End Sub
 
 End Class

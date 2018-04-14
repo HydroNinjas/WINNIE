@@ -159,11 +159,11 @@ Public Class LandUseForm
             NumericUpDown5.Value = MoorlandP
         ElseIf LUChoice = "Current" Then
             LandUse5Btn.Checked = True
-        ElseIf LUChoice = "Change 1" Then
+        ElseIf LUChoice = "Scenario A" Then
             LandUse1Btn.Checked = True
-        ElseIf LUChoice = "Change 2" Then
+        ElseIf LUChoice = "Scenario B" Then
             LandUse2Btn.Checked = True
-        ElseIf LUChoice = "Change 3" Then
+        ElseIf LUChoice = "Scenario C" Then
             LandUse3Btn.Checked = True
         End If
 
@@ -183,7 +183,7 @@ Public Class LandUseForm
 
     Private Class SectorItem
 
-        ' more automatic updating of the pie chart
+        ' more automatic updating of the pie chart, "copied and disguised" (Quinn, 2018)
 
         Implements System.ComponentModel.INotifyPropertyChanged
         Public Event PropertyChanged(ByVal sender As Object, ByVal e As System.ComponentModel.PropertyChangedEventArgs) Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
@@ -235,11 +235,11 @@ Public Class LandUseForm
             If (LandUse4Btn.Checked = True) Then
                 LUChoice = "Custom"
             ElseIf (LandUse3Btn.Checked = True) Then
-                LUChoice = "Change 3"
+                LUChoice = "Scenario C"
             ElseIf (LandUse2Btn.Checked = True) Then
-                LUChoice = "Change 2"
+                LUChoice = "Scenario B"
             ElseIf (LandUse1Btn.Checked = True) Then
-                LUChoice = "Change 1"
+                LUChoice = "Scenario A"
             ElseIf (LandUse5Btn.Checked = True) Then
                 LUChoice = "Current"
             End If
@@ -257,7 +257,7 @@ Public Class LandUseForm
             Model.MoorTxt.Text = MoorlandP
             Model.TextBoxLUChoice.Text = LUChoice
 
-            ExitYN = vbYes
+            ExitYN = vbYes ' Philipe, what is going on here? Why is there an if statement asking if this is true below? SL
             If ExitYN = vbYes Then
 
                 Model.Show()
@@ -277,9 +277,9 @@ Public Class LandUseForm
         ' if it's the first time you've opened this form, you need to select a land use!
 
         If Control = False Then
-            MsgBox("To continue with the programme please select a option and click Ok")
+            MsgBox("To continue with the programme please select an option and click OK")
         Else
-            ExitYN = vbYes
+            ExitYN = vbYes 'Again Philipe, I do not understand this? SL
             If ExitYN = vbYes Then
                 Model.Show()
                 Me.Close()
@@ -298,6 +298,5 @@ Public Class LandUseForm
         End If
 
     End Sub
-
 
 End Class
