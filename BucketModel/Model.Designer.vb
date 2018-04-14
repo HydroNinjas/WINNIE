@@ -43,9 +43,9 @@ Partial Class Model
         Me.SpinEvap = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.LnkGraph = New System.Windows.Forms.LinkLabel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.LnkGraph = New System.Windows.Forms.LinkLabel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.BtnClear = New System.Windows.Forms.Button()
@@ -339,18 +339,6 @@ Partial Class Model
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(209, 139)
         Me.TableLayoutPanel3.TabIndex = 5
         '
-        'LnkGraph
-        '
-        Me.LnkGraph.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LnkGraph.AutoSize = True
-        Me.TableLayoutPanel3.SetColumnSpan(Me.LnkGraph, 2)
-        Me.LnkGraph.Location = New System.Drawing.Point(51, 105)
-        Me.LnkGraph.Name = "LnkGraph"
-        Me.LnkGraph.Size = New System.Drawing.Size(106, 20)
-        Me.LnkGraph.TabIndex = 6
-        Me.LnkGraph.TabStop = True
-        Me.LnkGraph.Text = "View baseline"
-        '
         'Label7
         '
         Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -370,6 +358,18 @@ Partial Class Model
         Me.Label8.Size = New System.Drawing.Size(123, 20)
         Me.Label8.TabIndex = 4
         Me.Label8.Text = "% Evap Change"
+        '
+        'LnkGraph
+        '
+        Me.LnkGraph.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LnkGraph.AutoSize = True
+        Me.TableLayoutPanel3.SetColumnSpan(Me.LnkGraph, 2)
+        Me.LnkGraph.Location = New System.Drawing.Point(51, 105)
+        Me.LnkGraph.Name = "LnkGraph"
+        Me.LnkGraph.Size = New System.Drawing.Size(106, 20)
+        Me.LnkGraph.TabIndex = 6
+        Me.LnkGraph.TabStop = True
+        Me.LnkGraph.Text = "View baseline"
         '
         'GroupBox3
         '

@@ -22,8 +22,8 @@ Partial Class LandUseForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LandUse5Btn = New System.Windows.Forms.RadioButton()
         Me.Customsettings = New System.Windows.Forms.GroupBox()
@@ -281,13 +281,13 @@ Partial Class LandUseForm
         'LUPie
         '
         Me.LUPie.BackColor = System.Drawing.Color.Transparent
-        ChartArea4.BackColor = System.Drawing.Color.Transparent
-        ChartArea4.BackImageTransparentColor = System.Drawing.Color.Transparent
-        ChartArea4.Name = "ChartArea1"
-        Me.LUPie.ChartAreas.Add(ChartArea4)
+        ChartArea1.BackColor = System.Drawing.Color.Transparent
+        ChartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent
+        ChartArea1.Name = "ChartArea1"
+        Me.LUPie.ChartAreas.Add(ChartArea1)
         Me.LUPie.Dock = System.Windows.Forms.DockStyle.Right
-        Legend4.Name = "Legend1"
-        Me.LUPie.Legends.Add(Legend4)
+        Legend1.Name = "Legend1"
+        Me.LUPie.Legends.Add(Legend1)
         Me.LUPie.Location = New System.Drawing.Point(807, 0)
         Me.LUPie.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LUPie.Name = "LUPie"
