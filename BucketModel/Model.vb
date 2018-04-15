@@ -17690,37 +17690,34 @@ Public Class Model
     Private Sub RunModel(sender As Object, e As EventArgs) Handles btnRun.Click
         '
         'Storage and Runoff
-        Dim S, R As Double
-        '
-        'Proportion of FC as the initial condition
-        Const S0_prop = 1
+        Dim dblHourlyStorage As Double, dblHourlyRunoff As Double
         '
         'Proportions from the land use scenario
-        dblProp(0) = BareRockP / 100
-        dblProp(1) = ForestP / 100
-        dblProp(2) = GrasslandP / 100
-        dblProp(3) = ArableP / 100
-        dblProp(4) = MoorlandP / 100
+        dblProp(0) = dblPropBareRock / 100
+        dblProp(1) = dblPropForest / 100
+        dblProp(2) = dblPropGrassland / 100
+        dblProp(3) = dblPropArable / 100
+        dblProp(4) = dblPropMoorland / 100
         '
         'For each land use type
         For i As Integer = 0 To 4
             '
             'Set initial storage
-            S = dblFC(i) * S0_prop
+            dblHourlyStorage = dblFC(i)
             '
             'Run the bucket model
             For j As Integer = 0 To 8781
-                S = Math.Max(0, S + dblSimRain(j) - dblSimEvap(j))
-                R = Math.Max(0, S - dblFC(i))
-                S = S - R
+                dblHourlyStorage = Math.Max(0, dblHourlyStorage + dblSimRain(j) - dblSimEvap(j))
+                dblHourlyRunoff = Math.Max(0, dblHourlyStorage - dblFC(i))
+                dblHourlyStorage = dblHourlyStorage - dblHourlyRunoff
                 '
                 'Aggregate based on land use proportions
                 If i = 0 Then
-                    dblSimRunoff(j) = R * dblProp(i)
-                    dblSimStorage(j) = S * dblProp(i)
+                    dblSimRunoff(j) = dblHourlyRunoff * dblProp(i)
+                    dblSimStorage(j) = dblHourlyStorage * dblProp(i)
                 Else
-                    dblSimRunoff(j) += R * dblProp(i)
-                    dblSimStorage(j) += S * dblProp(i)
+                    dblSimRunoff(j) += dblHourlyRunoff * dblProp(i)
+                    dblSimStorage(j) += dblHourlyStorage * dblProp(i)
                 End If
             Next j
         Next i
@@ -17729,7 +17726,7 @@ Public Class Model
         graSimRunoff.Series(0).Points.DataBindXY(dteHrs, dblSimRunoff)
         '
         'Update the log
-        txtLog.AppendText(LUChoice.Substring(0, Math.Min(3, LUChoice.Length)) & vbTab &
+        txtLog.AppendText(strScenario.Substring(0, Math.Min(3, strScenario.Length)) & vbTab &
             spnRain.Value & vbTab &
             spnEvap.Value & vbTab &
             Math.Round(dblSimRunoff.Average, 4) & vbTab & Math.Round((dblSimRunoff.Max), 3) & vbCrLf)

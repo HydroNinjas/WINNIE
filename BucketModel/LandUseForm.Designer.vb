@@ -22,10 +22,10 @@ Partial Class LandUseForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.LandUse5Btn = New System.Windows.Forms.RadioButton()
+        Me.btnCurrent = New System.Windows.Forms.RadioButton()
         Me.Customsettings = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -33,32 +33,32 @@ Partial Class LandUseForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.NumericUpDown5 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
-        Me.TxtBoxTotal = New System.Windows.Forms.TextBox()
-        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
-        Me.LandUse4Btn = New System.Windows.Forms.RadioButton()
-        Me.LandUse3Btn = New System.Windows.Forms.RadioButton()
-        Me.LandUse2Btn = New System.Windows.Forms.RadioButton()
-        Me.LandUse1Btn = New System.Windows.Forms.RadioButton()
-        Me.LUPie = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.LFcancelBtn = New System.Windows.Forms.Button()
-        Me.LFokBtn = New System.Windows.Forms.Button()
-        Me.LandImage = New System.Windows.Forms.PictureBox()
+        Me.spnMoorland = New System.Windows.Forms.NumericUpDown()
+        Me.spnBareRock = New System.Windows.Forms.NumericUpDown()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.spnGrassland = New System.Windows.Forms.NumericUpDown()
+        Me.spnForest = New System.Windows.Forms.NumericUpDown()
+        Me.spnArable = New System.Windows.Forms.NumericUpDown()
+        Me.btnCustom = New System.Windows.Forms.RadioButton()
+        Me.btnScenarioC = New System.Windows.Forms.RadioButton()
+        Me.btnScenarioB = New System.Windows.Forms.RadioButton()
+        Me.btnScenarioA = New System.Windows.Forms.RadioButton()
+        Me.graProps = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnOK = New System.Windows.Forms.Button()
+        Me.imgMap = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.lnkHelp = New System.Windows.Forms.LinkLabel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Customsettings.SuspendLayout()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LUPie, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LandImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnMoorland, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnBareRock, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnGrassland, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnForest, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnArable, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.graProps, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imgMap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -66,12 +66,12 @@ Partial Class LandUseForm
         '
         Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.TableLayoutPanel1.SetColumnSpan(Me.GroupBox1, 2)
-        Me.GroupBox1.Controls.Add(Me.LandUse5Btn)
+        Me.GroupBox1.Controls.Add(Me.btnCurrent)
         Me.GroupBox1.Controls.Add(Me.Customsettings)
-        Me.GroupBox1.Controls.Add(Me.LandUse4Btn)
-        Me.GroupBox1.Controls.Add(Me.LandUse3Btn)
-        Me.GroupBox1.Controls.Add(Me.LandUse2Btn)
-        Me.GroupBox1.Controls.Add(Me.LandUse1Btn)
+        Me.GroupBox1.Controls.Add(Me.btnCustom)
+        Me.GroupBox1.Controls.Add(Me.btnScenarioC)
+        Me.GroupBox1.Controls.Add(Me.btnScenarioB)
+        Me.GroupBox1.Controls.Add(Me.btnScenarioA)
         Me.GroupBox1.Location = New System.Drawing.Point(68, 211)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
@@ -82,17 +82,17 @@ Partial Class LandUseForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Scenario"
         '
-        'LandUse5Btn
+        'btnCurrent
         '
-        Me.LandUse5Btn.AutoSize = True
-        Me.LandUse5Btn.Location = New System.Drawing.Point(7, 26)
-        Me.LandUse5Btn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LandUse5Btn.Name = "LandUse5Btn"
-        Me.LandUse5Btn.Size = New System.Drawing.Size(87, 24)
-        Me.LandUse5Btn.TabIndex = 5
-        Me.LandUse5Btn.TabStop = True
-        Me.LandUse5Btn.Text = "Current"
-        Me.LandUse5Btn.UseVisualStyleBackColor = True
+        Me.btnCurrent.AutoSize = True
+        Me.btnCurrent.Location = New System.Drawing.Point(7, 26)
+        Me.btnCurrent.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnCurrent.Name = "btnCurrent"
+        Me.btnCurrent.Size = New System.Drawing.Size(87, 24)
+        Me.btnCurrent.TabIndex = 5
+        Me.btnCurrent.TabStop = True
+        Me.btnCurrent.Text = "Current"
+        Me.btnCurrent.UseVisualStyleBackColor = True
         '
         'Customsettings
         '
@@ -102,12 +102,12 @@ Partial Class LandUseForm
         Me.Customsettings.Controls.Add(Me.Label3)
         Me.Customsettings.Controls.Add(Me.Label2)
         Me.Customsettings.Controls.Add(Me.Label1)
-        Me.Customsettings.Controls.Add(Me.NumericUpDown5)
-        Me.Customsettings.Controls.Add(Me.NumericUpDown4)
-        Me.Customsettings.Controls.Add(Me.TxtBoxTotal)
-        Me.Customsettings.Controls.Add(Me.NumericUpDown3)
-        Me.Customsettings.Controls.Add(Me.NumericUpDown1)
-        Me.Customsettings.Controls.Add(Me.NumericUpDown2)
+        Me.Customsettings.Controls.Add(Me.spnMoorland)
+        Me.Customsettings.Controls.Add(Me.spnBareRock)
+        Me.Customsettings.Controls.Add(Me.txtTotal)
+        Me.Customsettings.Controls.Add(Me.spnGrassland)
+        Me.Customsettings.Controls.Add(Me.spnForest)
+        Me.Customsettings.Controls.Add(Me.spnArable)
         Me.Customsettings.Location = New System.Drawing.Point(6, 193)
         Me.Customsettings.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Customsettings.Name = "Customsettings"
@@ -171,174 +171,174 @@ Partial Class LandUseForm
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "% Forest"
         '
-        'NumericUpDown5
+        'spnMoorland
         '
-        Me.NumericUpDown5.DecimalPlaces = 2
-        Me.NumericUpDown5.Location = New System.Drawing.Point(7, 166)
-        Me.NumericUpDown5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.NumericUpDown5.Name = "NumericUpDown5"
-        Me.NumericUpDown5.Size = New System.Drawing.Size(79, 26)
-        Me.NumericUpDown5.TabIndex = 9
-        Me.NumericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnMoorland.DecimalPlaces = 2
+        Me.spnMoorland.Location = New System.Drawing.Point(7, 166)
+        Me.spnMoorland.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.spnMoorland.Name = "spnMoorland"
+        Me.spnMoorland.Size = New System.Drawing.Size(79, 26)
+        Me.spnMoorland.TabIndex = 9
+        Me.spnMoorland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'NumericUpDown4
+        'spnBareRock
         '
-        Me.NumericUpDown4.DecimalPlaces = 2
-        Me.NumericUpDown4.Location = New System.Drawing.Point(7, 26)
-        Me.NumericUpDown4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.NumericUpDown4.Name = "NumericUpDown4"
-        Me.NumericUpDown4.Size = New System.Drawing.Size(79, 26)
-        Me.NumericUpDown4.TabIndex = 8
-        Me.NumericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnBareRock.DecimalPlaces = 2
+        Me.spnBareRock.Location = New System.Drawing.Point(7, 26)
+        Me.spnBareRock.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.spnBareRock.Name = "spnBareRock"
+        Me.spnBareRock.Size = New System.Drawing.Size(79, 26)
+        Me.spnBareRock.TabIndex = 8
+        Me.spnBareRock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TxtBoxTotal
+        'txtTotal
         '
-        Me.TxtBoxTotal.Location = New System.Drawing.Point(58, 204)
-        Me.TxtBoxTotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TxtBoxTotal.Name = "TxtBoxTotal"
-        Me.TxtBoxTotal.Size = New System.Drawing.Size(72, 26)
-        Me.TxtBoxTotal.TabIndex = 7
-        Me.TxtBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtTotal.Location = New System.Drawing.Point(58, 204)
+        Me.txtTotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(72, 26)
+        Me.txtTotal.TabIndex = 7
+        Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'NumericUpDown3
+        'spnGrassland
         '
-        Me.NumericUpDown3.DecimalPlaces = 2
-        Me.NumericUpDown3.Location = New System.Drawing.Point(7, 96)
-        Me.NumericUpDown3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(79, 26)
-        Me.NumericUpDown3.TabIndex = 6
-        Me.NumericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnGrassland.DecimalPlaces = 2
+        Me.spnGrassland.Location = New System.Drawing.Point(7, 96)
+        Me.spnGrassland.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.spnGrassland.Name = "spnGrassland"
+        Me.spnGrassland.Size = New System.Drawing.Size(79, 26)
+        Me.spnGrassland.TabIndex = 6
+        Me.spnGrassland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'NumericUpDown1
+        'spnForest
         '
-        Me.NumericUpDown1.DecimalPlaces = 2
-        Me.NumericUpDown1.Location = New System.Drawing.Point(7, 61)
-        Me.NumericUpDown1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(79, 26)
-        Me.NumericUpDown1.TabIndex = 4
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnForest.DecimalPlaces = 2
+        Me.spnForest.Location = New System.Drawing.Point(7, 61)
+        Me.spnForest.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.spnForest.Name = "spnForest"
+        Me.spnForest.Size = New System.Drawing.Size(79, 26)
+        Me.spnForest.TabIndex = 4
+        Me.spnForest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'NumericUpDown2
+        'spnArable
         '
-        Me.NumericUpDown2.DecimalPlaces = 2
-        Me.NumericUpDown2.Location = New System.Drawing.Point(7, 131)
-        Me.NumericUpDown2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(79, 26)
-        Me.NumericUpDown2.TabIndex = 5
-        Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnArable.DecimalPlaces = 2
+        Me.spnArable.Location = New System.Drawing.Point(7, 131)
+        Me.spnArable.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.spnArable.Name = "spnArable"
+        Me.spnArable.Size = New System.Drawing.Size(79, 26)
+        Me.spnArable.TabIndex = 5
+        Me.spnArable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'LandUse4Btn
+        'btnCustom
         '
-        Me.LandUse4Btn.AutoSize = True
-        Me.LandUse4Btn.Location = New System.Drawing.Point(7, 161)
-        Me.LandUse4Btn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LandUse4Btn.Name = "LandUse4Btn"
-        Me.LandUse4Btn.Size = New System.Drawing.Size(89, 24)
-        Me.LandUse4Btn.TabIndex = 3
-        Me.LandUse4Btn.TabStop = True
-        Me.LandUse4Btn.Text = "Custom"
-        Me.LandUse4Btn.UseVisualStyleBackColor = True
+        Me.btnCustom.AutoSize = True
+        Me.btnCustom.Location = New System.Drawing.Point(7, 161)
+        Me.btnCustom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnCustom.Name = "btnCustom"
+        Me.btnCustom.Size = New System.Drawing.Size(89, 24)
+        Me.btnCustom.TabIndex = 3
+        Me.btnCustom.TabStop = True
+        Me.btnCustom.Text = "Custom"
+        Me.btnCustom.UseVisualStyleBackColor = True
         '
-        'LandUse3Btn
+        'btnScenarioC
         '
-        Me.LandUse3Btn.AutoSize = True
-        Me.LandUse3Btn.Location = New System.Drawing.Point(7, 128)
-        Me.LandUse3Btn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LandUse3Btn.Name = "LandUse3Btn"
-        Me.LandUse3Btn.Size = New System.Drawing.Size(45, 24)
-        Me.LandUse3Btn.TabIndex = 2
-        Me.LandUse3Btn.TabStop = True
-        Me.LandUse3Btn.Text = "C"
-        Me.LandUse3Btn.UseVisualStyleBackColor = True
+        Me.btnScenarioC.AutoSize = True
+        Me.btnScenarioC.Location = New System.Drawing.Point(7, 128)
+        Me.btnScenarioC.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnScenarioC.Name = "btnScenarioC"
+        Me.btnScenarioC.Size = New System.Drawing.Size(45, 24)
+        Me.btnScenarioC.TabIndex = 2
+        Me.btnScenarioC.TabStop = True
+        Me.btnScenarioC.Text = "C"
+        Me.btnScenarioC.UseVisualStyleBackColor = True
         '
-        'LandUse2Btn
+        'btnScenarioB
         '
-        Me.LandUse2Btn.AutoSize = True
-        Me.LandUse2Btn.Location = New System.Drawing.Point(7, 94)
-        Me.LandUse2Btn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LandUse2Btn.Name = "LandUse2Btn"
-        Me.LandUse2Btn.Size = New System.Drawing.Size(45, 24)
-        Me.LandUse2Btn.TabIndex = 1
-        Me.LandUse2Btn.TabStop = True
-        Me.LandUse2Btn.Text = "B"
-        Me.LandUse2Btn.UseVisualStyleBackColor = True
+        Me.btnScenarioB.AutoSize = True
+        Me.btnScenarioB.Location = New System.Drawing.Point(7, 94)
+        Me.btnScenarioB.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnScenarioB.Name = "btnScenarioB"
+        Me.btnScenarioB.Size = New System.Drawing.Size(45, 24)
+        Me.btnScenarioB.TabIndex = 1
+        Me.btnScenarioB.TabStop = True
+        Me.btnScenarioB.Text = "B"
+        Me.btnScenarioB.UseVisualStyleBackColor = True
         '
-        'LandUse1Btn
+        'btnScenarioA
         '
-        Me.LandUse1Btn.AutoSize = True
-        Me.LandUse1Btn.Location = New System.Drawing.Point(7, 60)
-        Me.LandUse1Btn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LandUse1Btn.Name = "LandUse1Btn"
-        Me.LandUse1Btn.Size = New System.Drawing.Size(45, 24)
-        Me.LandUse1Btn.TabIndex = 0
-        Me.LandUse1Btn.TabStop = True
-        Me.LandUse1Btn.Text = "A"
-        Me.LandUse1Btn.UseVisualStyleBackColor = True
+        Me.btnScenarioA.AutoSize = True
+        Me.btnScenarioA.Location = New System.Drawing.Point(7, 60)
+        Me.btnScenarioA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnScenarioA.Name = "btnScenarioA"
+        Me.btnScenarioA.Size = New System.Drawing.Size(45, 24)
+        Me.btnScenarioA.TabIndex = 0
+        Me.btnScenarioA.TabStop = True
+        Me.btnScenarioA.Text = "A"
+        Me.btnScenarioA.UseVisualStyleBackColor = True
         '
-        'LUPie
+        'graProps
         '
-        Me.LUPie.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.LUPie.ChartAreas.Add(ChartArea1)
-        Me.LUPie.Dock = System.Windows.Forms.DockStyle.Right
-        Legend1.Name = "Legend1"
-        Me.LUPie.Legends.Add(Legend1)
-        Me.LUPie.Location = New System.Drawing.Point(807, 0)
-        Me.LUPie.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LUPie.Name = "LUPie"
-        Me.LUPie.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
-        Me.LUPie.PaletteCustomColors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(0, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(211, Byte), Integer), CType(CType(127, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(190, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(78, Byte), Integer), CType(CType(78, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(137, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(68, Byte), Integer))}
-        Me.LUPie.Size = New System.Drawing.Size(506, 941)
-        Me.LUPie.TabIndex = 2
-        Me.LUPie.Text = "LUPie"
+        Me.graProps.BackColor = System.Drawing.Color.Transparent
+        ChartArea2.BackColor = System.Drawing.Color.Transparent
+        ChartArea2.BackImageTransparentColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.graProps.ChartAreas.Add(ChartArea2)
+        Me.graProps.Dock = System.Windows.Forms.DockStyle.Right
+        Legend2.Name = "Legend1"
+        Me.graProps.Legends.Add(Legend2)
+        Me.graProps.Location = New System.Drawing.Point(807, 0)
+        Me.graProps.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.graProps.Name = "graProps"
+        Me.graProps.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
+        Me.graProps.PaletteCustomColors = New System.Drawing.Color() {System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(115, Byte), Integer), CType(CType(0, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(211, Byte), Integer), CType(CType(127, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(211, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(190, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(78, Byte), Integer), CType(CType(78, Byte), Integer)), System.Drawing.Color.FromArgb(CType(CType(137, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(68, Byte), Integer))}
+        Me.graProps.Size = New System.Drawing.Size(506, 941)
+        Me.graProps.TabIndex = 2
+        Me.graProps.Text = "LUPie"
         '
-        'LFcancelBtn
+        'btnCancel
         '
-        Me.LFcancelBtn.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LFcancelBtn.Location = New System.Drawing.Point(197, 876)
-        Me.LFcancelBtn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LFcancelBtn.Name = "LFcancelBtn"
-        Me.LFcancelBtn.Size = New System.Drawing.Size(169, 50)
-        Me.LFcancelBtn.TabIndex = 3
-        Me.LFcancelBtn.Text = "Cancel"
-        Me.LFcancelBtn.UseVisualStyleBackColor = True
+        Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnCancel.Location = New System.Drawing.Point(197, 876)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(169, 50)
+        Me.btnCancel.TabIndex = 3
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'LFokBtn
+        'btnOK
         '
-        Me.LFokBtn.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LFokBtn.Location = New System.Drawing.Point(9, 876)
-        Me.LFokBtn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LFokBtn.Name = "LFokBtn"
-        Me.LFokBtn.Size = New System.Drawing.Size(169, 50)
-        Me.LFokBtn.TabIndex = 4
-        Me.LFokBtn.Text = "OK"
-        Me.LFokBtn.UseVisualStyleBackColor = True
+        Me.btnOK.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnOK.Location = New System.Drawing.Point(9, 876)
+        Me.btnOK.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnOK.Name = "btnOK"
+        Me.btnOK.Size = New System.Drawing.Size(169, 50)
+        Me.btnOK.TabIndex = 4
+        Me.btnOK.Text = "OK"
+        Me.btnOK.UseVisualStyleBackColor = True
         '
-        'LandImage
+        'imgMap
         '
-        Me.LandImage.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LandImage.Dock = System.Windows.Forms.DockStyle.Right
-        Me.LandImage.Location = New System.Drawing.Point(1313, 0)
-        Me.LandImage.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LandImage.Name = "LandImage"
-        Me.LandImage.Size = New System.Drawing.Size(506, 941)
-        Me.LandImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.LandImage.TabIndex = 1
-        Me.LandImage.TabStop = False
+        Me.imgMap.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.imgMap.Dock = System.Windows.Forms.DockStyle.Right
+        Me.imgMap.Location = New System.Drawing.Point(1313, 0)
+        Me.imgMap.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.imgMap.Name = "imgMap"
+        Me.imgMap.Size = New System.Drawing.Size(506, 941)
+        Me.imgMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.imgMap.TabIndex = 1
+        Me.imgMap.TabStop = False
         '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.LinkLabel1, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.LFokBtn, 0, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.LFcancelBtn, 1, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.lnkHelp, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnOK, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnCancel, 1, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.Label7, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 2)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left
@@ -355,17 +355,17 @@ Partial Class LandUseForm
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(376, 941)
         Me.TableLayoutPanel1.TabIndex = 5
         '
-        'LinkLabel1
+        'lnkHelp
         '
-        Me.LinkLabel1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LinkLabel1.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.LinkLabel1, 2)
-        Me.LinkLabel1.Location = New System.Drawing.Point(142, 150)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(91, 20)
-        Me.LinkLabel1.TabIndex = 19
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Online Help"
+        Me.lnkHelp.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lnkHelp.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.lnkHelp, 2)
+        Me.lnkHelp.Location = New System.Drawing.Point(142, 150)
+        Me.lnkHelp.Name = "lnkHelp"
+        Me.lnkHelp.Size = New System.Drawing.Size(91, 20)
+        Me.lnkHelp.TabIndex = 19
+        Me.lnkHelp.TabStop = True
+        Me.lnkHelp.Text = "Online Help"
         '
         'Label7
         '
@@ -387,8 +387,8 @@ Partial Class LandUseForm
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(1819, 941)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Controls.Add(Me.LUPie)
-        Me.Controls.Add(Me.LandImage)
+        Me.Controls.Add(Me.graProps)
+        Me.Controls.Add(Me.imgMap)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "LandUseForm"
@@ -398,13 +398,13 @@ Partial Class LandUseForm
         Me.GroupBox1.PerformLayout()
         Me.Customsettings.ResumeLayout(False)
         Me.Customsettings.PerformLayout()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LUPie, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LandImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnMoorland, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnBareRock, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnGrassland, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnForest, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnArable, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.graProps, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgMap, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -412,29 +412,29 @@ Partial Class LandUseForm
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents LandUse4Btn As RadioButton
-    Friend WithEvents LandUse3Btn As RadioButton
-    Friend WithEvents LandUse2Btn As RadioButton
-    Friend WithEvents LandUse1Btn As RadioButton
-    Friend WithEvents NumericUpDown3 As NumericUpDown
-    Friend WithEvents NumericUpDown2 As NumericUpDown
-    Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents btnCustom As RadioButton
+    Friend WithEvents btnScenarioC As RadioButton
+    Friend WithEvents btnScenarioB As RadioButton
+    Friend WithEvents btnScenarioA As RadioButton
+    Friend WithEvents spnGrassland As NumericUpDown
+    Friend WithEvents spnArable As NumericUpDown
+    Friend WithEvents spnForest As NumericUpDown
     Friend WithEvents Customsettings As GroupBox
-    Friend WithEvents LUPie As DataVisualization.Charting.Chart
-    Friend WithEvents TxtBoxTotal As TextBox
-    Friend WithEvents LFcancelBtn As Button
-    Friend WithEvents LFokBtn As Button
-    Friend WithEvents LandUse5Btn As RadioButton
+    Friend WithEvents graProps As DataVisualization.Charting.Chart
+    Friend WithEvents txtTotal As TextBox
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents btnOK As Button
+    Friend WithEvents btnCurrent As RadioButton
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents NumericUpDown5 As NumericUpDown
-    Friend WithEvents NumericUpDown4 As NumericUpDown
-    Friend WithEvents LandImage As PictureBox
+    Friend WithEvents spnMoorland As NumericUpDown
+    Friend WithEvents spnBareRock As NumericUpDown
+    Friend WithEvents imgMap As PictureBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label7 As Label
-    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents lnkHelp As LinkLabel
 End Class
