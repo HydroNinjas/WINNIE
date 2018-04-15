@@ -1,8 +1,19 @@
-﻿Imports System.Windows.Forms.DataVisualization.Charting
+﻿'Authors:       Philip Ayre and Shannon Leakey, Ninja Developments
+'Description:   GUI for simple bucket model with climate change spinners, simulation log,
+'               CSV writer, interactive graph, and link to Scenario Selector
+'
+Option Explicit On
+
+Imports System.Windows.Forms.DataVisualization.Charting
 Imports System.IO
 
 Public Class Model
 
+    '============================
+    '"Constant" Declaration
+    '============================
+    '
+    'Reading in the observed rainfall and evaporation
     Dim Rain As Double() = {0,
     0,
     0,
@@ -8784,7 +8795,7 @@ Public Class Model
     0,
     0,
     0,
-    0}                              ' reading in the CSVs manually (sorry - press the little "+" to hide)
+    0}
     Dim Evap As Double() = {0.000876,
     0.0007075,
     0.00310025,
@@ -17567,70 +17578,70 @@ Public Class Model
     0,
     0.0023135,
     0.007731}
+    '
+    'Field capacities for Bare Rock, Forest, Grassland, Arable, Moorland
+    Dim FC As Double() = {5, 50, 25, 25, 5}
+    '
+    'Link to interactive graph
+    Private Const URLGraph As String = "https://hydroninjas.github.io/hydrology"
+    '
+    'The 2011/12 water year
+    Private Const start_date As Date = #10/01/2011#
+    Dim Hrs(8781) As Date
 
-    Dim Rain_new As Double() = Rain                         ' these will contain our altered time series from climate change
+    '============================
+    'Variable Declaration
+    '============================
+    '
+    'For the altered time series
+    Dim Rain_new As Double() = Rain
     Dim Evap_new As Double() = Evap
-
-    Dim Hrs(8781) As Date                                   ' to hold dates for the water year 2011/2012
-    Dim start_date As Date = New Date(2011, 10, 1)
-
-    Dim Runoff(8781) As Double                              ' to be filled by the model
+    '
+    'For the modelled runoff and storage
+    Dim Runoff(8781) As Double
     Dim Storage(8781) As Double
+    '
+    'For the land use proportions
+    Dim Props(5) As Double
+    '
+    'For determining whether to save the model run
+    Dim SaveCSV As Boolean = False
+    '
+    'For pop-up windows when closing
+    Dim ExitYN As System.Windows.Forms.DialogResult
 
-    Dim FC As Double() = {5, 50, 25, 25, 5}                 ' field capacities for BareRock, Forest, Grassland, Arable, Moorland
-    Dim Props(5) As Double                                  ' proportions for BareRock, Forest, Grassland, Arable, Moorland - to be filled in depending on scenario
-
-    Dim SaveCSV As Boolean = False                          ' to determine whether to save the model run as a CSV or not
-
-    Dim ExitYN As System.Windows.Forms.DialogResult         ' for pop-up windows when closing
-
-    Dim URLGraph As String = "https://hydroninjas.github.io/hydrology"      ' link to an interactive graph
-
+    '============================
+    'When form loaded
+    '============================
 
     Private Sub Model_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '
+        'Making it pretty
         ExitYN = True
         Me.MaximizeBox = False
         Me.MinimizeBox = True
         Me.CenterToParent()
-
-        ' filling up the date time series with the actual dates
-
+        '
+        'Putting in the dates
         For i As Integer = 0 To 8781
             Hrs(i) = start_date.AddHours(i)
         Next
-
-        ' setting up the runoff graphs, ready to be plotted on
-
+        '
+        'Setting up the graph
         ModelChart.Series.Add("Runoff")
         ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
-
-        ' adding lovely scroll bars
-
         ModelChart.ChartAreas(0).CursorX.IsUserSelectionEnabled = True
-
-        ' set up the table to compare results
-
-        TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
+        '
+        'Setting up the log
+        TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab &
+            "Mean" & vbTab & "Peak" & vbCrLf &
             "_________________________________" & vbCrLf
-
-        ' set up the links
-
-        Me.LnkGraph.Links.Add(0, URLGraph.Length, URLGraph)
-
     End Sub
 
-    Function Qbar(ByVal x As Array) As Double
-
-        ' A function to calculate the mean of the discharge record
-
-        Dim sum As Double = 0
-        For i As Integer = 0 To 8781
-            sum += x(i)
-        Next
-        Return sum / 8781
-
-    End Function
+    '============================
+    'Spinner controls
+    '============================
 
     Private Sub SpinRain_ValueChanged(sender As Object, e As EventArgs) Handles SpinRain.ValueChanged
 
@@ -17650,90 +17661,93 @@ Public Class Model
 
     End Sub
 
+    '============================
+    'When main button clicked
+    '============================
+
     Private Sub ModelRun_Click(sender As Object, e As EventArgs) Handles ModelRun.Click
-
-        ' click the big red button => activate the rainfall-runoff model
-
-        Dim S, R As Double     ' storage, runoff
-        Const S0_prop = 1      ' proportion of FC as the initial condition
-
-
-        Props(0) = BareRockP / 100      ' proportions from the land use scenario chosen
+        '
+        'Storage and Runoff
+        Dim S, R As Double
+        '
+        'Proportion of FC as the initial condition
+        Const S0_prop = 1
+        '
+        'Proportions from the land use scenario
+        Props(0) = BareRockP / 100
         Props(1) = ForestP / 100
         Props(2) = GrasslandP / 100
         Props(3) = ArableP / 100
         Props(4) = MoorlandP / 100
-
-        For i As Integer = 0 To 4                   ' for each land use type
-
-            S = FC(i) * S0_prop                     ' set the initial storage
-
-            For j As Integer = 0 To 8781            ' run the model
-
+        '
+        'For each land use type
+        For i As Integer = 0 To 4
+            '
+            'Set initial storage
+            S = FC(i) * S0_prop
+            '
+            'Run the bucket model
+            For j As Integer = 0 To 8781
                 S = Math.Max(0, S + Rain_new(j) - Evap_new(j))
                 R = Math.Max(0, S - FC(i))
                 S = S - R
-
-                If i = 0 Then                       ' aggregate based on land use proportions
+                '
+                'Aggregate based on land use proportions
+                If i = 0 Then
                     Runoff(j) = R * Props(i)
                     Storage(j) = S * Props(i)
                 Else
                     Runoff(j) += R * Props(i)
                     Storage(j) += S * Props(i)
                 End If
-
             Next j
-
         Next i
-
-        ' update the graphs
-
+        '
+        'Update the graphs
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
-
-        ' update the stats
-
+        '
+        'Update the log
         TxtCompare.AppendText(LUChoice.Substring(0, Math.Min(3, LUChoice.Length)) & vbTab &
             SpinRain.Value & vbTab &
             SpinEvap.Value & vbTab &
-            Math.Round(Qbar(Runoff), 4) & vbTab & Math.Round((Runoff.Max), 3) & vbCrLf)
-
-
-        ' CSV writer, "copied and disguised" (Quinn, 2018)
-
+            Math.Round(Runoff.Average, 4) & vbTab & Math.Round((Runoff.Max), 3) & vbCrLf)
+        '
+        'CSV writer, "copied and disguised" (Quinn, 2018)
         If SaveCSV = True Then
-
+            '
+            'Dialog form to pop up to let you choose filepath
             Dim saveFileDialog1 As New SaveFileDialog With {
                 .Filter = "csv files (*.csv)|*.csv",
                 .FilterIndex = 1,
                 .RestoreDirectory = True
             }
-
+            '
+            'Is it legit?
             If saveFileDialog1.ShowDialog() = DialogResult.OK Then
-
+                '
+                'The magic begins
                 Dim sw As StreamWriter = New StreamWriter(saveFileDialog1.OpenFile())
-
+                '
+                'The actual CSV writing
                 If (sw IsNot Nothing) Then
-
+                    '
+                    'Headers
                     sw.WriteLine("Date, Rain, Evap, Runoff, Storage")
-
+                    '
+                    'The rest
                     For i As Integer = 0 To 8781
-
                         sw.WriteLine(Hrs(i) & "," &
                                      Rain_new(i) & "," &
                                      Evap_new(i) & "," &
                                      Runoff(i) & "," &
                                      Storage(i))
-
                     Next
-
+                    '
+                    'The magic ends
                     sw.Close()
-
                 End If
-
             End If
-
         End If
-
     End Sub
 
     Private Sub ChckCSV_CheckedChanged(sender As Object, e As EventArgs) Handles ChckCSV.CheckedChanged
@@ -17767,7 +17781,7 @@ Public Class Model
 
         'sending you to the graph website if you click the link
 
-        System.Diagnostics.Process.Start(e.Link.LinkData.ToString())
+        Process.Start(URLGraph)
 
     End Sub
 
