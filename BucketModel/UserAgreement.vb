@@ -1,39 +1,47 @@
-﻿Public Class UserAgreement
-    Private Sub UserAgreement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+﻿'Authors:       Philip Ayre and Shannon Leakey, 2/3 of Ninja Developments
+'Description:   Land use selector with interactive map and pie chart,
+'               and link to main GUI form
+'
+Option Explicit On
+
+Public Class UserAgreement
+
+    '============================
+    'Variable Declaration
+    '============================
+    '
+    'For exiting the form
+    Dim blnExit As System.Windows.Forms.DialogResult
+
+    '============================
+    'General form stuff
+    '============================
+
+    Private Sub LoadUserAgreement(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizeBox = False
         Me.MinimizeBox = True
         Me.CenterToParent()
     End Sub
 
-    Dim ExitYN As System.Windows.Forms.DialogResult
-
-    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click
-
-        ExitYN = MsgBox("Do you really want to exit?", MsgBoxStyle.YesNo)
-        If ExitYN = MsgBoxResult.Yes Then
+    Private Sub CloseUserAgreement(sender As Object, e As EventArgs) Handles btnExit.Click
+        blnExit = MsgBox("Do you really want to exit?", MsgBoxStyle.YesNo)
+        If blnExit = MsgBoxResult.Yes Then
             Close()
         Else
         End If
     End Sub
 
-    Private Sub UserAgreement_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-
-        If ExitYN <> Windows.Forms.DialogResult.Yes Then
+    Private Sub CheckExit(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If blnExit <> Windows.Forms.DialogResult.Yes Then
             e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
         End If
     End Sub
 
-
-    Private Sub AgreBtn_Click(sender As Object, e As EventArgs) Handles AgreBtn.Click
-
-        ExitYN = vbYes
-        If ExitYN = vbYes Then
-
-            Dim SecondForm As New LandUseForm
-            SecondForm.Show()
-            Me.Close()
-        Else
-        End If
+    Private Sub CheckAgree(sender As Object, e As EventArgs) Handles btnAgree.Click
+        blnExit = vbYes
+        Dim SecondForm As New LandUseForm
+        SecondForm.Show()
+        Me.Close()
     End Sub
 
 End Class

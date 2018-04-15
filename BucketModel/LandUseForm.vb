@@ -44,7 +44,7 @@ Public Class LandUseForm
     'General form stuff
     '============================
 
-    Private Sub LoadLandUseForm(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub OpenLandUseForm(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '
         'For the pie chart data
         Dim srsProps As New Series("Pie1") With {
@@ -96,6 +96,73 @@ Public Class LandUseForm
         End If
     End Sub
 
+    Private Sub CheckOK(sender As Object, e As EventArgs) Handles btnOK.Click
+        If spnForest.Value + spnArable.Value + spnGrassland.Value + spnBareRock.Value + spnMoorland.Value = 100 Then
+            '
+            'If it's all good, then set those values into the global variables
+            If (btnCurrent.Checked = True) Then
+                strScenario = "Current"
+            ElseIf (btnScenarioA.Checked = True) Then
+                strScenario = "A"
+            ElseIf (btnScenarioB.Checked = True) Then
+                strScenario = "B"
+            ElseIf (btnScenarioC.Checked = True) Then
+                strScenario = "C"
+            ElseIf (btnCustom.Checked = True) Then
+                strScenario = "Custom"
+            End If
+            dblPropForest = spnForest.Value
+            dblPropArable = spnArable.Value
+            dblPropGrassland = spnGrassland.Value
+            dblPropBareRock = spnBareRock.Value
+            dblPropMoorland = spnMoorland.Value
+            '
+            'And change the text in the other form
+            Model.txtForest.Text = dblPropForest
+            Model.txtArable.Text = dblPropArable
+            Model.txtGrass.Text = dblPropGrassland
+            Model.txtBareRock.Text = dblPropBareRock
+            Model.txtMoorland.Text = dblPropMoorland
+            Model.txtScenario.Text = strScenario
+            '
+            'Now close the model
+            blnExit = vbYes
+            Model.Show()
+            Me.Close()
+            blnChosen = True
+            '
+            'Otherwise throw up an error
+        Else MessageBox.Show("Please enter a land combination that sums to 100%", "Error")
+        End If
+    End Sub
+
+    Private Sub CheckCancel(sender As Object, e As EventArgs) Handles btnCancel.Click
+        If blnChosen = False Then
+            MsgBox("To continue with the programme please select an option and click OK")
+        Else
+            '
+            'The variables are not shared with the other form
+            blnExit = vbYes
+            Model.Show()
+            Me.Close()
+        End If
+
+    End Sub
+
+    Private Sub CloseLandUseForm(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        '
+        'If it's the first time opening the form, you'll exit the whole program
+        If blnChosen = False And blnExit <> Windows.Forms.DialogResult.Yes Then
+            e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
+        End If
+    End Sub
+
+    Private Sub OpenMap(sender As Object, e As EventArgs) Handles imgMap.Click
+        '
+        'Clicking the map takes you to the website where you can zoom in even more
+        Process.Start(strMapURL)
+    End Sub
+
     '============================
     'Radio button controls
     '============================
@@ -105,10 +172,10 @@ Public Class LandUseForm
             '
             'Disable custom spinners
             Customsettings.Enabled = False
-            spnBareRock.Value = 35.83
-            spnForest.Value = 4.15
+            spnBareRock.Value = 4.15
+            spnForest.Value = 18.11
             spnGrassland.Value = 37.73
-            spnArable.Value = 18.11
+            spnArable.Value = 35.83
             spnMoorland.Value = 4.18
             '
             'Adjust graphics
@@ -177,6 +244,11 @@ Public Class LandUseForm
             '
             'Enable custom spinners
             Customsettings.Enabled = True
+            spnBareRock.Value = Math.Round(spnBareRock.Value, 0)
+            spnForest.Value = Math.Round(spnForest.Value, 0)
+            spnGrassland.Value = Math.Round(spnGrassland.Value, 0)
+            spnArable.Value = Math.Round(spnArable.Value, 0)
+            spnMoorland.Value = Math.Round(spnMoorland.Value, 0)
             '
             'Adjust graphics
             imgMap.Hide()
@@ -184,27 +256,26 @@ Public Class LandUseForm
         End If
     End Sub
 
+    '============================
+    'Pie chart magic
+    '============================
 
     Private WithEvents Sectors As New ComponentModel.BindingList(Of SectorItem)
 
-
-
-    Private Sub Sectors_ListChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles Sectors.ListChanged
-
-        ' automatic updating of the pie chart
-
+    Private Sub UpdatePie(ByVal sender As Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles Sectors.ListChanged
+        '
+        'Update pie chart
         If e.ListChangedType = ComponentModel.ListChangedType.ItemChanged Then
             graProps.Series("Pie1").Points.DataBind(Sectors, "", "Value", "Label=Name")
         End If
-
+        '
+        'Update the total
         txtTotal.Text = spnForest.Value + spnArable.Value + spnGrassland.Value + spnBareRock.Value + spnMoorland.Value
-
     End Sub
 
     Private Class SectorItem
-
-        ' more automatic updating of the pie chart, "copied and disguised" (Quinn, 2018)
-
+        '
+        'Magic pie chart stuff, "copied and disguised" (Quinn, 2018)
         Implements System.ComponentModel.INotifyPropertyChanged
         Public Event PropertyChanged(ByVal sender As Object, ByVal e As System.ComponentModel.PropertyChangedEventArgs) Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
 
@@ -244,85 +315,4 @@ Public Class LandUseForm
         End Property
     End Class
 
-    Private Sub LFokBtn_Click(sender As Object, e As EventArgs) Handles btnOK.Click
-
-        ' catching you out if you try to get a total percentage that isn't 100
-
-        If spnForest.Value + spnArable.Value + spnGrassland.Value + spnBareRock.Value + spnMoorland.Value = 100 Then
-
-            ' if it's all good, then set those values into the global variables
-
-            If (btnCustom.Checked = True) Then
-                strScenario = "Custom"
-            ElseIf (btnScenarioC.Checked = True) Then
-                strScenario = "C"
-            ElseIf (btnScenarioB.Checked = True) Then
-                strScenario = "B"
-            ElseIf (btnScenarioA.Checked = True) Then
-                strScenario = "A"
-            ElseIf (btnCurrent.Checked = True) Then
-                strScenario = "Current"
-            End If
-
-            dblPropForest = spnForest.Value
-            dblPropArable = spnArable.Value
-            dblPropGrassland = spnGrassland.Value
-            dblPropBareRock = spnBareRock.Value
-            dblPropMoorland = spnMoorland.Value
-
-            Model.txtForest.Text = dblPropForest
-            Model.txtArable.Text = dblPropArable
-            Model.txtGrass.Text = dblPropGrassland
-            Model.txtBareRock.Text = dblPropBareRock
-            Model.txtMoorland.Text = dblPropMoorland
-            Model.txtScenario.Text = strScenario
-
-            blnExit = vbYes ' Philipe, what is going on here? Why is there an if statement asking if this is true below? SL
-            If blnExit = vbYes Then
-
-                Model.Show()
-                Me.Close()
-                blnChosen = True
-            Else
-            End If
-
-        Else MessageBox.Show(" Please enter a land combination that sums to 100%", "Error")
-
-        End If
-
-    End Sub
-
-    Private Sub LFcancelBtn_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-
-        ' if it's the first time you've opened this form, you need to select a land use!
-
-        If blnChosen = False Then
-            MsgBox("To continue with the programme please select an option and click OK")
-        Else
-            blnExit = vbYes 'Again Philipe, I do not understand this? SL
-            If blnExit = vbYes Then
-                Model.Show()
-                Me.Close()
-            Else
-            End If
-        End If
-
-    End Sub
-
-    Private Sub Model_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-
-        ' if it's the first time you've opened the form, are you sure you want to exit?????
-
-        If blnChosen = False And blnExit <> Windows.Forms.DialogResult.Yes Then
-            e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
-        End If
-
-    End Sub
-
-    Private Sub LandImage_Click(sender As Object, e As EventArgs) Handles imgMap.Click
-
-        ' clicking the map takes you to the website where you can zoom in even more
-
-        Process.Start(strMapURL)
-    End Sub
 End Class

@@ -22,8 +22,8 @@ Partial Class LandUseForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnCurrent = New System.Windows.Forms.RadioButton()
         Me.Customsettings = New System.Windows.Forms.GroupBox()
@@ -180,6 +180,7 @@ Partial Class LandUseForm
         Me.spnMoorland.Size = New System.Drawing.Size(79, 26)
         Me.spnMoorland.TabIndex = 9
         Me.spnMoorland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnMoorland.Value = New Decimal(New Integer() {418, 0, 0, 131072})
         '
         'spnBareRock
         '
@@ -187,9 +188,11 @@ Partial Class LandUseForm
         Me.spnBareRock.Location = New System.Drawing.Point(7, 26)
         Me.spnBareRock.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.spnBareRock.Name = "spnBareRock"
+        Me.spnBareRock.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.spnBareRock.Size = New System.Drawing.Size(79, 26)
         Me.spnBareRock.TabIndex = 8
         Me.spnBareRock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnBareRock.Value = New Decimal(New Integer() {415, 0, 0, 131072})
         '
         'txtTotal
         '
@@ -209,6 +212,7 @@ Partial Class LandUseForm
         Me.spnGrassland.Size = New System.Drawing.Size(79, 26)
         Me.spnGrassland.TabIndex = 6
         Me.spnGrassland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnGrassland.Value = New Decimal(New Integer() {3773, 0, 0, 131072})
         '
         'spnForest
         '
@@ -219,6 +223,7 @@ Partial Class LandUseForm
         Me.spnForest.Size = New System.Drawing.Size(79, 26)
         Me.spnForest.TabIndex = 4
         Me.spnForest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnForest.Value = New Decimal(New Integer() {1811, 0, 0, 131072})
         '
         'spnArable
         '
@@ -229,6 +234,7 @@ Partial Class LandUseForm
         Me.spnArable.Size = New System.Drawing.Size(79, 26)
         Me.spnArable.TabIndex = 5
         Me.spnArable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnArable.Value = New Decimal(New Integer() {3583, 0, 0, 131072})
         '
         'btnCustom
         '
@@ -281,13 +287,13 @@ Partial Class LandUseForm
         'graProps
         '
         Me.graProps.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.BackImageTransparentColor = System.Drawing.Color.Transparent
-        ChartArea2.Name = "ChartArea1"
-        Me.graProps.ChartAreas.Add(ChartArea2)
+        ChartArea8.BackColor = System.Drawing.Color.Transparent
+        ChartArea8.BackImageTransparentColor = System.Drawing.Color.Transparent
+        ChartArea8.Name = "ChartArea1"
+        Me.graProps.ChartAreas.Add(ChartArea8)
         Me.graProps.Dock = System.Windows.Forms.DockStyle.Right
-        Legend2.Name = "Legend1"
-        Me.graProps.Legends.Add(Legend2)
+        Legend8.Name = "Legend1"
+        Me.graProps.Legends.Add(Legend8)
         Me.graProps.Location = New System.Drawing.Point(807, 0)
         Me.graProps.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.graProps.Name = "graProps"

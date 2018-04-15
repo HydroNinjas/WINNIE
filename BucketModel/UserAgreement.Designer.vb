@@ -23,8 +23,8 @@ Partial Class UserAgreement
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UserAgreement))
-        Me.AgreBtn = New System.Windows.Forms.Button()
-        Me.ExitBtn = New System.Windows.Forms.Button()
+        Me.btnAgree = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.UserAgreeTxt = New System.Windows.Forms.RichTextBox()
         Me.Title = New System.Windows.Forms.Label()
         Me.WinnieUserPicture = New System.Windows.Forms.PictureBox()
@@ -33,25 +33,25 @@ Partial Class UserAgreement
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'AgreBtn
+        'btnAgree
         '
-        Me.AgreBtn.Location = New System.Drawing.Point(522, 384)
-        Me.AgreBtn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.AgreBtn.Name = "AgreBtn"
-        Me.AgreBtn.Size = New System.Drawing.Size(112, 38)
-        Me.AgreBtn.TabIndex = 0
-        Me.AgreBtn.Text = "Agree"
-        Me.AgreBtn.UseVisualStyleBackColor = True
+        Me.btnAgree.Location = New System.Drawing.Point(522, 384)
+        Me.btnAgree.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnAgree.Name = "btnAgree"
+        Me.btnAgree.Size = New System.Drawing.Size(112, 38)
+        Me.btnAgree.TabIndex = 0
+        Me.btnAgree.Text = "Agree"
+        Me.btnAgree.UseVisualStyleBackColor = True
         '
-        'ExitBtn
+        'btnExit
         '
-        Me.ExitBtn.Location = New System.Drawing.Point(641, 384)
-        Me.ExitBtn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ExitBtn.Name = "ExitBtn"
-        Me.ExitBtn.Size = New System.Drawing.Size(112, 38)
-        Me.ExitBtn.TabIndex = 1
-        Me.ExitBtn.Text = "Exit"
-        Me.ExitBtn.UseVisualStyleBackColor = True
+        Me.btnExit.Location = New System.Drawing.Point(641, 384)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(112, 38)
+        Me.btnExit.TabIndex = 1
+        Me.btnExit.Text = "Exit"
+        Me.btnExit.UseVisualStyleBackColor = True
         '
         'UserAgreeTxt
         '
@@ -105,8 +105,8 @@ Partial Class UserAgreement
         Me.Controls.Add(Me.Title)
         Me.Controls.Add(Me.UserAgreeTxt)
         Me.Controls.Add(Me.WinnieUserPicture)
-        Me.Controls.Add(Me.ExitBtn)
-        Me.Controls.Add(Me.AgreBtn)
+        Me.Controls.Add(Me.btnExit)
+        Me.Controls.Add(Me.btnAgree)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "UserAgreement"
@@ -118,8 +118,8 @@ Partial Class UserAgreement
 
     End Sub
 
-    Friend WithEvents AgreBtn As Button
-    Friend WithEvents ExitBtn As Button
+    Friend WithEvents btnAgree As Button
+    Friend WithEvents btnExit As Button
     Friend WithEvents UserAgreeTxt As RichTextBox
     Friend WithEvents Title As Label
     Friend WithEvents WinnieUserPicture As PictureBox
