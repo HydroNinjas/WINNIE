@@ -22,8 +22,8 @@ Partial Class LandUseForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnCurrent = New System.Windows.Forms.RadioButton()
         Me.Customsettings = New System.Windows.Forms.GroupBox()
@@ -78,7 +78,7 @@ Partial Class LandUseForm
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TableLayoutPanel1.SetRowSpan(Me.GroupBox1, 4)
         Me.GroupBox1.Size = New System.Drawing.Size(239, 447)
-        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Scenario"
         '
@@ -89,7 +89,7 @@ Partial Class LandUseForm
         Me.btnCurrent.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnCurrent.Name = "btnCurrent"
         Me.btnCurrent.Size = New System.Drawing.Size(87, 24)
-        Me.btnCurrent.TabIndex = 5
+        Me.btnCurrent.TabIndex = 0
         Me.btnCurrent.TabStop = True
         Me.btnCurrent.Text = "Current"
         Me.btnCurrent.UseVisualStyleBackColor = True
@@ -113,7 +113,7 @@ Partial Class LandUseForm
         Me.Customsettings.Name = "Customsettings"
         Me.Customsettings.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Customsettings.Size = New System.Drawing.Size(227, 246)
-        Me.Customsettings.TabIndex = 4
+        Me.Customsettings.TabIndex = 5
         Me.Customsettings.TabStop = False
         Me.Customsettings.Text = "Custom settings"
         '
@@ -123,7 +123,7 @@ Partial Class LandUseForm
         Me.Label6.Location = New System.Drawing.Point(7, 204)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(44, 20)
-        Me.Label6.TabIndex = 15
+        Me.Label6.TabIndex = 5
         Me.Label6.Text = "Total"
         '
         'Label5
@@ -178,7 +178,7 @@ Partial Class LandUseForm
         Me.spnMoorland.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.spnMoorland.Name = "spnMoorland"
         Me.spnMoorland.Size = New System.Drawing.Size(79, 26)
-        Me.spnMoorland.TabIndex = 9
+        Me.spnMoorland.TabIndex = 4
         Me.spnMoorland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.spnMoorland.Value = New Decimal(New Integer() {418, 0, 0, 131072})
         '
@@ -190,7 +190,7 @@ Partial Class LandUseForm
         Me.spnBareRock.Name = "spnBareRock"
         Me.spnBareRock.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.spnBareRock.Size = New System.Drawing.Size(79, 26)
-        Me.spnBareRock.TabIndex = 8
+        Me.spnBareRock.TabIndex = 0
         Me.spnBareRock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.spnBareRock.Value = New Decimal(New Integer() {415, 0, 0, 131072})
         '
@@ -201,7 +201,7 @@ Partial Class LandUseForm
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
         Me.txtTotal.Size = New System.Drawing.Size(72, 26)
-        Me.txtTotal.TabIndex = 7
+        Me.txtTotal.TabIndex = 5
         Me.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'spnGrassland
@@ -211,7 +211,7 @@ Partial Class LandUseForm
         Me.spnGrassland.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.spnGrassland.Name = "spnGrassland"
         Me.spnGrassland.Size = New System.Drawing.Size(79, 26)
-        Me.spnGrassland.TabIndex = 6
+        Me.spnGrassland.TabIndex = 2
         Me.spnGrassland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.spnGrassland.Value = New Decimal(New Integer() {3773, 0, 0, 131072})
         '
@@ -222,7 +222,7 @@ Partial Class LandUseForm
         Me.spnForest.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.spnForest.Name = "spnForest"
         Me.spnForest.Size = New System.Drawing.Size(79, 26)
-        Me.spnForest.TabIndex = 4
+        Me.spnForest.TabIndex = 1
         Me.spnForest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.spnForest.Value = New Decimal(New Integer() {1811, 0, 0, 131072})
         '
@@ -233,7 +233,7 @@ Partial Class LandUseForm
         Me.spnArable.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.spnArable.Name = "spnArable"
         Me.spnArable.Size = New System.Drawing.Size(79, 26)
-        Me.spnArable.TabIndex = 5
+        Me.spnArable.TabIndex = 3
         Me.spnArable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.spnArable.Value = New Decimal(New Integer() {3583, 0, 0, 131072})
         '
@@ -244,7 +244,7 @@ Partial Class LandUseForm
         Me.btnCustom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnCustom.Name = "btnCustom"
         Me.btnCustom.Size = New System.Drawing.Size(89, 24)
-        Me.btnCustom.TabIndex = 3
+        Me.btnCustom.TabIndex = 4
         Me.btnCustom.TabStop = True
         Me.btnCustom.Text = "Custom"
         Me.btnCustom.UseVisualStyleBackColor = True
@@ -256,7 +256,7 @@ Partial Class LandUseForm
         Me.btnScenarioC.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnScenarioC.Name = "btnScenarioC"
         Me.btnScenarioC.Size = New System.Drawing.Size(45, 24)
-        Me.btnScenarioC.TabIndex = 2
+        Me.btnScenarioC.TabIndex = 3
         Me.btnScenarioC.TabStop = True
         Me.btnScenarioC.Text = "C"
         Me.btnScenarioC.UseVisualStyleBackColor = True
@@ -268,7 +268,7 @@ Partial Class LandUseForm
         Me.btnScenarioB.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnScenarioB.Name = "btnScenarioB"
         Me.btnScenarioB.Size = New System.Drawing.Size(45, 24)
-        Me.btnScenarioB.TabIndex = 1
+        Me.btnScenarioB.TabIndex = 2
         Me.btnScenarioB.TabStop = True
         Me.btnScenarioB.Text = "B"
         Me.btnScenarioB.UseVisualStyleBackColor = True
@@ -280,7 +280,7 @@ Partial Class LandUseForm
         Me.btnScenarioA.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnScenarioA.Name = "btnScenarioA"
         Me.btnScenarioA.Size = New System.Drawing.Size(45, 24)
-        Me.btnScenarioA.TabIndex = 0
+        Me.btnScenarioA.TabIndex = 1
         Me.btnScenarioA.TabStop = True
         Me.btnScenarioA.Text = "A"
         Me.btnScenarioA.UseVisualStyleBackColor = True
@@ -288,13 +288,13 @@ Partial Class LandUseForm
         'graProps
         '
         Me.graProps.BackColor = System.Drawing.Color.Transparent
-        ChartArea6.BackColor = System.Drawing.Color.Transparent
-        ChartArea6.BackImageTransparentColor = System.Drawing.Color.Transparent
-        ChartArea6.Name = "ChartArea1"
-        Me.graProps.ChartAreas.Add(ChartArea6)
+        ChartArea8.BackColor = System.Drawing.Color.Transparent
+        ChartArea8.BackImageTransparentColor = System.Drawing.Color.Transparent
+        ChartArea8.Name = "ChartArea1"
+        Me.graProps.ChartAreas.Add(ChartArea8)
         Me.graProps.Dock = System.Windows.Forms.DockStyle.Right
-        Legend6.Name = "Legend1"
-        Me.graProps.Legends.Add(Legend6)
+        Legend8.Name = "Legend1"
+        Me.graProps.Legends.Add(Legend8)
         Me.graProps.Location = New System.Drawing.Point(807, 0)
         Me.graProps.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.graProps.Name = "graProps"
@@ -311,7 +311,7 @@ Partial Class LandUseForm
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(169, 50)
-        Me.btnCancel.TabIndex = 3
+        Me.btnCancel.TabIndex = 4
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
@@ -322,7 +322,7 @@ Partial Class LandUseForm
         Me.btnOK.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(169, 50)
-        Me.btnOK.TabIndex = 4
+        Me.btnOK.TabIndex = 3
         Me.btnOK.Text = "OK"
         Me.btnOK.UseVisualStyleBackColor = True
         '
@@ -360,7 +360,7 @@ Partial Class LandUseForm
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.40779!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.056815!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(376, 941)
-        Me.TableLayoutPanel1.TabIndex = 5
+        Me.TableLayoutPanel1.TabIndex = 0
         '
         'lnkHelp
         '
@@ -370,7 +370,7 @@ Partial Class LandUseForm
         Me.lnkHelp.Location = New System.Drawing.Point(142, 150)
         Me.lnkHelp.Name = "lnkHelp"
         Me.lnkHelp.Size = New System.Drawing.Size(91, 20)
-        Me.lnkHelp.TabIndex = 19
+        Me.lnkHelp.TabIndex = 1
         Me.lnkHelp.TabStop = True
         Me.lnkHelp.Text = "Online Help"
         '
@@ -383,7 +383,7 @@ Partial Class LandUseForm
         Me.Label7.Location = New System.Drawing.Point(71, 73)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(234, 40)
-        Me.Label7.TabIndex = 18
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "WINNIE version 3.1.4" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Land Use Scenario Selector"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
