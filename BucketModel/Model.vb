@@ -17605,6 +17605,10 @@ Public Class Model
         ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
         ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
 
+        ' adding lovely scroll bars
+
+        ModelChart.ChartAreas(0).CursorX.IsUserSelectionEnabled = True
+
         ' set up the table to compare results
 
         TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
