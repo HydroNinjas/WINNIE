@@ -251,12 +251,12 @@ Public Class LandUseForm
             BareRockP = NumericUpDown4.Value
             MoorlandP = NumericUpDown5.Value
 
-            Model.ForestTxt.Text = ForestP
-            Model.ArableTxt.Text = ArableP
-            Model.GrassTxt.Text = GrasslandP
-            Model.BareRTxt.Text = BareRockP
-            Model.MoorTxt.Text = MoorlandP
-            Model.TextBoxLUChoice.Text = LUChoice
+            Model.txtForest.Text = ForestP
+            Model.txtArable.Text = ArableP
+            Model.txtGrass.Text = GrasslandP
+            Model.txtBareRock.Text = BareRockP
+            Model.txtMoorland.Text = MoorlandP
+            Model.txtScenario.Text = LUChoice
 
             ExitYN = vbYes ' Philipe, what is going on here? Why is there an if statement asking if this is true below? SL
             If ExitYN = vbYes Then

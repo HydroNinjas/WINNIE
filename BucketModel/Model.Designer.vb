@@ -23,44 +23,44 @@ Partial Class Model
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Me.ModelChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.LandUseBtn = New System.Windows.Forms.Button()
-        Me.ModelRun = New System.Windows.Forms.Button()
+        Me.graSimRunoff = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.btnSelector = New System.Windows.Forms.Button()
+        Me.btnRun = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.MoorTxt = New System.Windows.Forms.TextBox()
-        Me.ArableTxt = New System.Windows.Forms.TextBox()
-        Me.GrassTxt = New System.Windows.Forms.TextBox()
-        Me.ForestTxt = New System.Windows.Forms.TextBox()
-        Me.BareRTxt = New System.Windows.Forms.TextBox()
+        Me.txtMoorland = New System.Windows.Forms.TextBox()
+        Me.txtArable = New System.Windows.Forms.TextBox()
+        Me.txtGrass = New System.Windows.Forms.TextBox()
+        Me.txtForest = New System.Windows.Forms.TextBox()
+        Me.txtBareRock = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBoxLUChoice = New System.Windows.Forms.TextBox()
+        Me.txtScenario = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.SpinRain = New System.Windows.Forms.NumericUpDown()
-        Me.SpinEvap = New System.Windows.Forms.NumericUpDown()
+        Me.spnRain = New System.Windows.Forms.NumericUpDown()
+        Me.spnEvap = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.LnkGraph = New System.Windows.Forms.LinkLabel()
+        Me.lnkGraph = New System.Windows.Forms.LinkLabel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.BtnClear = New System.Windows.Forms.Button()
-        Me.ChckCSV = New System.Windows.Forms.CheckBox()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.chkSave = New System.Windows.Forms.CheckBox()
+        Me.lnkHelp = New System.Windows.Forms.LinkLabel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TxtCompare = New System.Windows.Forms.RichTextBox()
-        CType(Me.ModelChart, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtLog = New System.Windows.Forms.RichTextBox()
+        CType(Me.graSimRunoff, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.SpinRain, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SpinEvap, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnRain, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnEvap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -70,44 +70,44 @@ Partial Class Model
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ModelChart
+        'graSimRunoff
         '
-        Me.ModelChart.BackColor = System.Drawing.Color.Transparent
+        Me.graSimRunoff.BackColor = System.Drawing.Color.Transparent
         ChartArea1.AxisY.Title = "Simulated runoff (mm)"
         ChartArea1.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         ChartArea1.Name = "ChartArea1"
-        Me.ModelChart.ChartAreas.Add(ChartArea1)
-        Me.TableLayoutPanel1.SetColumnSpan(Me.ModelChart, 4)
-        Me.ModelChart.Location = New System.Drawing.Point(0, 435)
-        Me.ModelChart.Margin = New System.Windows.Forms.Padding(0)
-        Me.ModelChart.Name = "ModelChart"
-        Me.ModelChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel
-        Me.ModelChart.Size = New System.Drawing.Size(1105, 444)
-        Me.ModelChart.TabIndex = 1
-        Me.ModelChart.Text = "ModelChart"
+        Me.graSimRunoff.ChartAreas.Add(ChartArea1)
+        Me.TableLayoutPanel1.SetColumnSpan(Me.graSimRunoff, 4)
+        Me.graSimRunoff.Location = New System.Drawing.Point(0, 435)
+        Me.graSimRunoff.Margin = New System.Windows.Forms.Padding(0)
+        Me.graSimRunoff.Name = "graSimRunoff"
+        Me.graSimRunoff.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel
+        Me.graSimRunoff.Size = New System.Drawing.Size(1105, 444)
+        Me.graSimRunoff.TabIndex = 1
+        Me.graSimRunoff.Text = "ModelChart"
         '
-        'LandUseBtn
+        'btnSelector
         '
-        Me.LandUseBtn.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TableLayoutPanel2.SetColumnSpan(Me.LandUseBtn, 2)
-        Me.LandUseBtn.Location = New System.Drawing.Point(20, 335)
-        Me.LandUseBtn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.LandUseBtn.Name = "LandUseBtn"
-        Me.LandUseBtn.Size = New System.Drawing.Size(169, 50)
-        Me.LandUseBtn.TabIndex = 5
-        Me.LandUseBtn.Text = "Scenario Selector"
-        Me.LandUseBtn.UseVisualStyleBackColor = True
+        Me.btnSelector.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TableLayoutPanel2.SetColumnSpan(Me.btnSelector, 2)
+        Me.btnSelector.Location = New System.Drawing.Point(20, 335)
+        Me.btnSelector.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnSelector.Name = "btnSelector"
+        Me.btnSelector.Size = New System.Drawing.Size(169, 50)
+        Me.btnSelector.TabIndex = 5
+        Me.btnSelector.Text = "Scenario Selector"
+        Me.btnSelector.UseVisualStyleBackColor = True
         '
-        'ModelRun
+        'btnRun
         '
-        Me.ModelRun.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.ModelRun.Location = New System.Drawing.Point(20, 160)
-        Me.ModelRun.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ModelRun.Name = "ModelRun"
-        Me.ModelRun.Size = New System.Drawing.Size(169, 48)
-        Me.ModelRun.TabIndex = 4
-        Me.ModelRun.Text = "Run Model"
-        Me.ModelRun.UseVisualStyleBackColor = True
+        Me.btnRun.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnRun.Location = New System.Drawing.Point(20, 160)
+        Me.btnRun.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnRun.Name = "btnRun"
+        Me.btnRun.Size = New System.Drawing.Size(169, 48)
+        Me.btnRun.TabIndex = 4
+        Me.btnRun.Text = "Run Model"
+        Me.btnRun.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -128,18 +128,18 @@ Partial Class Model
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.MoorTxt, 0, 5)
-        Me.TableLayoutPanel2.Controls.Add(Me.ArableTxt, 0, 4)
-        Me.TableLayoutPanel2.Controls.Add(Me.GrassTxt, 0, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.ForestTxt, 0, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.BareRTxt, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.txtMoorland, 0, 5)
+        Me.TableLayoutPanel2.Controls.Add(Me.txtArable, 0, 4)
+        Me.TableLayoutPanel2.Controls.Add(Me.txtGrass, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.txtForest, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.txtBareRock, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label2, 1, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.TextBoxLUChoice, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.txtScenario, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label3, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 1, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.Label5, 1, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.Label6, 1, 5)
-        Me.TableLayoutPanel2.Controls.Add(Me.LandUseBtn, 0, 7)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnSelector, 0, 7)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 23)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -155,66 +155,66 @@ Partial Class Model
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(209, 400)
         Me.TableLayoutPanel2.TabIndex = 1
         '
-        'MoorTxt
+        'txtMoorland
         '
-        Me.MoorTxt.Dock = System.Windows.Forms.DockStyle.Top
-        Me.MoorTxt.Enabled = False
-        Me.MoorTxt.Location = New System.Drawing.Point(3, 244)
-        Me.MoorTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.MoorTxt.Name = "MoorTxt"
-        Me.MoorTxt.Size = New System.Drawing.Size(67, 26)
-        Me.MoorTxt.TabIndex = 12
-        Me.MoorTxt.Text = "MoorTxt"
-        Me.MoorTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtMoorland.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtMoorland.Enabled = False
+        Me.txtMoorland.Location = New System.Drawing.Point(3, 244)
+        Me.txtMoorland.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtMoorland.Name = "txtMoorland"
+        Me.txtMoorland.Size = New System.Drawing.Size(67, 26)
+        Me.txtMoorland.TabIndex = 12
+        Me.txtMoorland.Text = "MoorTxt"
+        Me.txtMoorland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'ArableTxt
+        'txtArable
         '
-        Me.ArableTxt.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ArableTxt.Enabled = False
-        Me.ArableTxt.Location = New System.Drawing.Point(3, 204)
-        Me.ArableTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ArableTxt.Name = "ArableTxt"
-        Me.ArableTxt.ReadOnly = True
-        Me.ArableTxt.Size = New System.Drawing.Size(67, 26)
-        Me.ArableTxt.TabIndex = 8
-        Me.ArableTxt.Text = "ArableTxt"
-        Me.ArableTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtArable.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtArable.Enabled = False
+        Me.txtArable.Location = New System.Drawing.Point(3, 204)
+        Me.txtArable.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtArable.Name = "txtArable"
+        Me.txtArable.ReadOnly = True
+        Me.txtArable.Size = New System.Drawing.Size(67, 26)
+        Me.txtArable.TabIndex = 8
+        Me.txtArable.Text = "ArableTxt"
+        Me.txtArable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'GrassTxt
+        'txtGrass
         '
-        Me.GrassTxt.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GrassTxt.Enabled = False
-        Me.GrassTxt.Location = New System.Drawing.Point(3, 164)
-        Me.GrassTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GrassTxt.Name = "GrassTxt"
-        Me.GrassTxt.Size = New System.Drawing.Size(67, 26)
-        Me.GrassTxt.TabIndex = 7
-        Me.GrassTxt.Text = "GrassTxt"
-        Me.GrassTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtGrass.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtGrass.Enabled = False
+        Me.txtGrass.Location = New System.Drawing.Point(3, 164)
+        Me.txtGrass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtGrass.Name = "txtGrass"
+        Me.txtGrass.Size = New System.Drawing.Size(67, 26)
+        Me.txtGrass.TabIndex = 7
+        Me.txtGrass.Text = "GrassTxt"
+        Me.txtGrass.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'ForestTxt
+        'txtForest
         '
-        Me.ForestTxt.Dock = System.Windows.Forms.DockStyle.Top
-        Me.ForestTxt.Enabled = False
-        Me.ForestTxt.Location = New System.Drawing.Point(3, 124)
-        Me.ForestTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ForestTxt.Name = "ForestTxt"
-        Me.ForestTxt.Size = New System.Drawing.Size(67, 26)
-        Me.ForestTxt.TabIndex = 9
-        Me.ForestTxt.Text = "ForestTxt"
-        Me.ForestTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtForest.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtForest.Enabled = False
+        Me.txtForest.Location = New System.Drawing.Point(3, 124)
+        Me.txtForest.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtForest.Name = "txtForest"
+        Me.txtForest.Size = New System.Drawing.Size(67, 26)
+        Me.txtForest.TabIndex = 9
+        Me.txtForest.Text = "ForestTxt"
+        Me.txtForest.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'BareRTxt
+        'txtBareRock
         '
-        Me.BareRTxt.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BareRTxt.Enabled = False
-        Me.BareRTxt.Location = New System.Drawing.Point(3, 84)
-        Me.BareRTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.BareRTxt.Name = "BareRTxt"
-        Me.BareRTxt.Size = New System.Drawing.Size(67, 26)
-        Me.BareRTxt.TabIndex = 11
-        Me.BareRTxt.Text = "BareRTxt"
-        Me.BareRTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtBareRock.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtBareRock.Enabled = False
+        Me.txtBareRock.Location = New System.Drawing.Point(3, 84)
+        Me.txtBareRock.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtBareRock.Name = "txtBareRock"
+        Me.txtBareRock.Size = New System.Drawing.Size(67, 26)
+        Me.txtBareRock.TabIndex = 11
+        Me.txtBareRock.Text = "BareRTxt"
+        Me.txtBareRock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label2
         '
@@ -226,18 +226,18 @@ Partial Class Model
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "% Bare Rock"
         '
-        'TextBoxLUChoice
+        'txtScenario
         '
-        Me.TableLayoutPanel2.SetColumnSpan(Me.TextBoxLUChoice, 2)
-        Me.TextBoxLUChoice.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TextBoxLUChoice.Enabled = False
-        Me.TextBoxLUChoice.Location = New System.Drawing.Point(3, 4)
-        Me.TextBoxLUChoice.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBoxLUChoice.Name = "TextBoxLUChoice"
-        Me.TextBoxLUChoice.Size = New System.Drawing.Size(203, 26)
-        Me.TextBoxLUChoice.TabIndex = 10
-        Me.TextBoxLUChoice.Text = "TextBoxLUChoice"
-        Me.TextBoxLUChoice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TableLayoutPanel2.SetColumnSpan(Me.txtScenario, 2)
+        Me.txtScenario.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtScenario.Enabled = False
+        Me.txtScenario.Location = New System.Drawing.Point(3, 4)
+        Me.txtScenario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtScenario.Name = "txtScenario"
+        Me.txtScenario.Size = New System.Drawing.Size(203, 26)
+        Me.txtScenario.TabIndex = 10
+        Me.txtScenario.Text = "TextBoxLUChoice"
+        Me.txtScenario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
@@ -279,30 +279,30 @@ Partial Class Model
         Me.Label6.TabIndex = 17
         Me.Label6.Text = "% Moorland"
         '
-        'SpinRain
+        'spnRain
         '
-        Me.SpinRain.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SpinRain.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.SpinRain.Location = New System.Drawing.Point(3, 4)
-        Me.SpinRain.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.SpinRain.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
-        Me.SpinRain.Name = "SpinRain"
-        Me.SpinRain.Size = New System.Drawing.Size(67, 26)
-        Me.SpinRain.TabIndex = 2
-        Me.SpinRain.Tag = ""
-        Me.SpinRain.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnRain.Dock = System.Windows.Forms.DockStyle.Top
+        Me.spnRain.Increment = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.spnRain.Location = New System.Drawing.Point(3, 4)
+        Me.spnRain.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.spnRain.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
+        Me.spnRain.Name = "spnRain"
+        Me.spnRain.Size = New System.Drawing.Size(67, 26)
+        Me.spnRain.TabIndex = 2
+        Me.spnRain.Tag = ""
+        Me.spnRain.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'SpinEvap
+        'spnEvap
         '
-        Me.SpinEvap.Dock = System.Windows.Forms.DockStyle.Top
-        Me.SpinEvap.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.SpinEvap.Location = New System.Drawing.Point(3, 50)
-        Me.SpinEvap.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.SpinEvap.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
-        Me.SpinEvap.Name = "SpinEvap"
-        Me.SpinEvap.Size = New System.Drawing.Size(67, 26)
-        Me.SpinEvap.TabIndex = 3
-        Me.SpinEvap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.spnEvap.Dock = System.Windows.Forms.DockStyle.Top
+        Me.spnEvap.Increment = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.spnEvap.Location = New System.Drawing.Point(3, 50)
+        Me.spnEvap.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.spnEvap.Minimum = New Decimal(New Integer() {100, 0, 0, -2147483648})
+        Me.spnEvap.Name = "spnEvap"
+        Me.spnEvap.Size = New System.Drawing.Size(67, 26)
+        Me.spnEvap.TabIndex = 3
+        Me.spnEvap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'GroupBox2
         '
@@ -324,10 +324,10 @@ Partial Class Model
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.Label7, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.SpinRain, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.SpinEvap, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.spnRain, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.spnEvap, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label8, 1, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.LnkGraph, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.lnkGraph, 0, 2)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 23)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -359,17 +359,17 @@ Partial Class Model
         Me.Label8.TabIndex = 4
         Me.Label8.Text = "% Evap Change"
         '
-        'LnkGraph
+        'lnkGraph
         '
-        Me.LnkGraph.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LnkGraph.AutoSize = True
-        Me.TableLayoutPanel3.SetColumnSpan(Me.LnkGraph, 2)
-        Me.LnkGraph.Location = New System.Drawing.Point(51, 105)
-        Me.LnkGraph.Name = "LnkGraph"
-        Me.LnkGraph.Size = New System.Drawing.Size(106, 20)
-        Me.LnkGraph.TabIndex = 6
-        Me.LnkGraph.TabStop = True
-        Me.LnkGraph.Text = "View baseline"
+        Me.lnkGraph.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lnkGraph.AutoSize = True
+        Me.TableLayoutPanel3.SetColumnSpan(Me.lnkGraph, 2)
+        Me.lnkGraph.Location = New System.Drawing.Point(51, 105)
+        Me.lnkGraph.Name = "lnkGraph"
+        Me.lnkGraph.Size = New System.Drawing.Size(106, 20)
+        Me.lnkGraph.TabIndex = 6
+        Me.lnkGraph.TabStop = True
+        Me.lnkGraph.Text = "View baseline"
         '
         'GroupBox3
         '
@@ -389,9 +389,9 @@ Partial Class Model
         '
         Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.BtnClear, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.ChckCSV, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.ModelRun, 0, 2)
+        Me.TableLayoutPanel4.Controls.Add(Me.btnClear, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.chkSave, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.btnRun, 0, 2)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 23)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
@@ -402,39 +402,39 @@ Partial Class Model
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(209, 226)
         Me.TableLayoutPanel4.TabIndex = 17
         '
-        'BtnClear
+        'btnClear
         '
-        Me.BtnClear.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.BtnClear.Location = New System.Drawing.Point(20, 78)
-        Me.BtnClear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.BtnClear.Name = "BtnClear"
-        Me.BtnClear.Size = New System.Drawing.Size(169, 48)
-        Me.BtnClear.TabIndex = 15
-        Me.BtnClear.Text = "Clear Log"
-        Me.BtnClear.UseVisualStyleBackColor = True
+        Me.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnClear.Location = New System.Drawing.Point(20, 78)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(169, 48)
+        Me.btnClear.TabIndex = 15
+        Me.btnClear.Text = "Clear Log"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
-        'ChckCSV
+        'chkSave
         '
-        Me.ChckCSV.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.ChckCSV.AutoSize = True
-        Me.ChckCSV.Location = New System.Drawing.Point(15, 18)
-        Me.ChckCSV.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ChckCSV.Name = "ChckCSV"
-        Me.ChckCSV.Size = New System.Drawing.Size(179, 24)
-        Me.ChckCSV.TabIndex = 14
-        Me.ChckCSV.Text = "Save output as CSV"
-        Me.ChckCSV.UseVisualStyleBackColor = True
+        Me.chkSave.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.chkSave.AutoSize = True
+        Me.chkSave.Location = New System.Drawing.Point(15, 18)
+        Me.chkSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.chkSave.Name = "chkSave"
+        Me.chkSave.Size = New System.Drawing.Size(179, 24)
+        Me.chkSave.TabIndex = 14
+        Me.chkSave.Text = "Save output as CSV"
+        Me.chkSave.UseVisualStyleBackColor = True
         '
-        'LinkLabel1
+        'lnkHelp
         '
-        Me.LinkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(65, 348)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(91, 20)
-        Me.LinkLabel1.TabIndex = 16
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Online Help"
+        Me.lnkHelp.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lnkHelp.AutoSize = True
+        Me.lnkHelp.Location = New System.Drawing.Point(65, 348)
+        Me.lnkHelp.Name = "lnkHelp"
+        Me.lnkHelp.Size = New System.Drawing.Size(91, 20)
+        Me.lnkHelp.TabIndex = 16
+        Me.lnkHelp.TabStop = True
+        Me.lnkHelp.Text = "Online Help"
         '
         'Label1
         '
@@ -475,13 +475,13 @@ Partial Class Model
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.PictureBox1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ModelChart, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.graSimRunoff, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.LinkLabel1, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.lnkHelp, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox3, 2, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.TxtCompare, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.txtLog, 3, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -495,20 +495,20 @@ Partial Class Model
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1105, 879)
         Me.TableLayoutPanel1.TabIndex = 22
         '
-        'TxtCompare
+        'txtLog
         '
-        Me.TxtCompare.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TxtCompare.BackColor = System.Drawing.Color.Black
-        Me.TxtCompare.Font = New System.Drawing.Font("Courier New", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCompare.ForeColor = System.Drawing.Color.White
-        Me.TxtCompare.Location = New System.Drawing.Point(692, 4)
-        Me.TxtCompare.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TxtCompare.Name = "TxtCompare"
-        Me.TxtCompare.ReadOnly = True
-        Me.TableLayoutPanel1.SetRowSpan(Me.TxtCompare, 5)
-        Me.TxtCompare.Size = New System.Drawing.Size(383, 427)
-        Me.TxtCompare.TabIndex = 23
-        Me.TxtCompare.Text = ""
+        Me.txtLog.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtLog.BackColor = System.Drawing.Color.Black
+        Me.txtLog.Font = New System.Drawing.Font("Courier New", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLog.ForeColor = System.Drawing.Color.White
+        Me.txtLog.Location = New System.Drawing.Point(692, 4)
+        Me.txtLog.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtLog.Name = "txtLog"
+        Me.txtLog.ReadOnly = True
+        Me.TableLayoutPanel1.SetRowSpan(Me.txtLog, 5)
+        Me.txtLog.Size = New System.Drawing.Size(383, 427)
+        Me.txtLog.TabIndex = 23
+        Me.txtLog.Text = ""
         '
         'Model
         '
@@ -524,12 +524,12 @@ Partial Class Model
         Me.Name = "Model"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Model Dashboard"
-        CType(Me.ModelChart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.graSimRunoff, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.SpinRain, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SpinEvap, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnRain, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnEvap, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
@@ -543,25 +543,25 @@ Partial Class Model
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents ModelChart As DataVisualization.Charting.Chart
-    Friend WithEvents ModelRun As Button
+    Friend WithEvents graSimRunoff As DataVisualization.Charting.Chart
+    Friend WithEvents btnRun As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents SpinRain As NumericUpDown
-    Friend WithEvents SpinEvap As NumericUpDown
-    Friend WithEvents ForestTxt As TextBox
-    Friend WithEvents GrassTxt As TextBox
-    Friend WithEvents ArableTxt As TextBox
-    Friend WithEvents TextBoxLUChoice As TextBox
+    Friend WithEvents spnRain As NumericUpDown
+    Friend WithEvents spnEvap As NumericUpDown
+    Friend WithEvents txtForest As TextBox
+    Friend WithEvents txtGrass As TextBox
+    Friend WithEvents txtArable As TextBox
+    Friend WithEvents txtScenario As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents BareRTxt As TextBox
-    Friend WithEvents MoorTxt As TextBox
-    Friend WithEvents ChckCSV As CheckBox
-    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents txtBareRock As TextBox
+    Friend WithEvents txtMoorland As TextBox
+    Friend WithEvents chkSave As CheckBox
+    Friend WithEvents lnkHelp As LinkLabel
     Friend WithEvents Label1 As Label
     Friend WithEvents FileSystemWatcher1 As IO.FileSystemWatcher
-    Friend WithEvents LandUseBtn As Button
+    Friend WithEvents btnSelector As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -573,7 +573,7 @@ Partial Class Model
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents TxtCompare As RichTextBox
-    Friend WithEvents LnkGraph As LinkLabel
-    Friend WithEvents BtnClear As Button
+    Friend WithEvents txtLog As RichTextBox
+    Friend WithEvents lnkGraph As LinkLabel
+    Friend WithEvents btnClear As Button
 End Class

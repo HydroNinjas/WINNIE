@@ -1,4 +1,4 @@
-﻿'Authors:       Philip Ayre and Shannon Leakey, Ninja Developments
+﻿'Authors:       Philip Ayre and Shannon Leakey, 2/3 of Ninja Developments
 'Description:   GUI for simple bucket model with climate change spinners, simulation log,
 '               CSV writer, interactive graph, and link to Scenario Selector
 '
@@ -10,11 +10,11 @@ Imports System.IO
 Public Class Model
 
     '============================
-    '"Constant" Declaration
+    'Constant-ish Declaration
     '============================
     '
     'Reading in the observed rainfall and evaporation
-    Dim Rain As Double() = {0,
+    Dim dblObsRain As Double() = {0,
     0,
     0,
     0,
@@ -8796,7 +8796,7 @@ Public Class Model
     0,
     0,
     0}
-    Dim Evap As Double() = {0.000876,
+    Dim dblObsEvap As Double() = {0.000876,
     0.0007075,
     0.00310025,
     0.0006615,
@@ -17580,92 +17580,114 @@ Public Class Model
     0.007731}
     '
     'Field capacities for Bare Rock, Forest, Grassland, Arable, Moorland
-    Dim FC As Double() = {5, 50, 25, 25, 5}
+    Dim dblFC As Double() = {5, 50, 25, 25, 5}
     '
     'Link to interactive graph
-    Private Const URLGraph As String = "https://hydroninjas.github.io/hydrology"
+    Private Const strGraphURL As String = "https://hydroninjas.github.io/hydrology"
     '
     'The 2011/12 water year
-    Private Const start_date As Date = #10/01/2011#
-    Dim Hrs(8781) As Date
+    Private Const dteStart As Date = #10/01/2011#
+    Dim dteHrs(8781) As Date
 
     '============================
     'Variable Declaration
     '============================
     '
     'For the altered time series
-    Dim Rain_new As Double() = Rain
-    Dim Evap_new As Double() = Evap
+    Dim dblSimRain As Double() = dblObsRain
+    Dim dblSimEvap As Double() = dblObsEvap
     '
-    'For the modelled runoff and storage
-    Dim Runoff(8781) As Double
-    Dim Storage(8781) As Double
+    'For the modelled Runoff and Storage
+    Dim dblSimRunoff(8781) As Double
+    Dim dblSimStorage(8781) As Double
     '
     'For the land use proportions
-    Dim Props(5) As Double
+    Dim dblProp(5) As Double
     '
     'For determining whether to save the model run
-    Dim SaveCSV As Boolean = False
+    Dim blnSave As Boolean = False
     '
     'For pop-up windows when closing
-    Dim ExitYN As System.Windows.Forms.DialogResult
+    Dim dblExit As System.Windows.Forms.DialogResult
 
     '============================
-    'When form loaded
+    'General form stuff
     '============================
 
-    Private Sub Model_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub OpenModelForm(sender As Object, e As EventArgs) Handles MyBase.Load
         '
         'Making it pretty
-        ExitYN = True
+        dblExit = True
         Me.MaximizeBox = False
         Me.MinimizeBox = True
         Me.CenterToParent()
         '
         'Putting in the dates
         For i As Integer = 0 To 8781
-            Hrs(i) = start_date.AddHours(i)
+            dteHrs(i) = dteStart.AddHours(i)
         Next
         '
         'Setting up the graph
-        ModelChart.Series.Add("Runoff")
-        ModelChart.Series("Runoff").ChartType = SeriesChartType.Line
-        ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
-        ModelChart.ChartAreas(0).CursorX.IsUserSelectionEnabled = True
+        graSimRunoff.Series.Add("Runoff")
+        graSimRunoff.Series("Runoff").ChartType = SeriesChartType.Line
+        graSimRunoff.Series(0).Points.DataBindXY(dteHrs, dblSimRunoff)
+        graSimRunoff.ChartAreas(0).CursorX.IsUserSelectionEnabled = True
         '
         'Setting up the log
-        TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab &
+        txtLog.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab &
             "Mean" & vbTab & "Peak" & vbCrLf &
             "_________________________________" & vbCrLf
     End Sub
 
-    '============================
-    'Spinner controls
-    '============================
-
-    Private Sub SpinRain_ValueChanged(sender As Object, e As EventArgs) Handles SpinRain.ValueChanged
-
-        ' changing the rain time series
-
-        Rain_new = Array.ConvertAll(Rain, Function(x) x + x * SpinRain.Value / 100)
-
-
-    End Sub
-
-    Private Sub SpinEvap_ValueChanged(sender As Object, e As EventArgs) Handles SpinEvap.ValueChanged
-
-        ' changing the evap time series
-
-        Evap_new = Array.ConvertAll(Evap, Function(x) x + x * SpinEvap.Value / 100)
-
-
+    Private Sub CloseModelForm(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        '
+        'Do you really want to exit?
+        If dblExit <> Windows.Forms.DialogResult.Yes Then
+            e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
+        End If
     End Sub
 
     '============================
-    'When main button clicked
+    'Climate controls
     '============================
 
-    Private Sub ModelRun_Click(sender As Object, e As EventArgs) Handles ModelRun.Click
+    Private Sub ChangeRain(sender As Object, e As EventArgs) Handles spnRain.ValueChanged
+        '
+        'Changing the rain time series
+        dblSimRain = Array.ConvertAll(dblObsRain, Function(x) x + x * spnRain.Value / 100)
+    End Sub
+
+    Private Sub ChangeEvap(sender As Object, e As EventArgs) Handles spnEvap.ValueChanged
+        '
+        'Changing the evap time series
+        dblSimEvap = Array.ConvertAll(dblObsEvap, Function(x) x + x * spnEvap.Value / 100)
+    End Sub
+
+    Private Sub OpenGraph(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkGraph.LinkClicked
+        '
+        'Go to the website! Yay!
+        Process.Start(strGraphURL)
+    End Sub
+
+    '============================
+    'Model controls
+    '============================
+
+    Private Sub SaveCSV(sender As Object, e As EventArgs) Handles chkSave.CheckedChanged
+        '
+        'Next time the button is pressed, save the CSV
+        blnSave = chkSave.CheckState
+    End Sub
+
+    Private Sub ClearLog(sender As Object, e As EventArgs) Handles btnClear.Click
+        '
+        'Restart the log
+        txtLog.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
+     "_________________________________" & vbCrLf
+
+    End Sub
+
+    Private Sub RunModel(sender As Object, e As EventArgs) Handles btnRun.Click
         '
         'Storage and Runoff
         Dim S, R As Double
@@ -17674,46 +17696,46 @@ Public Class Model
         Const S0_prop = 1
         '
         'Proportions from the land use scenario
-        Props(0) = BareRockP / 100
-        Props(1) = ForestP / 100
-        Props(2) = GrasslandP / 100
-        Props(3) = ArableP / 100
-        Props(4) = MoorlandP / 100
+        dblProp(0) = BareRockP / 100
+        dblProp(1) = ForestP / 100
+        dblProp(2) = GrasslandP / 100
+        dblProp(3) = ArableP / 100
+        dblProp(4) = MoorlandP / 100
         '
         'For each land use type
         For i As Integer = 0 To 4
             '
             'Set initial storage
-            S = FC(i) * S0_prop
+            S = dblFC(i) * S0_prop
             '
             'Run the bucket model
             For j As Integer = 0 To 8781
-                S = Math.Max(0, S + Rain_new(j) - Evap_new(j))
-                R = Math.Max(0, S - FC(i))
+                S = Math.Max(0, S + dblSimRain(j) - dblSimEvap(j))
+                R = Math.Max(0, S - dblFC(i))
                 S = S - R
                 '
                 'Aggregate based on land use proportions
                 If i = 0 Then
-                    Runoff(j) = R * Props(i)
-                    Storage(j) = S * Props(i)
+                    dblSimRunoff(j) = R * dblProp(i)
+                    dblSimStorage(j) = S * dblProp(i)
                 Else
-                    Runoff(j) += R * Props(i)
-                    Storage(j) += S * Props(i)
+                    dblSimRunoff(j) += R * dblProp(i)
+                    dblSimStorage(j) += S * dblProp(i)
                 End If
             Next j
         Next i
         '
         'Update the graphs
-        ModelChart.Series(0).Points.DataBindXY(Hrs, Runoff)
+        graSimRunoff.Series(0).Points.DataBindXY(dteHrs, dblSimRunoff)
         '
         'Update the log
-        TxtCompare.AppendText(LUChoice.Substring(0, Math.Min(3, LUChoice.Length)) & vbTab &
-            SpinRain.Value & vbTab &
-            SpinEvap.Value & vbTab &
-            Math.Round(Runoff.Average, 4) & vbTab & Math.Round((Runoff.Max), 3) & vbCrLf)
+        txtLog.AppendText(LUChoice.Substring(0, Math.Min(3, LUChoice.Length)) & vbTab &
+            spnRain.Value & vbTab &
+            spnEvap.Value & vbTab &
+            Math.Round(dblSimRunoff.Average, 4) & vbTab & Math.Round((dblSimRunoff.Max), 3) & vbCrLf)
         '
         'CSV writer, "copied and disguised" (Quinn, 2018)
-        If SaveCSV = True Then
+        If blnSave = True Then
             '
             'Dialog form to pop up to let you choose filepath
             Dim saveFileDialog1 As New SaveFileDialog With {
@@ -17736,11 +17758,11 @@ Public Class Model
                     '
                     'The rest
                     For i As Integer = 0 To 8781
-                        sw.WriteLine(Hrs(i) & "," &
-                                     Rain_new(i) & "," &
-                                     Evap_new(i) & "," &
-                                     Runoff(i) & "," &
-                                     Storage(i))
+                        sw.WriteLine(dteHrs(i) & "," &
+                                     dblSimRain(i) & "," &
+                                     dblSimEvap(i) & "," &
+                                     dblSimRunoff(i) & "," &
+                                     dblSimStorage(i))
                     Next
                     '
                     'The magic ends
@@ -17750,49 +17772,15 @@ Public Class Model
         End If
     End Sub
 
-    Private Sub ChckCSV_CheckedChanged(sender As Object, e As EventArgs) Handles ChckCSV.CheckedChanged
+    '============================
+    'Land use controls
+    '============================
 
-        ' we want to save the CSV if this button is checked
-
-        SaveCSV = ChckCSV.CheckState
-
-    End Sub
-
-    Private Sub Model_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-
-        ' are you sure you want to exit????
-
-        If ExitYN <> Windows.Forms.DialogResult.Yes Then
-            e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
-        End If
-
-    End Sub
-
-    Private Sub LandUseBtn_Click(sender As Object, e As EventArgs) Handles LandUseBtn.Click
-
-        ' display the land use form if the button is clicked
-
+    Private Sub OpenScenarioSelector(sender As Object, e As EventArgs) Handles btnSelector.Click
+        '
+        'Open the scenario selector
         Dim LandUseForm = New LandUseForm()
         LandUseForm.Show()
-
     End Sub
-
-    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkGraph.LinkClicked
-
-        'sending you to the graph website if you click the link
-
-        Process.Start(URLGraph)
-
-    End Sub
-
-    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
-
-        ' starting the log again if the button is clicked
-
-        TxtCompare.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
-     "_________________________________" & vbCrLf
-
-    End Sub
-
 
 End Class
