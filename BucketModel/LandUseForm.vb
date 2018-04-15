@@ -1,4 +1,4 @@
-﻿'Authors:       Philip Ayre and Shannon Leakey, 2/3 of Ninja Developments
+﻿'Authors:       Philip Ayre and Shannon Leakey, Ninja Developments
 'Description:   Land use selector with interactive map and pie chart,
 '               and link to main GUI form
 '
@@ -118,12 +118,12 @@ Public Class LandUseForm
             dblPropMoorland = spnMoorland.Value
             '
             'And change the text in the other form
-            Model.txtForest.Text = dblPropForest
-            Model.txtArable.Text = dblPropArable
-            Model.txtGrass.Text = dblPropGrassland
-            Model.txtBareRock.Text = dblPropBareRock
-            Model.txtMoorland.Text = dblPropMoorland
-            Model.txtScenario.Text = strScenario
+            Model.txtForest.Text = String.Format("{0:n2}", dblPropForest)
+            Model.txtArable.Text = String.Format("{0:n2}", dblPropArable)
+            Model.txtGrassland.Text = String.Format("{0:n2}", dblPropGrassland)
+            Model.txtBareRock.Text = String.Format("{0:n2}", dblPropBareRock)
+            Model.txtMoorland.Text = String.Format("{0:n2}", dblPropMoorland)
+            Model.txtScenario.Text = "Scenario: " & strScenario
             '
             'Now close the model
             blnExit = vbYes
@@ -271,6 +271,13 @@ Public Class LandUseForm
         '
         'Update the total
         txtTotal.Text = spnForest.Value + spnArable.Value + spnGrassland.Value + spnBareRock.Value + spnMoorland.Value
+        If txtTotal.Text <> 100 Then
+            txtTotal.BackColor = Color.OrangeRed
+        Else
+            txtTotal.BackColor = Color.White
+        End If
+
+
     End Sub
 
     Private Class SectorItem

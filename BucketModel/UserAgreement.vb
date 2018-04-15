@@ -1,4 +1,4 @@
-﻿'Authors:       Philip Ayre and Shannon Leakey, 2/3 of Ninja Developments
+﻿'Authors:       Philip Ayre and Shannon Leakey
 'Description:   Land use selector with interactive map and pie chart,
 '               and link to main GUI form
 '

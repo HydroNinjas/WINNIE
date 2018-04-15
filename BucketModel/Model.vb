@@ -1,4 +1,4 @@
-﻿'Authors:       Philip Ayre and Shannon Leakey, 2/3 of Ninja Developments
+﻿'Authors:       Philip Ayre and Shannon Leakey, Ninja Developments
 'Description:   GUI for simple bucket model with climate change spinners, simulation log,
 '               CSV writer, interactive graph, and link to Scenario Selector
 '
@@ -17653,14 +17653,14 @@ Public Class Model
 
     Private Sub ChangeRain(sender As Object, e As EventArgs) Handles spnRain.ValueChanged
         '
-        'Changing the rain time series
-        dblSimRain = Array.ConvertAll(dblObsRain, Function(x) x + x * spnRain.Value / 100)
+        'Changing the rain time series (rounding because spinners can be weird)
+        dblSimRain = Array.ConvertAll(dblObsRain, Function(x) x + x * Math.Round(spnRain.Value, 0) / 100)
     End Sub
 
     Private Sub ChangeEvap(sender As Object, e As EventArgs) Handles spnEvap.ValueChanged
         '
-        'Changing the evap time series
-        dblSimEvap = Array.ConvertAll(dblObsEvap, Function(x) x + x * spnEvap.Value / 100)
+        'Changing the evap time series (rounding because spinners can be weird)
+        dblSimEvap = Array.ConvertAll(dblObsEvap, Function(x) x + x * Math.Round(spnEvap.Value, 0) / 100)
     End Sub
 
     Private Sub OpenGraph(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkGraph.LinkClicked
@@ -17727,8 +17727,8 @@ Public Class Model
         '
         'Update the log
         txtLog.AppendText(strScenario.Substring(0, Math.Min(3, strScenario.Length)) & vbTab &
-            spnRain.Value & vbTab &
-            spnEvap.Value & vbTab &
+            Math.Round(spnRain.Value, 0) & vbTab &
+            Math.Round(spnEvap.Value, 0) & vbTab &
             Math.Round(dblSimRunoff.Average, 4) & vbTab & Math.Round((dblSimRunoff.Max), 3) & vbCrLf)
         '
         'CSV writer, "copied and disguised" (Quinn, 2018)

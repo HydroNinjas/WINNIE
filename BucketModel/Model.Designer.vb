@@ -22,7 +22,7 @@ Partial Class Model
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Me.graSimRunoff = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btnSelector = New System.Windows.Forms.Button()
         Me.btnRun = New System.Windows.Forms.Button()
@@ -30,7 +30,7 @@ Partial Class Model
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtMoorland = New System.Windows.Forms.TextBox()
         Me.txtArable = New System.Windows.Forms.TextBox()
-        Me.txtGrass = New System.Windows.Forms.TextBox()
+        Me.txtGrassland = New System.Windows.Forms.TextBox()
         Me.txtForest = New System.Windows.Forms.TextBox()
         Me.txtBareRock = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -73,10 +73,10 @@ Partial Class Model
         'graSimRunoff
         '
         Me.graSimRunoff.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.AxisY.Title = "Simulated runoff (mm)"
-        ChartArea1.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        ChartArea1.Name = "ChartArea1"
-        Me.graSimRunoff.ChartAreas.Add(ChartArea1)
+        ChartArea2.AxisY.Title = "Simulated runoff (mm)"
+        ChartArea2.AxisY.TitleFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        ChartArea2.Name = "ChartArea1"
+        Me.graSimRunoff.ChartAreas.Add(ChartArea2)
         Me.TableLayoutPanel1.SetColumnSpan(Me.graSimRunoff, 4)
         Me.graSimRunoff.Location = New System.Drawing.Point(0, 435)
         Me.graSimRunoff.Margin = New System.Windows.Forms.Padding(0)
@@ -121,7 +121,7 @@ Partial Class Model
         Me.GroupBox1.Size = New System.Drawing.Size(215, 427)
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Land Controls"
+        Me.GroupBox1.Text = "Land Use Controls"
         '
         'TableLayoutPanel2
         '
@@ -130,7 +130,7 @@ Partial Class Model
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.txtMoorland, 0, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.txtArable, 0, 4)
-        Me.TableLayoutPanel2.Controls.Add(Me.txtGrass, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.txtGrassland, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.txtForest, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.txtBareRock, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label2, 1, 1)
@@ -180,17 +180,17 @@ Partial Class Model
         Me.txtArable.Text = "ArableTxt"
         Me.txtArable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'txtGrass
+        'txtGrassland
         '
-        Me.txtGrass.Dock = System.Windows.Forms.DockStyle.Top
-        Me.txtGrass.Enabled = False
-        Me.txtGrass.Location = New System.Drawing.Point(3, 164)
-        Me.txtGrass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtGrass.Name = "txtGrass"
-        Me.txtGrass.Size = New System.Drawing.Size(67, 26)
-        Me.txtGrass.TabIndex = 7
-        Me.txtGrass.Text = "GrassTxt"
-        Me.txtGrass.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtGrassland.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtGrassland.Enabled = False
+        Me.txtGrassland.Location = New System.Drawing.Point(3, 164)
+        Me.txtGrassland.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtGrassland.Name = "txtGrassland"
+        Me.txtGrassland.Size = New System.Drawing.Size(67, 26)
+        Me.txtGrassland.TabIndex = 7
+        Me.txtGrassland.Text = "GrassTxt"
+        Me.txtGrassland.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtForest
         '
@@ -458,11 +458,11 @@ Partial Class Model
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.PictureBox1.Image = Global.WINNIE.My.Resources.Resources.WINNIE_Logo_ScnSht
         Me.PictureBox1.InitialImage = Global.WINNIE.My.Resources.Resources.WINNIE_Logo_ScnSht
-        Me.PictureBox1.Location = New System.Drawing.Point(57, 81)
+        Me.PictureBox1.Location = New System.Drawing.Point(51, 81)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.TableLayoutPanel1.SetRowSpan(Me.PictureBox1, 3)
-        Me.PictureBox1.Size = New System.Drawing.Size(107, 176)
+        Me.PictureBox1.Size = New System.Drawing.Size(118, 176)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 15
         Me.PictureBox1.TabStop = False
@@ -523,7 +523,7 @@ Partial Class Model
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "Model"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Model Dashboard"
+        Me.Text = "WINNIE Model Dashboard"
         CType(Me.graSimRunoff, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
@@ -549,7 +549,7 @@ Partial Class Model
     Friend WithEvents spnRain As NumericUpDown
     Friend WithEvents spnEvap As NumericUpDown
     Friend WithEvents txtForest As TextBox
-    Friend WithEvents txtGrass As TextBox
+    Friend WithEvents txtGrassland As TextBox
     Friend WithEvents txtArable As TextBox
     Friend WithEvents txtScenario As TextBox
     Friend WithEvents GroupBox2 As GroupBox
