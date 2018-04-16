@@ -1,6 +1,5 @@
 ﻿'Authors:       Philip Ayre and Shannon Leakey
-'Description:   Land use selector with interactive map and pie chart,
-'               and link to main GUI form
+'Description:   User agreement that you must accept
 '
 Option Explicit On
 
