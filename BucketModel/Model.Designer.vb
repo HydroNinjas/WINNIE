@@ -445,7 +445,7 @@ Partial Class Model
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(180, 40)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "WINNIE version 3.1.4" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Model Dashboard"
+        Me.Label1.Text = "WINNIE version 3.1.5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Model Dashboard"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'FileSystemWatcher1

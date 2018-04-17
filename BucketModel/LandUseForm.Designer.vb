@@ -22,8 +22,8 @@ Partial Class LandUseForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend8 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnCurrent = New System.Windows.Forms.RadioButton()
         Me.Customsettings = New System.Windows.Forms.GroupBox()
@@ -288,13 +288,13 @@ Partial Class LandUseForm
         'graProps
         '
         Me.graProps.BackColor = System.Drawing.Color.Transparent
-        ChartArea8.BackColor = System.Drawing.Color.Transparent
-        ChartArea8.BackImageTransparentColor = System.Drawing.Color.Transparent
-        ChartArea8.Name = "ChartArea1"
-        Me.graProps.ChartAreas.Add(ChartArea8)
+        ChartArea1.BackColor = System.Drawing.Color.Transparent
+        ChartArea1.BackImageTransparentColor = System.Drawing.Color.Transparent
+        ChartArea1.Name = "ChartArea1"
+        Me.graProps.ChartAreas.Add(ChartArea1)
         Me.graProps.Dock = System.Windows.Forms.DockStyle.Right
-        Legend8.Name = "Legend1"
-        Me.graProps.Legends.Add(Legend8)
+        Legend1.Name = "Legend1"
+        Me.graProps.Legends.Add(Legend1)
         Me.graProps.Location = New System.Drawing.Point(807, 0)
         Me.graProps.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.graProps.Name = "graProps"
@@ -384,7 +384,7 @@ Partial Class LandUseForm
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(234, 40)
         Me.Label7.TabIndex = 0
-        Me.Label7.Text = "WINNIE version 3.1.4" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Land Use Scenario Selector"
+        Me.Label7.Text = "WINNIE version 3.1.5" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Land Use Scenario Selector"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'LandUseForm

@@ -32,6 +32,7 @@ Public Class LandUseForm
     '
     'The link to the interactive map
     Private Const strMapURL As String = "https://hydroninjas.github.io/land_use"
+    Private Const strHelpURL As String = "https://ninjaentwicklungen.wixsite.com/winnie/user-guide"
 
     '============================
     'Variable Declaration
@@ -65,10 +66,10 @@ Public Class LandUseForm
 
         '
         'Adding data to the pie chart
-        Sectors.Add(New SectorItem(spnForest, "Forest"))
-        Sectors.Add(New SectorItem(spnArable, "Arable"))
-        Sectors.Add(New SectorItem(spnGrassland, "Grassland"))
         Sectors.Add(New SectorItem(spnBareRock, "Bare Rock"))
+        Sectors.Add(New SectorItem(spnForest, "Forest"))
+        Sectors.Add(New SectorItem(spnGrassland, "Grassland"))
+        Sectors.Add(New SectorItem(spnArable, "Arable"))
         Sectors.Add(New SectorItem(spnMoorland, "Moorland"))
         Sectors.ResetItem(0)
         '
@@ -161,6 +162,12 @@ Public Class LandUseForm
         '
         'Clicking the map takes you to the website where you can zoom in even more
         Process.Start(strMapURL)
+    End Sub
+
+    Private Sub OpenHelp(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkHelp.LinkClicked
+        '
+        'Go to the website! Yay!
+        Process.Start(strHelpURL)
     End Sub
 
     '============================
@@ -321,5 +328,6 @@ Public Class LandUseForm
             End Set
         End Property
     End Class
+
 
 End Class

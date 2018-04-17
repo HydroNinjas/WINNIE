@@ -17584,6 +17584,7 @@ Public Class Model
     '
     'Link to interactive graph
     Private Const strGraphURL As String = "https://hydroninjas.github.io/hydrology"
+    Private Const strHelpURL As String = "https://ninjaentwicklungen.wixsite.com/winnie/user-guide"
     '
     'The 2011/12 water year
     Private Const dteStart As Date = #10/01/2011#
@@ -17645,6 +17646,12 @@ Public Class Model
         If dblExit <> Windows.Forms.DialogResult.Yes Then
             e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
         End If
+    End Sub
+
+    Private Sub OpenHelp(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkHelp.LinkClicked
+        '
+        'Go to the website! Yay!
+        Process.Start(strHelpURL)
     End Sub
 
     '============================
@@ -17779,5 +17786,6 @@ Public Class Model
         Dim LandUseForm = New LandUseForm()
         LandUseForm.Show()
     End Sub
+
 
 End Class
