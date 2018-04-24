@@ -2,6 +2,24 @@
 'Description:   Land use selector with interactive map and pie chart,
 '               and link to main GUI form
 '
+' List of abbrevations:
+' str equals string 
+' dbl equals double  
+' bln equals boolean
+' Prop equals proportion
+' srs equals series
+' gra equals graph
+' btn equals button
+' txt equals text
+' spn equals spinner
+' img equals image
+' msg equals message
+' obs equals observed 
+' sim equals simulation
+' FC equals field capacity
+' dte equals date
+' hrs equals hours
+'
 Option Explicit On
 
 Imports ComponentModel = System.ComponentModel
@@ -50,7 +68,7 @@ Public Class LandUseForm
         }
         '
         'Making the form pretty
-        Me.BackColor = Color.LightSkyBlue
+        Me.BackColor = Color.LightSteelBlue
         Me.MaximizeBox = False
         Me.MinimizeBox = True
         Me.Size = New Size(600, 500)
@@ -107,7 +125,7 @@ Public Class LandUseForm
             'Filling public array so values can be transfered to the model interface
             dblPropLandUse = {spnBareRock.Value, spnForest.Value, spnGrassland.Value, spnArable.Value, spnMoorland.Value}
             '
-            'And change the text in the relevant textboxes in the other form
+            'And change the text in the relevant textboxes in the model form
             Model.txtBareRock.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(0))
             Model.txtForest.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(1))
             Model.txtGrassland.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(2))
@@ -116,10 +134,10 @@ Public Class LandUseForm
             Model.txtScenario.Text = "Scenario: " & strScenario
             '
             'Now close the model
-            blnExit = vbYes
+            blnExit = vbYes 'to bypass the land scenario closing argument
             Model.Show()
             Me.Close()
-            blnChosen = True
+            blnChosen = True 'for when user goes back into land use so the cancel button now works
             '
             'Otherwise throw up an error
         Else MessageBox.Show("Please enter a land combination that sums to 100%", "Error")
@@ -128,10 +146,10 @@ Public Class LandUseForm
 
     Private Sub CheckCancel(sender As Object, e As EventArgs) Handles btnCancel.Click
         If blnChosen = False Then
-            MsgBox("To continue with the programme please select an option and click OK")
+            MsgBox("To continue with the programme, please select an option and click OK")
         Else
             '
-            'The variables are not shared with the other form
+            'The current selected variables are not shared with the other form
             blnExit = vbYes
             Model.Show()
             Me.Close()
@@ -166,7 +184,7 @@ Public Class LandUseForm
     Private Sub SelectCurrent(sender As Object, e As EventArgs) Handles btnCurrent.CheckedChanged
         If (btnCurrent.Checked = True) Then
             '
-            'Disable custom spinners
+            'Disable custom spinners and set values
             Customsettings.Enabled = False
             spnBareRock.Value = 4.15
             spnForest.Value = 18.11
@@ -174,7 +192,7 @@ Public Class LandUseForm
             spnArable.Value = 35.83
             spnMoorland.Value = 4.18
             '
-            'Adjust graphics
+            'Adjust graphics to relevant image/chart
             graProps.Hide()
             imgMap.Show()
             imgMap.Image = My.Resources.HSD_LUCurrent
@@ -184,7 +202,7 @@ Public Class LandUseForm
     Private Sub SelectA(sender As Object, e As EventArgs) Handles btnScenarioA.CheckedChanged
         If (btnScenarioA.Checked = True) Then
             '
-            'Disable custom spinners
+            'Disable custom spinners and set values
             Customsettings.Enabled = False
             spnBareRock.Value = 3.35
             spnForest.Value = 7.39
@@ -202,7 +220,7 @@ Public Class LandUseForm
     Private Sub SelectB(sender As Object, e As EventArgs) Handles btnScenarioB.CheckedChanged
         If (btnScenarioB.Checked = True) Then
             '
-            'Disable custom spinners
+            'Disable custom spinners and set values
             Customsettings.Enabled = False
             spnBareRock.Value = 3.71
             spnForest.Value = 24.15
@@ -220,7 +238,7 @@ Public Class LandUseForm
     Private Sub SelectC(sender As Object, e As EventArgs) Handles btnScenarioC.CheckedChanged
         If (btnScenarioC.Checked = True) Then
             '
-            'Disable custom spinners
+            'Disable custom spinners and set values
             Customsettings.Enabled = False
             spnBareRock.Value = 2.94
             spnForest.Value = 36.23
@@ -238,7 +256,7 @@ Public Class LandUseForm
     Private Sub SelectCustom(sender As Object, e As EventArgs) Handles btnCustom.CheckedChanged
         If (btnCustom.Checked = True) Then
             '
-            'Enable custom spinners
+            'Enable custom spinners for user to customise their own values
             Customsettings.Enabled = True
             spnBareRock.Value = Math.Round(spnBareRock.Value, 0)
             spnForest.Value = Math.Round(spnForest.Value, 0)

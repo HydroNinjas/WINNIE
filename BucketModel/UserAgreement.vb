@@ -1,6 +1,24 @@
 ﻿'Authors:       Philip Ayre and Shannon Leakey, Ninja Developments
 'Description:   User agreement that you must accept
 '
+' List of abbrevations:
+' str equals string 
+' dbl equals double  
+' bln equals boolean
+' Prop equals proportion
+' srs equals series
+' gra equals graph
+' btn equals button
+' txt equals text
+' spn equals spinner
+' img equals image
+' msg equals message
+' obs equals observed 
+' sim equals simulation
+' FC equals field capacity
+' dte equals date
+' hrs equals hours
+'
 Option Explicit On
 
 Public Class UserAgreement

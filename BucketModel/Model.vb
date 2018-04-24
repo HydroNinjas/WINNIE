@@ -2,6 +2,24 @@
 'Description:   GUI for simple bucket model with climate change spinners, simulation log,
 '               CSV writer, interactive graph, and link to Scenario Selector
 '
+' List of abbrevations:
+' str equals string 
+' dbl equals double  
+' bln equals boolean
+' Prop equals proportion
+' srs equals series
+' gra equals graph
+' btn equals button
+' txt equals text
+' spn equals spinner
+' img equals image
+' msg equals message
+' obs equals observed 
+' sim equals simulation
+' FC equals field capacity
+' dte equals date
+' hrs equals hours
+'
 Option Explicit On
 
 Imports System.Windows.Forms.DataVisualization.Charting
@@ -17620,7 +17638,7 @@ Public Class Model
     Private Sub OpenModelForm(sender As Object, e As EventArgs) Handles MyBase.Load
         '
         'Making it pretty
-        dblExit = True
+        dblExit = True ' used to cancel the exit is yes from the last form
         Me.MaximizeBox = False
         Me.MinimizeBox = True
         Me.CenterToParent()
@@ -17644,7 +17662,7 @@ Public Class Model
 
     Private Sub CloseModelForm(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         '
-        'Do you really want to exit?
+        'code to prevent accidental exits
         If dblExit <> Windows.Forms.DialogResult.Yes Then
             e.Cancel = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes
         End If
@@ -17684,13 +17702,13 @@ Public Class Model
 
     Private Sub SaveCSV(sender As Object, e As EventArgs) Handles chkSave.CheckedChanged
         '
-        'Next time the button is pressed, save the CSV
+        'Next time the model run button is pressed, save the CSV
         blnSave = chkSave.CheckState
     End Sub
 
     Private Sub ClearLog(sender As Object, e As EventArgs) Handles btnClear.Click
         '
-        'Restart the log
+        'Restart the log, clears all data from previous model runs
         txtLog.Text = "Land" & vbTab & "Rain" & vbTab & "Evap" & vbTab & "Mean" & vbTab & "Peak" & vbCrLf &
      "_________________________________" & vbCrLf
 
@@ -17698,7 +17716,7 @@ Public Class Model
 
     Private Sub RunModel(sender As Object, e As EventArgs) Handles btnRun.Click
         '
-        'Storage and Runoff
+        'Defining Storage and Runoff
         Dim dblHourlyStorage As Double, dblHourlyRunoff As Double
         '
         'Proportions from the land use scenario
@@ -17735,13 +17753,13 @@ Public Class Model
         'Update the graphs
         graSimRunoff.Series(0).Points.DataBindXY(dteHrs, dblSimRunoff)
         '
-        'Update the log
+        'Updating the log with the model run
         txtLog.AppendText(strScenario.Substring(0, Math.Min(3, strScenario.Length)) & vbTab &
             Math.Round(spnRain.Value, 0) & vbTab &
             Math.Round(spnEvap.Value, 0) & vbTab &
             Math.Round(dblSimRunoff.Average, 4) & vbTab & Math.Round((dblSimRunoff.Max), 3) & vbCrLf)
         '
-        'CSV writer, "copied and disguised" (Quinn, 2018)
+        'CSV writer, "customised and disguised" (Quinn, 2018)
         If blnSave = True Then
             '
             'Dialog form to pop up to let you choose filepath
@@ -17751,7 +17769,7 @@ Public Class Model
                 .RestoreDirectory = True
             }
             '
-            'Is it legit?
+            'Is it a intended save?
             If saveFileDialog1.ShowDialog() = DialogResult.OK Then
                 '
                 'The magic begins
