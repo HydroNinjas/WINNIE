@@ -17584,6 +17584,8 @@ Public Class Model
     '
     'Link to interactive graph
     Private Const strGraphURL As String = "https://hydroninjas.github.io/hydrology"
+    '
+    'Link to User Guide
     Private Const strHelpURL As String = "https://ninjaentwicklungen.wixsite.com/winnie/user-guide"
     '
     'The 2011/12 water year
@@ -17700,11 +17702,12 @@ Public Class Model
         Dim dblHourlyStorage As Double, dblHourlyRunoff As Double
         '
         'Proportions from the land use scenario
-        dblProp(0) = dblPropBareRock / 100
-        dblProp(1) = dblPropForest / 100
-        dblProp(2) = dblPropGrassland / 100
-        dblProp(3) = dblPropArable / 100
-        dblProp(4) = dblPropMoorland / 100
+        dblProp(0) = dblPropLandUse.GetValue(0) / 100 ' Barerock
+        dblProp(1) = dblPropLandUse.GetValue(1) / 100 ' Forest
+        dblProp(2) = dblPropLandUse.GetValue(2) / 100 ' Grassland
+        dblProp(3) = dblPropLandUse.GetValue(3) / 100 ' Arable
+        dblProp(4) = dblPropLandUse.GetValue(4) / 100 ' Moorland
+
         '
         'For each land use type
         For i As Integer = 0 To 4

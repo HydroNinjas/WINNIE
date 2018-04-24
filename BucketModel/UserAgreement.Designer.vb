@@ -35,20 +35,18 @@ Partial Class UserAgreement
         '
         'btnAgree
         '
-        Me.btnAgree.Location = New System.Drawing.Point(522, 384)
-        Me.btnAgree.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnAgree.Location = New System.Drawing.Point(464, 307)
         Me.btnAgree.Name = "btnAgree"
-        Me.btnAgree.Size = New System.Drawing.Size(112, 38)
+        Me.btnAgree.Size = New System.Drawing.Size(100, 30)
         Me.btnAgree.TabIndex = 0
         Me.btnAgree.Text = "Agree"
         Me.btnAgree.UseVisualStyleBackColor = True
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(641, 384)
-        Me.btnExit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnExit.Location = New System.Drawing.Point(570, 307)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(112, 38)
+        Me.btnExit.Size = New System.Drawing.Size(100, 30)
         Me.btnExit.TabIndex = 1
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
@@ -56,20 +54,19 @@ Partial Class UserAgreement
         'UserAgreeTxt
         '
         Me.UserAgreeTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UserAgreeTxt.Location = New System.Drawing.Point(14, 153)
-        Me.UserAgreeTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.UserAgreeTxt.Location = New System.Drawing.Point(12, 122)
         Me.UserAgreeTxt.Name = "UserAgreeTxt"
         Me.UserAgreeTxt.ReadOnly = True
-        Me.UserAgreeTxt.Size = New System.Drawing.Size(740, 222)
+        Me.UserAgreeTxt.Size = New System.Drawing.Size(658, 178)
         Me.UserAgreeTxt.TabIndex = 3
         Me.UserAgreeTxt.Text = resources.GetString("UserAgreeTxt.Text")
         '
         'Title
         '
         Me.Title.AutoSize = True
-        Me.Title.Location = New System.Drawing.Point(12, 129)
+        Me.Title.Location = New System.Drawing.Point(11, 103)
         Me.Title.Name = "Title"
-        Me.Title.Size = New System.Drawing.Size(130, 20)
+        Me.Title.Size = New System.Drawing.Size(115, 17)
         Me.Title.TabIndex = 4
         Me.Title.Text = "User Agreement:"
         '
@@ -77,9 +74,8 @@ Partial Class UserAgreement
         '
         Me.WinnieUserPicture.Image = Global.WINNIE.My.Resources.Resources.banner
         Me.WinnieUserPicture.Location = New System.Drawing.Point(0, 0)
-        Me.WinnieUserPicture.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.WinnieUserPicture.Name = "WinnieUserPicture"
-        Me.WinnieUserPicture.Size = New System.Drawing.Size(397, 125)
+        Me.WinnieUserPicture.Size = New System.Drawing.Size(353, 100)
         Me.WinnieUserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.WinnieUserPicture.TabIndex = 2
         Me.WinnieUserPicture.TabStop = False
@@ -87,20 +83,19 @@ Partial Class UserAgreement
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WINNIE.My.Resources.Resources.banner
-        Me.PictureBox1.Location = New System.Drawing.Point(390, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PictureBox1.Location = New System.Drawing.Point(347, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(376, 125)
+        Me.PictureBox1.Size = New System.Drawing.Size(334, 100)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
         'UserAgreement
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ClientSize = New System.Drawing.Size(767, 436)
+        Me.ClientSize = New System.Drawing.Size(682, 349)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Title)
         Me.Controls.Add(Me.UserAgreeTxt)
@@ -108,7 +103,6 @@ Partial Class UserAgreement
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnAgree)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "UserAgreement"
         Me.Text = "User Agreement"
         CType(Me.WinnieUserPicture, System.ComponentModel.ISupportInitialize).EndInit()

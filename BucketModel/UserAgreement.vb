@@ -1,4 +1,4 @@
-﻿'Authors:       Philip Ayre and Shannon Leakey
+﻿'Authors:       Philip Ayre and Shannon Leakey, Ninja Developments
 'Description:   User agreement that you must accept
 '
 Option Explicit On

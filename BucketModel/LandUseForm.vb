@@ -13,13 +13,9 @@ Public Module Globalvariables
     'For the chosen scenario
     Public strScenario As String
     '
-    'For the land use proportions (couldn't this just be an array, Philipe???)
-    Public dblPropBareRock As Double
-    Public dblPropForest As Double
-    Public dblPropGrassland As Double
-    Public dblPropArable As Double
-    Public dblPropMoorland As Double
-    '
+    'Array of the land use proportions 
+    Public dblPropLandUse As Double()
+
     'To track whether you've actually chosen something
     Public blnChosen As Boolean = False
 End Module
@@ -81,11 +77,6 @@ Public Class LandUseForm
         'If not, set things to be what was picked last
         If strScenario = "Custom" Then
             btnCustom.Checked = True
-            spnForest.Value = dblPropForest
-            spnArable.Value = dblPropArable
-            spnGrassland.Value = dblPropGrassland
-            spnBareRock.Value = dblPropBareRock
-            spnMoorland.Value = dblPropMoorland
         ElseIf strScenario = "Current" Then
             btnCurrent.Checked = True
         ElseIf strScenario = "A" Then
@@ -112,18 +103,16 @@ Public Class LandUseForm
             ElseIf (btnCustom.Checked = True) Then
                 strScenario = "Custom"
             End If
-            dblPropForest = spnForest.Value
-            dblPropArable = spnArable.Value
-            dblPropGrassland = spnGrassland.Value
-            dblPropBareRock = spnBareRock.Value
-            dblPropMoorland = spnMoorland.Value
+
+            'Filling public array so values can be transfered to the model interface
+            dblPropLandUse = {spnBareRock.Value, spnForest.Value, spnGrassland.Value, spnArable.Value, spnMoorland.Value}
             '
-            'And change the text in the other form
-            Model.txtForest.Text = String.Format("{0:n2}", dblPropForest)
-            Model.txtArable.Text = String.Format("{0:n2}", dblPropArable)
-            Model.txtGrassland.Text = String.Format("{0:n2}", dblPropGrassland)
-            Model.txtBareRock.Text = String.Format("{0:n2}", dblPropBareRock)
-            Model.txtMoorland.Text = String.Format("{0:n2}", dblPropMoorland)
+            'And change the text in the relevant textboxes in the other form
+            Model.txtBareRock.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(0))
+            Model.txtForest.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(1))
+            Model.txtGrassland.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(2))
+            Model.txtArable.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(3))
+            Model.txtMoorland.Text = String.Format("{0:n2}", dblPropLandUse.GetValue(4))
             Model.txtScenario.Text = "Scenario: " & strScenario
             '
             'Now close the model
@@ -289,7 +278,7 @@ Public Class LandUseForm
 
     Private Class SectorItem
         '
-        'Magic pie chart stuff, "copied and disguised" (Quinn, 2018)
+        'Magic pie chart stuff, "customised and disguised" (Quinn, 2018)
         Implements System.ComponentModel.INotifyPropertyChanged
         Public Event PropertyChanged(ByVal sender As Object, ByVal e As System.ComponentModel.PropertyChangedEventArgs) Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
 
