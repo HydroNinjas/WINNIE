@@ -5,7 +5,6 @@
 ' str equals string 
 ' dbl equals double  
 ' bln equals boolean
-' Prop equals proportion
 ' srs equals series
 ' gra equals graph
 ' btn equals button
@@ -13,9 +12,6 @@
 ' spn equals spinner
 ' img equals image
 ' msg equals message
-' obs equals observed 
-' sim equals simulation
-' FC equals field capacity
 ' dte equals date
 ' hrs equals hours
 '
